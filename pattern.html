@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mẫu Biểu Đồ | ChartPattern.learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Pattern Detail Page Styles */
+        .pattern-detail-page {
+            min-height: 100vh;
+            padding: 100px 20px 40px;
+        }
+
+        .pattern-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .pattern-breadcrumb a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .pattern-breadcrumb a:hover {
+            color: #667eea;
+        }
+
+        .pattern-breadcrumb span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .pattern-detail-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .pattern-detail-header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pattern-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pattern-category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .pattern-category-badge.reversal {
+            background: rgba(245, 87, 108, 0.2);
+            color: #f5576c;
+        }
+
+        .pattern-category-badge.continuation {
+            background: rgba(67, 233, 123, 0.2);
+            color: #43e97b;
+        }
+
+        .pattern-category-badge.bilateral {
+            background: rgba(161, 140, 209, 0.2);
+            color: #a18cd1;
+        }
+
+        .pattern-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pattern-title-en {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .pattern-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .pattern-quick-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .quick-stat {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .quick-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #43e97b;
+        }
+
+        .quick-stat-value.negative {
+            color: #f5576c;
+        }
+
+        .quick-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+
+        /* Pattern Visualization */
+        .pattern-visual-large {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .pattern-visual-large svg {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        /* Content Sections */
+        .pattern-content-sections {
+            display: grid;
+            gap: 30px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .section-title-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title-bar i {
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+
+        .section-title-bar h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Structure List */
+        .structure-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .structure-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+
+        .structure-number {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .structure-text {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        /* Trading Rules */
+        .rules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(67, 233, 123, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid #43e97b;
+        }
+
+        .rule-icon {
+            color: #43e97b;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .rule-text {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        /* Tips */
+        .tips-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(250, 200, 80, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid #fac850;
+        }
+
+        .tip-icon {
+            color: #fac850;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tip-text {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        /* Statistics Grid */
+        .stats-grid-detail {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-box-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .stat-box-icon.success { background: rgba(67, 233, 123, 0.2); color: #43e97b; }
+        .stat-box-icon.danger { background: rgba(245, 87, 108, 0.2); color: #f5576c; }
+        .stat-box-icon.info { background: rgba(102, 126, 234, 0.2); color: #667eea; }
+        .stat-box-icon.warning { background: rgba(250, 200, 80, 0.2); color: #fac850; }
+
+        .stat-box-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .stat-box-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Navigation */
+        .pattern-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            color: #fff;
+        }
+
+        .nav-btn.prev i { margin-right: 5px; }
+        .nav-btn.next i { margin-left: 5px; }
+
+        .nav-btn-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav-btn-info span:first-child {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-btn-info span:last-child {
+            font-weight: 600;
+        }
+
+        .back-to-library {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-library:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Progress Actions */
+        .pattern-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-btn i {
+            font-size: 1rem;
+        }
+
+        /* Pattern not found */
+        .pattern-not-found {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .pattern-not-found i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .pattern-not-found h2 {
+            margin-bottom: 10px;
+        }
+
+        .pattern-not-found p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        /* Loading */
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+                <i class="fas fa-chart-line"></i>
+                <span>ChartPattern<span class="accent">.learn</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#home" class="nav-link">
+                    <i class="fas fa-home"></i> Trang chủ
+                </a>
+                <a href="index.html#patterns" class="nav-link active">
+                    <i class="fas fa-shapes"></i> Thư viện
+                </a>
+                <a href="index.html#learn" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i> Học tập
+                </a>
+                <a href="index.html#quiz" class="nav-link">
+                    <i class="fas fa-question-circle"></i> Kiểm tra
+                </a>
+                <a href="index.html#progress" class="nav-link">
+                    <i class="fas fa-chart-pie"></i> Tiến độ
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pattern-detail-page">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="pattern-breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <span>/</span>
+                <a href="index.html#patterns">Thư viện mẫu</a>
+                <span>/</span>
+                <span id="breadcrumbPattern">Đang tải...</span>
+            </div>
+
+            <!-- Pattern Content -->
+            <div id="patternContent">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <!-- Navigation between patterns -->
+            <div class="pattern-navigation" id="patternNavigation" style="display: none;">
+                <a href="#" class="nav-btn prev" id="prevPattern">
+                    <i class="fas fa-arrow-left"></i>
+                    <div class="nav-btn-info">
+                        <span>Mẫu trước</span>
+                        <span id="prevPatternName">-</span>
+                    </div>
+                </a>
+                <a href="index.html#patterns" class="back-to-library">
+                    <i class="fas fa-th-large"></i> Thư viện
+                </a>
+                <a href="#" class="nav-btn next" id="nextPattern">
+                    <div class="nav-btn-info">
+                        <span>Mẫu tiếp theo</span>
+                        <span id="nextPatternName">-</span>
+                    </div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass-card">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ChartPattern.learn - Bách Khoa Toàn Thư Mẫu Biểu Đồ</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Pattern Detail Page Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get pattern ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const patternId = urlParams.get('id');
+
+            if (!patternId) {
+                showNotFound();
+                return;
+            }
+
+            // Get pattern data
+            const pattern = patternsData[patternId];
+
+            if (!pattern) {
+                showNotFound();
+                return;
+            }
+
+            renderPatternDetail(patternId, pattern);
+            setupNavigation(patternId);
+            markAsLearned(patternId);
+        });
+
+        function renderPatternDetail(id, pattern) {
+            const content = document.getElementById('patternContent');
+            document.getElementById('breadcrumbPattern').textContent = pattern.name;
+            document.title = `${pattern.name} | ChartPattern.learn`;
+
+            content.innerHTML = `
+                <div class="pattern-detail-header">
+                    <div class="pattern-info">
+                        <div class="pattern-category-badge ${pattern.category}">
+                            <i class="fas ${getCategoryIcon(pattern.category)}"></i>
+                            ${getCategoryName(pattern.category)}
+                        </div>
+                        <h1 class="pattern-title">${pattern.name}</h1>
+                        <p class="pattern-title-en">${pattern.nameEn}</p>
+                        <p class="pattern-description">${pattern.description}</p>
+
+                        <div class="pattern-quick-stats">
+                            <div class="quick-stat">
+                                <div class="quick-stat-value ${pattern.avgMove >= 0 ? '' : 'negative'}">${pattern.avgMove >= 0 ? '+' : ''}${pattern.avgMove}%</div>
+                                <div class="quick-stat-label">${pattern.avgMove >= 0 ? 'Độ tăng TB' : 'Độ giảm TB'}</div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-value">${pattern.successRate}%</div>
+                                <div class="quick-stat-label">Tỷ lệ thành công</div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-value">${pattern.statistics?.pullbackRate || '-' }%</div>
+                                <div class="quick-stat-label">Tỷ lệ Pullback</div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-value">${pattern.avgDuration}</div>
+                                <div class="quick-stat-label">Thời gian TB</div>
+                            </div>
+                        </div>
+
+                        <div class="pattern-actions">
+                            <button class="action-btn primary" onclick="markAsLearned('${id}')">
+                                <i class="fas fa-check-circle"></i> Đánh dấu đã học
+                            </button>
+                            <button class="action-btn secondary" onclick="startQuiz('${id}')">
+                                <i class="fas fa-question-circle"></i> Làm quiz
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pattern-visual-large glass-card">
+                        ${getPatternSVG(id)}
+                    </div>
+                </div>
+
+                <div class="pattern-content-sections">
+                    <!-- Structure -->
+                    <div class="content-section">
+                        <div class="section-title-bar">
+                            <i class="fas fa-sitemap"></i>
+                            <h3>Cấu trúc mẫu</h3>
+                        </div>
+                        <div class="structure-list">
+                            ${pattern.structure.map((item, index) => `
+                                <div class="structure-item">
+                                    <div class="structure-number">${index + 1}</div>
+                                    <div class="structure-text">${item}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Trading Rules -->
+                    <div class="content-section">
+                        <div class="section-title-bar">
+                            <i class="fas fa-exchange-alt"></i>
+                            <h3>Quy tắc giao dịch</h3>
+                        </div>
+                        <div class="rules-list">
+                            ${pattern.tradingRules.map(rule => `
+                                <div class="rule-item">
+                                    <i class="fas fa-check-circle rule-icon"></i>
+                                    <div class="rule-text">${rule}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="content-section">
+                        <div class="section-title-bar">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Mẹo giao dịch</h3>
+                        </div>
+                        <div class="tips-list">
+                            ${pattern.tips.map(tip => `
+                                <div class="tip-item">
+                                    <i class="fas fa-star tip-icon"></i>
+                                    <div class="tip-text">${tip}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="content-section">
+                        <div class="section-title-bar">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Thống kê từ Bulkowski</h3>
+                        </div>
+                        <div class="stats-grid-detail">
+                            <div class="stat-box">
+                                <div class="stat-box-icon success"><i class="fas fa-arrow-up"></i></div>
+                                <div class="stat-box-value">${pattern.statistics?.bullishBreakout || '-'}%</div>
+                                <div class="stat-box-label">Phá vỡ tăng</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-box-icon danger"><i class="fas fa-arrow-down"></i></div>
+                                <div class="stat-box-value">${pattern.statistics?.bearishBreakout || '-'}%</div>
+                                <div class="stat-box-label">Phá vỡ giảm</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-box-icon info"><i class="fas fa-chart-line"></i></div>
+                                <div class="stat-box-value">${pattern.statistics?.averageRise || '-'}%</div>
+                                <div class="stat-box-label">Độ tăng TB</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-box-icon warning"><i class="fas fa-chart-line"></i></div>
+                                <div class="stat-box-value">${pattern.statistics?.averageDecline || '-'}%</div>
+                                <div class="stat-box-label">Độ giảm TB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('patternNavigation').style.display = 'flex';
+        }
+
+        function setupNavigation(currentId) {
+            const patternIds = Object.keys(patternsData);
+            const currentIndex = patternIds.indexOf(currentId);
+
+            const prevIndex = currentIndex > 0 ? currentIndex - 1 : patternIds.length - 1;
+            const nextIndex = currentIndex < patternIds.length - 1 ? currentIndex + 1 : 0;
+
+            const prevPattern = patternsData[patternIds[prevIndex]];
+            const nextPattern = patternsData[patternIds[nextIndex]];
+
+            document.getElementById('prevPattern').href = `pattern.html?id=${patternIds[prevIndex]}`;
+            document.getElementById('prevPatternName').textContent = prevPattern.name;
+
+            document.getElementById('nextPattern').href = `pattern.html?id=${patternIds[nextIndex]}`;
+            document.getElementById('nextPatternName').textContent = nextPattern.name;
+        }
+
+        function showNotFound() {
+            document.getElementById('patternContent').innerHTML = `
+                <div class="pattern-not-found">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h2>Không tìm thấy mẫu</h2>
+                    <p>Mẫu biểu đồ bạn đang tìm kiếm không tồn tại.</p>
+                    <a href="index.html#patterns" class="back-to-library">
+                        <i class="fas fa-arrow-left"></i> Quay về thư viện
+                    </a>
+                </div>
+            `;
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'reversal': 'fa-sync-alt',
+                'continuation': 'fa-arrow-right',
+                'bilateral': 'fa-arrows-alt-h'
+            };
+            return icons[category] || 'fa-circle';
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                'reversal': 'Đảo chiều',
+                'continuation': 'Tiếp diễn',
+                'bilateral': 'Hai chiều'
+            };
+            return names[category] || category;
+        }
+
+        function getPatternSVG(id) {
+            const svgs = {
+                'head-shoulders': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 150 Q 50 100, 80 120 Q 110 140, 150 60 Q 190 140, 220 120 Q 250 100, 280 130 Q 310 160, 380 180" stroke="#667eea" stroke-width="3" fill="none"/>
+                    <circle cx="80" cy="120" r="8" fill="#4facfe"/>
+                    <circle cx="150" cy="60" r="10" fill="#f5576c"/>
+                    <circle cx="220" cy="120" r="8" fill="#4facfe"/>
+                    <line x1="50" y1="140" x2="280" y2="140" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="8,4"/>
+                    <text x="80" y="105" fill="#4facfe" font-size="12">Vai trái</text>
+                    <text x="140" y="45" fill="#f5576c" font-size="12">Đầu</text>
+                    <text x="190" y="105" fill="#4facfe" font-size="12">Vai phải</text>
+                    <text x="290" y="135" fill="#ff6b6b" font-size="10">Đường cổ</text>
+                </svg>`,
+                'double-top': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 160 L 80 50 L 150 120 L 220 50 L 290 120 L 380 180" stroke="#f093fb" stroke-width="3" fill="none"/>
+                    <circle cx="80" cy="50" r="8" fill="#f5576c"/>
+                    <circle cx="220" cy="50" r="8" fill="#f5576c"/>
+                    <line x1="20" y1="120" x2="350" y2="120" stroke="#f5576c" stroke-width="2" stroke-dasharray="8,4"/>
+                    <text x="70" y="40" fill="#f5576c" font-size="12">Đỉnh 1</text>
+                    <text x="210" y="40" fill="#f5576c" font-size="12">Đỉnh 2</text>
+                    <text x="355" y="115" fill="#f5576c" font-size="10">Neckline</text>
+                </svg>`,
+                'double-bottom': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 50 L 80 160 L 150 90 L 220 160 L 290 90 L 380 30" stroke="#4facfe" stroke-width="3" fill="none"/>
+                    <circle cx="80" cy="160" r="8" fill="#43e97b"/>
+                    <circle cx="220" cy="160" r="8" fill="#43e97b"/>
+                    <line x1="20" y1="90" x2="350" y2="90" stroke="#43e97b" stroke-width="2" stroke-dasharray="8,4"/>
+                    <text x="70" y="180" fill="#43e97b" font-size="12">Đáy 1</text>
+                    <text x="210" y="180" fill="#43e97b" font-size="12">Đáy 2</text>
+                </svg>`,
+                'triple-top': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 160 L 50 50 L 100 120 L 160 50 L 220 120 L 280 50 L 340 120 L 380 180" stroke="#c471f5" stroke-width="3" fill="none"/>
+                    <circle cx="50" cy="50" r="6" fill="#c471f5"/>
+                    <circle cx="160" cy="50" r="6" fill="#c471f5"/>
+                    <circle cx="280" cy="50" r="6" fill="#c471f5"/>
+                    <line x1="20" y1="120" x2="360" y2="120" stroke="#c471f5" stroke-width="2" stroke-dasharray="8,4"/>
+                </svg>`,
+                'triple-bottom': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 50 L 50 160 L 100 90 L 160 160 L 220 90 L 280 160 L 340 90 L 380 30" stroke="#00c6fb" stroke-width="3" fill="none"/>
+                    <circle cx="50" cy="160" r="6" fill="#00c6fb"/>
+                    <circle cx="160" cy="160" r="6" fill="#00c6fb"/>
+                    <circle cx="280" cy="160" r="6" fill="#00c6fb"/>
+                    <line x1="20" y1="90" x2="360" y2="90" stroke="#00c6fb" stroke-width="2" stroke-dasharray="8,4"/>
+                </svg>`,
+                'cup-handle': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 60 Q 80 180, 200 180 Q 320 180, 380 60 L 380 100 L 350 90 L 380 60" stroke="#fa709a" stroke-width="3" fill="none"/>
+                    <ellipse cx="200" cy="180" rx="150" ry="30" stroke="#fa709a" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+                    <text x="180" y="210" fill="#fa709a" font-size="12">Cốc (Cup)</text>
+                    <text x="350" y="115" fill="#fa709a" font-size="10">Tay cầm</text>
+                </svg>`,
+                'ascending-triangle': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 180 L 60 120 L 100 140 L 150 100 L 200 120 L 250 80 L 300 100 L 350 60 L 380 60" stroke="#43e97b" stroke-width="3" fill="none"/>
+                    <line x1="20" y1="60" x2="380" y2="60" stroke="#43e97b" stroke-width="2" stroke-dasharray="8,4"/>
+                    <polygon points="20,180 380,60 380,180" fill="rgba(67,233,123,0.1)"/>
+                    <text x="180" y="50" fill="#43e97b" font-size="12">Mức kháng cự</text>
+                </svg>`,
+                'descending-triangle': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 60 L 60 120 L 100 100 L 150 140 L 200 120 L 250 150 L 300 140 L 350 160 L 380 160" stroke="#ff6b6b" stroke-width="3" fill="none"/>
+                    <line x1="20" y1="160" x2="380" y2="160" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="8,4"/>
+                    <polygon points="20,60 380,160 20,160" fill="rgba(255,107,107,0.1)"/>
+                    <text x="180" y="180" fill="#ff6b6b" font-size="12">Mức hỗ trợ</text>
+                </svg>`,
+                'symmetrical-triangle': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 160 L 60 120 L 100 140 L 150 100 L 200 120 L 250 80 L 300 100 L 350 70 L 380 80" stroke="#a18cd1" stroke-width="3" fill="none"/>
+                    <line x1="20" y1="160" x2="380" y2="80" stroke="#a18cd1" stroke-width="1.5"/>
+                    <line x1="20" y1="40" x2="380" y2="80" stroke="#a18cd1" stroke-width="1.5"/>
+                    <polygon points="20,40 20,160 380,80" fill="rgba(161,140,209,0.1)"/>
+                </svg>`,
+                'rising-wedge': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 180 L 60 140 L 100 160 L 150 120 L 200 140 L 250 100 L 300 120 L 350 80 L 380 60" stroke="#ff9a9e" stroke-width="3" fill="none"/>
+                    <line x1="20" y1="180" x2="380" y2="80" stroke="#ff9a9e" stroke-width="1.5"/>
+                    <line x1="20" y1="140" x2="380" y2="60" stroke="#ff9a9e" stroke-width="1.5"/>
+                    <polygon points="20,140 20,180 380,80 380,60" fill="rgba(255,154,158,0.15)"/>
+                    <text x="180" y="190" fill="#ff9a9e" font-size="12">Nêm tăng → Giảm</text>
+                </svg>`,
+                'falling-wedge': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 60 L 60 100 L 100 80 L 150 120 L 200 100 L 250 140 L 300 120 L 350 160 L 380 180" stroke="#30cfd0" stroke-width="3" fill="none"/>
+                    <line x1="20" y1="60" x2="380" y2="160" stroke="#30cfd0" stroke-width="1.5"/>
+                    <line x1="20" y1="80" x2="380" y2="180" stroke="#30cfd0" stroke-width="1.5"/>
+                    <polygon points="20,60 20,80 380,180 380,160" fill="rgba(48,207,208,0.15)"/>
+                    <text x="180" y="50" fill="#30cfd0" font-size="12">Nêm giảm → Tăng</text>
+                </svg>`,
+                'flag': `<svg viewBox="0 0 400 200">
+                    <path d="M 20 180 L 60 40 L 100 60 L 140 50 L 180 70 L 220 55 L 260 75 L 300 60 L 340 80 L 380 65" stroke="#fbc2eb" stroke-width="3" fill="none"/>
+                    <rect x="60" y="40" width="300" height="50" fill="rgba(251,194,235,0.15)" stroke="#fbc2eb" stroke-width="1" stroke-dasharray="5,5" rx="5"/>
+                    <text x="180" y="110" fill="#fbc2eb" font-size="12">Cờ (Flag)</text>
+                </svg>`
+            };
+
+            return svgs[id] || `<svg viewBox="0 0 400 200">
+                <path d="M 20 100 Q 100 50, 200 100 Q 300 150, 380 100" stroke="#667eea" stroke-width="3" fill="none"/>
+                <text x="180" y="80" fill="rgba(255,255,255,0.5)" font-size="14">${patternsData[id]?.nameEn || 'Pattern'}</text>
+            </svg>`;
+        }
+
+        function markAsLearned(patternId) {
+            let progress = JSON.parse(localStorage.getItem('chartPatternProgress') || '{}');
+            if (!progress.learned) progress.learned = [];
+            if (!progress.learned.includes(patternId)) {
+                progress.learned.push(patternId);
+                localStorage.setItem('chartPatternProgress', JSON.stringify(progress));
+                showNotification('Đã đánh dấu đã học!');
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                animation: slideIn 0.3s ease;
+                z-index: 9999;
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        function startQuiz(patternId) {
+            window.location.href = `index.html#quiz?pattern=${patternId}`;
+        }
+    </script>
+</body>
+</html>

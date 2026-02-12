@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bách Khoa Toàn Thư Mẫu Biểu Đồ | Encyclopedia of Chart Patterns</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-chart-line"></i>
+                <span>ChartPattern<span class="accent">.learn</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i> Trang chủ
+                </a>
+                <a href="#patterns" class="nav-link" data-section="patterns">
+                    <i class="fas fa-book-open"></i> Thư viện
+                </a>
+                <a href="#learn" class="nav-link" data-section="learn">
+                    <i class="fas fa-graduation-cap"></i> Học tập
+                </a>
+                <a href="#quiz" class="nav-link" data-section="quiz">
+                    <i class="fas fa-question-circle"></i> Kiểm tra
+                </a>
+                <a href="#progress" class="nav-link" data-section="progress">
+                    <i class="fas fa-chart-pie"></i> Tiến độ
+                </a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-glass btn-icon" id="themeToggle" title="Chuyển đổi theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-glass btn-icon" id="searchBtn" title="Tìm kiếm">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content glass-card">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm mẫu biểu đồ..." autocomplete="off">
+                <button class="search-close" id="searchClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section hero-section active">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge animate-fade-in">
+                        <i class="fas fa-star"></i>
+                        <span>Tài liệu được việt hóa từ Encyclopedia of Chart Patterns</span>
+                    </div>
+                    <h1 class="hero-title animate-slide-up">
+                        Bách Khoa Toàn Thư<br>
+                        <span class="gradient-text">Mẫu Biểu Đồ</span>
+                    </h1>
+                    <p class="hero-subtitle animate-slide-up delay-1">
+                        Khám phá 63+ mẫu biểu đồ phân tích kỹ thuật với hình ảnh minh họa,
+                        thống kê chi tiết và bài học tương tác. Dựa trên nghiên cứu của
+                        <strong>Thomas N. Bulkowski</strong>.
+                    </p>
+                    <div class="hero-actions animate-slide-up delay-2">
+                        <a href="#patterns" class="btn-glass btn-primary">
+                            <i class="fas fa-rocket"></i> Bắt đầu học
+                        </a>
+                        <a href="#learn" class="btn-glass btn-secondary">
+                            <i class="fas fa-play-circle"></i> Xem hướng dẫn
+                        </a>
+                    </div>
+                    <div class="hero-stats animate-fade-in delay-3">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="63">0</div>
+                            <div class="stat-label">Mẫu biểu đồ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="500">0</div>
+                            <div class="stat-label">Ví dụ thực tế</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="95">0</div>
+                            <div class="stat-label">% Độ chính xác</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual animate-float">
+                    <div class="chart-preview glass-card">
+                        <svg viewBox="0 0 400 200" class="animated-chart">
+                            <!-- Head and Shoulders Pattern Animation -->
+                            <path class="chart-line" d="M 20 150 Q 50 100, 80 120 T 140 80 T 200 120 T 260 80 T 320 120 T 380 100" stroke="url(#gradient1)" stroke-width="3" fill="none"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#667eea"/>
+                                    <stop offset="100%" style="stop-color:#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Pattern Labels -->
+                            <circle class="chart-dot dot-1" cx="80" cy="120" r="6"/>
+                            <circle class="chart-dot dot-2" cx="200" cy="80" r="8"/>
+                            <circle class="chart-dot dot-3" cx="320" cy="120" r="6"/>
+                            <text x="200" y="30" class="chart-label" text-anchor="middle">Mẫu Đầu và Vai</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Cuộn xuống để khám phá</span>
+            </div>
+        </section>
+
+        <!-- Patterns Section - Library View -->
+        <section id="patterns" class="section patterns-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-book-open"></i>
+                        Thư Viện Mẫu Biểu Đồ
+                    </h2>
+                    <p class="section-subtitle">Khám phá 63+ mẫu biểu đồ với chi tiết đầy đủ, nhấp vào từng mẫu để học</p>
+                </div>
+
+                <!-- Library Search & Filter -->
+                <div class="library-controls glass-card">
+                    <div class="library-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="librarySearch" placeholder="Tìm kiếm mẫu biểu đồ..." autocomplete="off">
+                    </div>
+                    <div class="library-filters">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-th-large"></i> Tất cả <span class="count" id="countAll">63</span>
+                        </button>
+                        <button class="filter-btn" data-category="reversal">
+                            <i class="fas fa-sync-alt"></i> Đảo chiều <span class="count" id="countReversal">0</span>
+                        </button>
+                        <button class="filter-btn" data-category="continuation">
+                            <i class="fas fa-arrow-right"></i> Tiếp diễn <span class="count" id="countContinuation">0</span>
+                        </button>
+                        <button class="filter-btn" data-category="bilateral">
+                            <i class="fas fa-arrows-alt-h"></i> Hai chiều <span class="count" id="countBilateral">0</span>
+                        </button>
+                    </div>
+                    <div class="library-view-toggle">
+                        <button class="view-btn active" data-view="grid" title="Xem dạng lưới">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="Xem dạng danh sách">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Library Stats -->
+                <div class="library-stats">
+                    <div class="library-stat-item">
+                        <i class="fas fa-book"></i>
+                        <span id="libraryTotal">63</span> mẫu biểu đồ
+                    </div>
+                    <div class="library-stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="libraryLearned">0</span> đã học
+                    </div>
+                    <div class="library-stat-item search-result-count" style="display: none;">
+                        <i class="fas fa-filter"></i>
+                        Hiển thị <span id="visibleCount">0</span> mẫu
+                    </div>
+                </div>
+
+                <!-- Patterns Grid - Generated Dynamically -->
+                <div class="patterns-grid library-grid" id="patternsGrid">
+                    <!-- Pattern cards are generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Section -->
+        <section id="learn" class="section learn-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Học Tập Tương Tác
+                    </h2>
+                    <p class="section-subtitle">Các bài học được thiết kế giúp bạn nắm vững từng mẫu biểu đồ</p>
+                </div>
+
+                <!-- Learning Path -->
+                <div class="learning-path">
+                    <div class="path-item glass-card completed" data-step="1">
+                        <div class="path-number">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h4>Cơ bản</h4>
+                        <p>Giới thiệu về phân tích kỹ thuật</p>
+                        <div class="path-progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-item glass-card active" data-step="2">
+                        <div class="path-number">2</div>
+                        <h4>Mẫu đảo chiều</h4>
+                        <p>Head & Shoulders, Double Top/Bottom</p>
+                        <div class="path-progress">
+                            <div class="progress-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-item glass-card" data-step="3">
+                        <div class="path-number">3</div>
+                        <h4>Mẫu tiếp diễn</h4>
+                        <p>Triangles, Flags, Wedges</p>
+                        <div class="path-progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-item glass-card" data-step="4">
+                        <div class="path-number">4</div>
+                        <h4>Nâng cao</h4>
+                        <p>Kết hợp nhiều mẫu và phân tích</p>
+                        <div class="path-progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Lesson -->
+                <div class="current-lesson glass-card">
+                    <div class="lesson-header">
+                        <div class="lesson-meta">
+                            <span class="lesson-module"><i class="fas fa-layer-group"></i> Module 2</span>
+                            <span class="lesson-duration"><i class="fas fa-clock"></i> 15 phút</span>
+                        </div>
+                        <h3 class="lesson-title">Mẫu Đầu và Vai (Head and Shoulders)</h3>
+                        <p class="lesson-description">
+                            Mẫu Đầu và Vai là một trong những mẫu đảo chiều đáng tin cậy nhất trong phân tích kỹ thuật.
+                            Mẫu này xuất hiện ở đỉnh của xu hướng tăng và báo hiệu sự đảo ngược sang xu hướng giảm.
+                        </p>
+                    </div>
+
+                    <div class="lesson-content">
+                        <!-- Interactive Chart -->
+                        <div class="lesson-chart glass-card">
+                            <div class="chart-header">
+                                <h4><i class="fas fa-chart-area"></i> Cấu trúc mẫu</h4>
+                                <div class="chart-controls">
+                                    <button class="btn-glass btn-sm" id="animatePattern">
+                                        <i class="fas fa-play"></i> Xem animation
+                                    </button>
+                                    <button class="btn-glass btn-sm" id="resetPattern">
+                                        <i class="fas fa-redo"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chart-container" id="interactiveChart">
+                                <svg viewBox="0 0 600 300" class="lesson-svg">
+                                    <!-- Grid -->
+                                    <defs>
+                                        <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                                            <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#grid)"/>
+
+                                    <!-- Pattern Line -->
+                                    <path id="patternLine" class="animated-pattern-line" d="M 30 200
+                                        Q 60 180, 90 150
+                                        Q 120 120, 150 140
+                                        Q 180 160, 210 200
+                                        Q 240 240, 300 80
+                                        Q 360 240, 390 200
+                                        Q 420 160, 450 140
+                                        Q 480 120, 510 150
+                                        Q 540 180, 570 250"
+                                        stroke="url(#patternGradient)" stroke-width="3" fill="none"/>
+
+                                    <defs>
+                                        <linearGradient id="patternGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#667eea"/>
+                                            <stop offset="50%" style="stop-color:#764ba2"/>
+                                            <stop offset="100%" style="stop-color:#f093fb"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- Neckline -->
+                                    <line id="neckline" x1="90" y1="200" x2="510" y2="200" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="10,5" opacity="0"/>
+
+                                    <!-- Labels -->
+                                    <g id="patternLabels" opacity="0">
+                                        <circle cx="150" cy="140" r="8" fill="#4facfe" class="label-dot"/>
+                                        <circle cx="300" cy="80" r="10" fill="#f5576c" class="label-dot"/>
+                                        <circle cx="450" cy="140" r="8" fill="#4facfe" class="label-dot"/>
+
+                                        <text x="150" y="125" class="chart-label-text" text-anchor="middle">Vai trái</text>
+                                        <text x="300" y="60" class="chart-label-text highlight" text-anchor="middle">Đầu</text>
+                                        <text x="450" y="125" class="chart-label-text" text-anchor="middle">Vai phải</text>
+                                        <text x="540" y="195" class="chart-label-text neckline-label" text-anchor="start">Đường cổ</text>
+                                    </g>
+
+                                    <!-- Volume Bars -->
+                                    <g id="volumeBars" opacity="0">
+                                        <rect x="120" y="260" width="20" height="30" fill="rgba(102,126,234,0.5)" rx="2"/>
+                                        <rect x="270" y="250" width="20" height="40" fill="rgba(245,87,108,0.5)" rx="2"/>
+                                        <rect x="420" y="265" width="20" height="25" fill="rgba(102,126,234,0.5)" rx="2"/>
+                                        <text x="300" y="290" class="volume-label" text-anchor="middle">Khối lượng</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #f5576c"></span>
+                                    <span>Đầu (cao nhất)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #4facfe"></span>
+                                    <span>Vai trái & phải</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #ff6b6b"></span>
+                                    <span>Đường cổ (Neckline)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Points -->
+                        <div class="lesson-keypoints glass-card">
+                            <h4><i class="fas fa-lightbulb"></i> Điểm quan trọng</h4>
+                            <div class="keypoints-list">
+                                <div class="keypoint" data-index="1">
+                                    <div class="keypoint-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="keypoint-content">
+                                        <h5>Cấu trúc</h5>
+                                        <p>Mẫu gồm 3 đỉnh: Vai trái, Đầu (cao nhất), Vai phải. Hai vai thường ở mức giá tương đương nhau.</p>
+                                    </div>
+                                </div>
+                                <div class="keypoint" data-index="2">
+                                    <div class="keypoint-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="keypoint-content">
+                                        <h5>Đường cổ (Neckline)</h5>
+                                        <p>Nối hai đáy giữa vai trái - đầu và đầu - vai phải. Đây là mức hỗ trợ quan trọng.</p>
+                                    </div>
+                                </div>
+                                <div class="keypoint" data-index="3">
+                                    <div class="keypoint-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="keypoint-content">
+                                        <h5>Xác nhận mẫu</h5>
+                                        <p>Giá phá vỡ đường cổ với khối lượng tăng. Tỷ lệ thành công: 89% (theo Bulkowski).</p>
+                                    </div>
+                                </div>
+                                <div class="keypoint" data-index="4">
+                                    <div class="keypoint-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="keypoint-content">
+                                        <h5>Mục tiêu giá</h5>
+                                        <p>Độ giảm dự kiến = Khoảng cách từ đỉnh đầu đến đường cổ. Thường giảm 15-20%.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics -->
+                        <div class="lesson-stats glass-card">
+                            <h4><i class="fas fa-chart-bar"></i> Thống kê từ Bulkowski</h4>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon success">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-value">89%</span>
+                                        <span class="stat-label">Tỷ lệ thành công</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon warning">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-value">-18%</span>
+                                        <span class="stat-label">Độ giảm trung bình</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon info">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-value">3-4 tuần</span>
+                                        <span class="stat-label">Thời gian hình thành</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon primary">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-value">4%</span>
+                                        <span class="stat-label">Pullback tần suất</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-navigation">
+                        <button class="btn-glass btn-prev" disabled>
+                            <i class="fas fa-arrow-left"></i> Bài trước
+                        </button>
+                        <button class="btn-glass btn-primary btn-next">
+                            Bài tiếp theo <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section quiz-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-question-circle"></i>
+                        Kiểm Tra Kiến Thức
+                    </h2>
+                    <p class="section-subtitle">Thử thách bản thân với các câu hỏi về mẫu biểu đồ</p>
+                </div>
+
+                <!-- Quiz Container -->
+                <div class="quiz-container glass-card">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <div class="quiz-progress-bar" id="quizProgress"></div>
+                        </div>
+                        <div class="quiz-info">
+                            <span class="quiz-question-number">Câu hỏi <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></span>
+                            <span class="quiz-score"><i class="fas fa-star"></i> Điểm: <span id="quizScore">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="quiz-content" id="quizContent">
+                        <!-- Question will be rendered here -->
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button class="btn-glass btn-secondary" id="skipQuestion">
+                            <i class="fas fa-forward"></i> Bỏ qua
+                        </button>
+                        <button class="btn-glass btn-primary" id="submitAnswer" disabled>
+                            <i class="fas fa-check"></i> Xác nhận
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results (Hidden initially) -->
+                <div class="quiz-results glass-card" id="quizResults" style="display: none;">
+                    <div class="results-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Chúc mừng bạn!</h3>
+                    <p class="results-score">Bạn đã hoàn thành bài kiểm tra</p>
+                    <div class="results-details">
+                        <div class="result-item">
+                            <span class="result-label">Điểm số</span>
+                            <span class="result-value" id="finalScore">0/10</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Tỷ lệ đúng</span>
+                            <span class="result-value" id="correctPercent">0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Thời gian</span>
+                            <span class="result-value" id="timeSpent">0:00</span>
+                        </div>
+                    </div>
+                    <div class="results-actions">
+                        <button class="btn-glass btn-primary" id="retakeQuiz">
+                            <i class="fas fa-redo"></i> Làm lại
+                        </button>
+                        <button class="btn-glass btn-secondary" id="reviewAnswers">
+                            <i class="fas fa-eye"></i> Xem đáp án
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section progress-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-pie"></i>
+                        Tiến Độ Học Tập
+                    </h2>
+                    <p class="section-subtitle">Theo dõi quá trình học tập và thành tựu của bạn</p>
+                </div>
+
+                <!-- Progress Overview -->
+                <div class="progress-overview">
+                    <div class="progress-main glass-card">
+                        <div class="progress-ring-container">
+                            <svg class="progress-ring" viewBox="0 0 200 200">
+                                <circle class="progress-ring-bg" cx="100" cy="100" r="85"/>
+                                <circle class="progress-ring-fill" cx="100" cy="100" r="85" id="progressRing"/>
+                            </svg>
+                            <div class="progress-ring-text">
+                                <span class="progress-percent" id="overallProgress">0%</span>
+                                <span class="progress-label">Hoàn thành</span>
+                            </div>
+                        </div>
+                        <div class="progress-details">
+                            <h3>Tổng quan</h3>
+                            <div class="progress-stat">
+                                <i class="fas fa-book"></i>
+                                <span>Đã học: <strong id="learnedPatterns">0</strong>/63 mẫu</span>
+                            </div>
+                            <div class="progress-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>Thời gian học: <strong id="totalTime">0</strong> phút</span>
+                            </div>
+                            <div class="progress-stat">
+                                <i class="fas fa-star"></i>
+                                <span>Điểm trung bình: <strong id="avgScore">0</strong>%</span>
+                            </div>
+                            <div class="progress-stat">
+                                <i class="fas fa-fire"></i>
+                                <span>Chuỗi học: <strong id="streak">0</strong> ngày</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-categories">
+                        <div class="category-progress glass-card">
+                            <div class="category-header">
+                                <i class="fas fa-sync-alt reversal-icon"></i>
+                                <h4>Mẫu đảo chiều</h4>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="category-count">9/20 đã học</span>
+                        </div>
+                        <div class="category-progress glass-card">
+                            <div class="category-header">
+                                <i class="fas fa-arrow-right continuation-icon"></i>
+                                <h4>Mẫu tiếp diễn</h4>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 30%"></div>
+                            </div>
+                            <span class="category-count">6/20 đã học</span>
+                        </div>
+                        <div class="category-progress glass-card">
+                            <div class="category-header">
+                                <i class="fas fa-arrows-alt-h bilateral-icon"></i>
+                                <h4>Mẫu hai chiều</h4>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" style="width: 15%"></div>
+                            </div>
+                            <span class="category-count">3/20 đã học</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="achievements-section glass-card">
+                    <h3><i class="fas fa-medal"></i> Thành tựu</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <span class="achievement-name">Khởi đầu</span>
+                            <span class="achievement-desc">Bắt đầu học</span>
+                        </div>
+                        <div class="achievement unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <span class="achievement-name">Học viên</span>
+                            <span class="achievement-desc">Học 5 mẫu</span>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <span class="achievement-name">Chuyên gia</span>
+                            <span class="achievement-desc">Học 20 mẫu</span>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <span class="achievement-name">Bậc thầy</span>
+                            <span class="achievement-desc">Hoàn thành tất cả</span>
+                        </div>
+                        <div class="achievement unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <span class="achievement-name">Chính xác</span>
+                            <span class="achievement-desc">Điểm quiz 100%</span>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-fire-alt"></i>
+                            </div>
+                            <span class="achievement-name">Kiên trì</span>
+                            <span class="achievement-desc">7 ngày liên tiếp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Calendar -->
+                <div class="activity-calendar glass-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Lịch hoạt động</h3>
+                    <div class="calendar-grid" id="activityCalendar">
+                        <!-- Calendar will be generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pattern Detail Modal -->
+    <div class="modal" id="patternModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tên mẫu</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer glass-card">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>ChartPattern<span class="accent">.learn</span></span>
+                    </div>
+                    <p>Tài liệu học tập được việt hóa từ "Encyclopedia of Chart Patterns" của Thomas N. Bulkowski</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Học tập</h4>
+                        <a href="#patterns">Mẫu biểu đồ</a>
+                        <a href="#learn">Bài học</a>
+                        <a href="#quiz">Kiểm tra</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Tài nguyên</h4>
+                        <a href="#">Tài liệu PDF</a>
+                        <a href="#">Video hướng dẫn</a>
+                        <a href="#">Cộng đồng</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Liên hệ</h4>
+                        <a href="#">Hỗ trợ</a>
+                        <a href="#">Góp ý</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ChartPattern.learn. Made with <i class="fas fa-heart"></i> for Vietnamese traders.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
