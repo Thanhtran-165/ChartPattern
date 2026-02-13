@@ -2910,9 +2910,1907 @@ const quizData = [
 ];
 
 // ========================================
-// State Management
+// Lessons Data - 63 Patterns
 // ========================================
 
+const lessonsData = [
+    // ========== REVERSAL PATTERNS (35 patterns) ==========
+    {
+        id: 'head-shoulders',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '15 phút',
+        title: 'Mẫu Đầu và Vai (Head and Shoulders)',
+        description: 'Mẫu Đầu và Vai là một trong những mẫu đảo chiều đáng tin cậy nhất trong phân tích kỹ thuật. Mẫu này xuất hiện ở đỉnh của xu hướng tăng và báo hiệu sự đảo ngược sang xu hướng giảm.',
+        svg: {
+            path: 'M 30 200 Q 60 180, 90 150 Q 120 120, 150 140 Q 180 160, 210 200 Q 240 240, 300 80 Q 360 240, 390 200 Q 420 160, 450 140 Q 480 120, 510 150 Q 540 180, 570 250',
+            neckline: { x1: 90, y1: 200, x2: 510, y2: 200 },
+            labels: [
+                { x: 150, y: 140, r: 8, color: '#4facfe', text: 'Vai trái', textY: 125 },
+                { x: 300, y: 80, r: 10, color: '#f5576c', text: 'Đầu', textY: 60, highlight: true },
+                { x: 450, y: 140, r: 8, color: '#4facfe', text: 'Vai phải', textY: 125 }
+            ],
+            volume: [
+                { x: 120, y: 260, w: 20, h: 30, color: 'rgba(102,126,234,0.5)' },
+                { x: 270, y: 250, w: 20, h: 40, color: 'rgba(245,87,108,0.5)' },
+                { x: 420, y: 265, w: 20, h: 25, color: 'rgba(102,126,234,0.5)' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Đầu (cao nhất)' },
+            { color: '#4facfe', text: 'Vai trái & phải' },
+            { color: '#ff6b6b', text: 'Đường cổ (Neckline)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Mẫu gồm 3 đỉnh: Vai trái, Đầu (cao nhất), Vai phải. Hai vai thường ở mức giá tương đương nhau.' },
+            { title: 'Đường cổ (Neckline)', desc: 'Nối hai đáy giữa vai trái - đầu và đầu - vai phải. Đây là mức hỗ trợ quan trọng.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá phá vỡ đường cổ với khối lượng tăng. Tỷ lệ thành công: 89% (theo Bulkowski).' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm dự kiến = Khoảng cách từ đỉnh đầu đến đường cổ. Thường giảm 15-20%.' }
+        ],
+        stats: { successRate: '89%', avgChange: '-18%', timeForm: '3-4 tuần', pullback: '4%' }
+    },
+    {
+        id: 'inverse-head-shoulders',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '15 phút',
+        title: 'Mẫu Đầu Vai Ngược (Inverse Head and Shoulders)',
+        description: 'Mẫu Đầu Vai Ngược là phiên bản đảo ngược của mẫu Đầu và Vai, xuất hiện ở đáy xu hướng giảm và báo hiệu sự đảo chiều sang xu hướng tăng mạnh mẽ.',
+        svg: {
+            path: 'M 30 80 Q 60 100, 90 130 Q 120 160, 150 140 Q 180 120, 210 80 Q 240 40, 300 200 Q 360 40, 390 80 Q 420 120, 450 140 Q 480 160, 510 130 Q 540 100, 570 50',
+            neckline: { x1: 90, y1: 100, x2: 510, y2: 100 },
+            labels: [
+                { x: 150, y: 140, r: 8, color: '#4facfe', text: 'Vai trái', textY: 160 },
+                { x: 300, y: 200, r: 10, color: '#43e97b', text: 'Đầu', textY: 220, highlight: true },
+                { x: 450, y: 140, r: 8, color: '#4facfe', text: 'Vai phải', textY: 160 }
+            ],
+            volume: [
+                { x: 120, y: 240, w: 20, h: 50, color: 'rgba(67,233,123,0.5)' },
+                { x: 270, y: 230, w: 20, h: 60, color: 'rgba(67,233,123,0.7)' },
+                { x: 420, y: 245, w: 20, h: 45, color: 'rgba(67,233,123,0.5)' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Đầu (thấp nhất)' },
+            { color: '#4facfe', text: 'Vai trái & phải' },
+            { color: '#43e97b', text: 'Đường cổ (Neckline)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Mẫu gồm 3 đáy: Vai trái, Đầu (thấp nhất), Vai phải. Xuất hiện cuối xu hướng giảm.' },
+            { title: 'Đường cổ', desc: 'Nối hai đỉnh giữa các vai và đầu. Phá vỡ đường cổ xác nhận đảo chiều tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá phá vỡ đường cổ với khối lượng tăng mạnh. Tỷ lệ thành công: 81%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng dự kiến = Khoảng cách từ đáy đầu đến đường cổ. Thường tăng 20-25%.' }
+        ],
+        stats: { successRate: '81%', avgChange: '+23%', timeForm: '3-4 tuần', pullback: '53%' }
+    },
+    {
+        id: 'double-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Đỉnh Kép (Double Top)',
+        description: 'Mẫu Đỉnh Kép là mẫu đảo chiều giảm phổ biến, xuất hiện khi giá tạo hai đỉnh ở mức giá tương đương nhau, báo hiệu xu hướng tăng có thể kết thúc.',
+        svg: {
+            path: 'M 30 200 L 80 80 L 150 160 L 250 80 L 350 180 L 450 200',
+            neckline: { x1: 30, y1: 160, x2: 450, y2: 160 },
+            labels: [
+                { x: 80, y: 80, r: 8, color: '#f5576c', text: 'Đỉnh 1', textY: 60 },
+                { x: 250, y: 80, r: 8, color: '#f5576c', text: 'Đỉnh 2', textY: 60 },
+                { x: 150, y: 160, r: 6, color: '#667eea', text: 'Đáy giữa', textY: 180 }
+            ],
+            volume: [
+                { x: 70, y: 240, w: 20, h: 50, color: 'rgba(245,87,108,0.5)' },
+                { x: 140, y: 255, w: 20, h: 35, color: 'rgba(102,126,234,0.4)' },
+                { x: 240, y: 245, w: 20, h: 45, color: 'rgba(245,87,108,0.5)' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Hai đỉnh bằng nhau' },
+            { color: '#667eea', text: 'Đáy giữa (Neckline)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đỉnh ở mức giá gần bằng nhau, cách nhau bởi một đáy trung gian. Giống chữ "M".' },
+            { title: 'Đường cổ', desc: 'Nằm ở mức đáy giữa hai đỉnh. Phá vỡ đường cổ xác nhận mẫu.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá đóng cửa dưới đường cổ với khối lượng tăng. Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Khoảng cách từ đỉnh đến đường cổ. Thường giảm 10-15%.' }
+        ],
+        stats: { successRate: '78%', avgChange: '-15%', timeForm: '2-3 tuần', pullback: '65%' }
+    },
+    {
+        id: 'double-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Đáy Kép (Double Bottom)',
+        description: 'Mẫu Đáy Kép là mẫu đảo chiều tăng, xuất hiện khi giá tạo hai đáy ở mức giá tương đương nhau, báo hiệu xu hướng giảm có thể kết thúc.',
+        svg: {
+            path: 'M 30 80 L 80 200 L 150 120 L 250 200 L 350 100 L 450 60',
+            neckline: { x1: 30, y1: 120, x2: 450, y2: 120 },
+            labels: [
+                { x: 80, y: 200, r: 8, color: '#43e97b', text: 'Đáy 1', textY: 220 },
+                { x: 250, y: 200, r: 8, color: '#43e97b', text: 'Đáy 2', textY: 220 },
+                { x: 150, y: 120, r: 6, color: '#667eea', text: 'Đỉnh giữa', textY: 105 }
+            ],
+            volume: [
+                { x: 70, y: 230, w: 20, h: 60, color: 'rgba(67,233,123,0.6)' },
+                { x: 140, y: 250, w: 20, h: 40, color: 'rgba(102,126,234,0.4)' },
+                { x: 240, y: 225, w: 20, h: 65, color: 'rgba(67,233,123,0.7)' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Hai đáy bằng nhau' },
+            { color: '#667eea', text: 'Đỉnh giữa (Neckline)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đáy ở mức giá gần bằng nhau, cách nhau bởi một đỉnh trung gian. Giống chữ "W".' },
+            { title: 'Đường cổ', desc: 'Nằm ở mức đỉnh giữa hai đáy. Phá vỡ xác nhận đảo chiều tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá đóng cửa trên đường cổ với khối lượng tăng. Tỷ lệ thành công: 82%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Khoảng cách từ đáy đến đường cổ. Thường tăng 15-20%.' }
+        ],
+        stats: { successRate: '82%', avgChange: '+20%', timeForm: '2-3 tuần', pullback: '58%' }
+    },
+    {
+        id: 'triple-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Đỉnh Ba (Triple Top)',
+        description: 'Mẫu Đỉnh Ba tương tự Đỉnh Kép nhưng có 3 đỉnh thay vì 2. Đây là mẫu đảo chiều giảm mạnh mẽ với tỷ lệ thành công cao.',
+        svg: {
+            path: 'M 30 200 L 60 80 L 100 150 L 160 80 L 220 150 L 280 80 L 350 200',
+            neckline: { x1: 30, y1: 150, x2: 350, y2: 150 },
+            labels: [
+                { x: 60, y: 80, r: 7, color: '#f5576c', text: 'Đỉnh 1', textY: 60 },
+                { x: 160, y: 80, r: 7, color: '#f5576c', text: 'Đỉnh 2', textY: 60 },
+                { x: 280, y: 80, r: 7, color: '#f5576c', text: 'Đỉnh 3', textY: 60 }
+            ],
+            volume: [
+                { x: 50, y: 230, w: 18, h: 55, color: 'rgba(245,87,108,0.5)' },
+                { x: 150, y: 240, w: 18, h: 45, color: 'rgba(245,87,108,0.4)' },
+                { x: 270, y: 245, w: 18, h: 40, color: 'rgba(245,87,108,0.3)' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Ba đỉnh bằng nhau' },
+            { color: '#667eea', text: 'Đường cổ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Ba đỉnh ở mức giá gần bằng nhau, cách nhau bởi hai đáy trung gian.' },
+            { title: 'Đường cổ', desc: 'Nằm ở mức thấp nhất giữa các đỉnh. Phá vỡ xác nhận mẫu.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá đóng cửa dưới đường cổ. Khối lượng thường giảm qua mỗi đỉnh.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Khoảng cách từ đỉnh đến đường cổ.' }
+        ],
+        stats: { successRate: '85%', avgChange: '-17%', timeForm: '3-5 tuần', pullback: '52%' }
+    },
+    {
+        id: 'triple-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Đáy Ba (Triple Bottom)',
+        description: 'Mẫu Đáy Ba là mẫu đảo chiều tăng với 3 đáy ở mức giá tương đương. Tỷ lệ thành công cao hơn Đáy Kép.',
+        svg: {
+            path: 'M 30 80 L 60 200 L 100 130 L 160 200 L 220 130 L 280 200 L 350 70',
+            neckline: { x1: 30, y1: 130, x2: 350, y2: 130 },
+            labels: [
+                { x: 60, y: 200, r: 7, color: '#43e97b', text: 'Đáy 1', textY: 220 },
+                { x: 160, y: 200, r: 7, color: '#43e97b', text: 'Đáy 2', textY: 220 },
+                { x: 280, y: 200, r: 7, color: '#43e97b', text: 'Đáy 3', textY: 220 }
+            ],
+            volume: [
+                { x: 50, y: 225, w: 18, h: 60, color: 'rgba(67,233,123,0.5)' },
+                { x: 150, y: 230, w: 18, h: 55, color: 'rgba(67,233,123,0.6)' },
+                { x: 270, y: 220, w: 18, h: 65, color: 'rgba(67,233,123,0.7)' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Ba đáy bằng nhau' },
+            { color: '#667eea', text: 'Đường cổ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Ba đáy ở mức giá gần bằng nhau. Tương tự "W" nhưng có thêm 1 đáy.' },
+            { title: 'Đường cổ', desc: 'Nằm ở mức cao nhất giữa các đáy. Phá vỡ xác nhận tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá đóng cửa trên đường cổ với khối lượng tăng dần.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Khoảng cách từ đáy đến đường cổ.' }
+        ],
+        stats: { successRate: '87%', avgChange: '+22%', timeForm: '3-5 tuần', pullback: '48%' }
+    },
+    {
+        id: 'rising-wedge',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Nêm Tăng (Rising Wedge)',
+        description: 'Mẫu Nêm Tăng là mẫu đảo chiều giảm, mặc dù giá đang tăng. Hai đường biên hội tụ dần, báo hiệu xu hướng tăng sắp kết thúc.',
+        svg: {
+            path: 'M 30 180 L 80 140 L 130 150 L 180 110 L 230 115 L 280 80 L 330 75 L 380 50',
+            labels: [
+                { x: 100, y: 140, r: 5, color: '#f5576c', text: '', textY: 130 },
+                { x: 280, y: 80, r: 5, color: '#f5576c', text: '', textY: 65 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 190, x2: 400, y2: 60, color: '#f5576c' },
+                { x1: 30, y1: 150, x2: 400, y2: 40, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Hai đường biên hội tụ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đường biên tăng dần nhưng hội tụ lại. Đáy cao hơn, đỉnh cao hơn.' },
+            { title: 'Tín hiệu', desc: 'Mặc dù giá tăng, biên độ giảm dần cho thấy động lực mua yếu đi.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường biên dưới với khối lượng tăng. Tỷ lệ thành công: 72%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao nêm tại điểm bắt đầu.' }
+        ],
+        stats: { successRate: '72%', avgChange: '-12%', timeForm: '2-4 tuần', pullback: '61%' }
+    },
+    {
+        id: 'falling-wedge',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Nêm Giảm (Falling Wedge)',
+        description: 'Mẫu Nêm Giảm là mẫu đảo chiều tăng tích cực. Mặc dù giá giảm nhưng hai đường biên hội tụ, báo hiệu đảo chiều sắp xảy ra.',
+        svg: {
+            path: 'M 30 60 L 80 100 L 130 90 L 180 130 L 230 120 L 280 160 L 330 150 L 380 190',
+            labels: [
+                { x: 100, y: 100, r: 5, color: '#43e97b', text: '', textY: 85 },
+                { x: 280, y: 160, r: 5, color: '#43e97b', text: '', textY: 145 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 50, x2: 400, y2: 180, color: '#43e97b' },
+                { x1: 30, y1: 80, x2: 400, y2: 200, color: '#43e97b' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Hai đường biên hội tụ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đường biên giảm dần và hội tụ. Đỉnh thấp hơn, đáy thấp hơn.' },
+            { title: 'Tín hiệu', desc: 'Biên độ giảm dần cho thấy áp lực bán yếu đi, chuẩn bị đảo chiều.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường biên trên với khối lượng tăng. Tỷ lệ thành công: 81%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao nêm tại điểm bắt đầu.' }
+        ],
+        stats: { successRate: '81%', avgChange: '+18%', timeForm: '2-4 tuần', pullback: '55%' }
+    },
+    {
+        id: 'v-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu V-Top (Adam and Adam Top)',
+        description: 'Mẫu V-Top là mẫu đảo chiều giảm hình thành nhanh, giá tăng đột ngột rồi đảo chiều ngay. Đỉnh nhọn, hai bên dốc đứng.',
+        svg: {
+            path: 'M 30 200 L 150 50 L 180 60 L 220 50 L 280 70 L 350 200',
+            labels: [
+                { x: 185, y: 50, r: 8, color: '#f5576c', text: 'Đỉnh V', textY: 35 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Đỉnh nhọn, dốc đứng' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tăng nhanh đến đỉnh nhọn, sau đó giảm nhanh. Ít pullback.' },
+            { title: 'Đặc điểm', desc: 'Hình thành trong vài ngày. Biến động cao, đảo chiều mạnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ mức thấp nhất trước đỉnh. Tỷ lệ thành công: 75%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Khoảng cách từ đỉnh đến điểm bắt đầu tăng.' }
+        ],
+        stats: { successRate: '75%', avgChange: '-20%', timeForm: '1-2 tuần', pullback: '35%' }
+    },
+    {
+        id: 'v-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu V-Bottom (Adam and Adam Bottom)',
+        description: 'Mẫu V-Bottom là mẫu đảo chiều tăng hình thành nhanh, giá giảm đột ngột rồi đảo chiều lên. Đáy nhọn, hai bên dốc đứng.',
+        svg: {
+            path: 'M 30 60 L 150 200 L 180 190 L 220 200 L 280 180 L 350 50',
+            labels: [
+                { x: 185, y: 200, r: 8, color: '#43e97b', text: 'Đáy V', textY: 220 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Đáy nhọn, dốc đứng' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Giảm nhanh đến đáy nhọn, sau đó tăng nhanh. Ít pullback.' },
+            { title: 'Đặc điểm', desc: 'Hình thành trong vài ngày. Biến động cao, đảo chiều mạnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ mức cao nhất trước đáy. Tỷ lệ thành công: 77%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Khoảng cách từ đáy đến điểm bắt đầu giảm.' }
+        ],
+        stats: { successRate: '77%', avgChange: '+22%', timeForm: '1-2 tuần', pullback: '32%' }
+    },
+    {
+        id: 'rounding-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Đỉnh Tròn (Rounding Top)',
+        description: 'Mẫu Đỉnh Tròn có hình dạng bán cầu, giá tăng chậm rồi giảm chậm. Cho thấy sự chuyển dịch dần từ tăng sang giảm.',
+        svg: {
+            path: 'M 30 180 Q 100 180, 150 140 Q 200 80, 250 60 Q 300 80, 350 140 Q 400 180, 450 200',
+            labels: [
+                { x: 250, y: 60, r: 8, color: '#f5576c', text: 'Đỉnh tròn', textY: 45 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Hình bán cầu' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh hình chữ U ngược, chuyển đổi dần từ tăng sang giảm.' },
+            { title: 'Đặc điểm', desc: 'Khối lượng thấp ở giữa, tăng ở hai đầu. Hình thành chậm.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá phá vỡ mức hỗ trợ thấp nhất. Tỷ lệ thành công: 71%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh đến điểm bắt đầu/kết thúc.' }
+        ],
+        stats: { successRate: '71%', avgChange: '-15%', timeForm: '3-6 tuần', pullback: '48%' }
+    },
+    {
+        id: 'rounding-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Đáy Tròn (Rounding Bottom)',
+        description: 'Mẫu Đáy Tròn có hình dạng bán cầu ngược, giá giảm chậm rồi tăng chậm. Cho thấy sự chuyển dịch dần từ giảm sang tăng.',
+        svg: {
+            path: 'M 30 60 Q 100 60, 150 100 Q 200 160, 250 180 Q 300 160, 350 100 Q 400 60, 450 40',
+            labels: [
+                { x: 250, y: 180, r: 8, color: '#43e97b', text: 'Đáy tròn', textY: 200 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Hình bán cầu ngược' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đáy hình chữ U, chuyển đổi dần từ giảm sang tăng.' },
+            { title: 'Đặc điểm', desc: 'Khối lượng thấp ở giữa, tăng ở hai đầu. Hình thành chậm.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá phá vỡ mức kháng cự cao nhất. Tỷ lệ thành công: 74%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ đáy đến điểm bắt đầu/kết thúc.' }
+        ],
+        stats: { successRate: '74%', avgChange: '+18%', timeForm: '3-6 tuần', pullback: '45%' }
+    },
+    {
+        id: 'diamond-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Đỉnh Kim Cương (Diamond Top)',
+        description: 'Mẫu Đỉnh Kim Cương có hình dạng kim cương, mở rộng rồi thu hẹp. Mẫu đảo chiều giảm phức tạp nhưng đáng tin cậy.',
+        svg: {
+            path: 'M 30 140 L 80 100 L 130 140 L 180 80 L 230 140 L 280 100 L 330 160 L 380 200',
+            labels: [
+                { x: 180, y: 80, r: 8, color: '#f5576c', text: 'Đỉnh', textY: 65 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 140, x2: 180, y2: 80, color: '#f5576c' },
+                { x1: 180, y1: 80, x2: 330, y2: 160, color: '#f5576c' },
+                { x1: 30, y1: 150, x2: 180, y2: 120, color: '#f5576c' },
+                { x1: 180, y1: 120, x2: 330, y2: 160, color: '#f5576c' }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Hình kim cương' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Mở rộng (broadening) rồi thu hẹp (triangle). Hình kim cương.' },
+            { title: 'Đặc điểm', desc: 'Biến động tăng rồi giảm. Xuất hiện ở đỉnh xu hướng tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường biên dưới. Tỷ lệ thành công: 82%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao kim cương tại điểm rộng nhất.' }
+        ],
+        stats: { successRate: '82%', avgChange: '-16%', timeForm: '2-4 tuần', pullback: '52%' }
+    },
+    {
+        id: 'diamond-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Đáy Kim Cương (Diamond Bottom)',
+        description: 'Mẫu Đáy Kim Cương là phiên bản ngược của Diamond Top, xuất hiện ở đáy xu hướng giảm và báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 80 L 80 120 L 130 80 L 180 140 L 230 80 L 280 120 L 330 90 L 380 50',
+            labels: [
+                { x: 180, y: 140, r: 8, color: '#43e97b', text: 'Đáy', textY: 160 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 80, x2: 180, y2: 140, color: '#43e97b' },
+                { x1: 180, y1: 140, x2: 330, y2: 90, color: '#43e97b' },
+                { x1: 30, y1: 70, x2: 180, y2: 100, color: '#43e97b' },
+                { x1: 180, y1: 100, x2: 330, y2: 90, color: '#43e97b' }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Hình kim cương ngược' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Mở rộng rồi thu hẹp ở đáy. Hình kim cương ngược.' },
+            { title: 'Đặc điểm', desc: 'Biến động tăng rồi giảm. Xuất hiện ở đáy xu hướng giảm.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường biên trên. Tỷ lệ thành công: 80%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao kim cương tại điểm rộng nhất.' }
+        ],
+        stats: { successRate: '80%', avgChange: '+19%', timeForm: '2-4 tuần', pullback: '55%' }
+    },
+    {
+        id: 'island-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu Đỉnh Đảo (Island Top)',
+        description: 'Mẫu Đỉnh Đảo được hình thành bởi gap up và gap down, tạo thành một "đảo" giá biệt lập ở đỉnh.',
+        svg: {
+            path: 'M 30 140 L 80 140 L 80 100 L 120 100 L 150 90 L 180 95 L 210 90 L 240 100 L 240 150 L 350 200',
+            labels: [
+                { x: 165, y: 90, r: 6, color: '#f5576c', text: 'Đảo', textY: 75 }
+            ],
+            gapAreas: [
+                { x: 80, y: 100, w: 5, h: 40, color: 'rgba(102,126,234,0.3)' },
+                { x: 240, y: 100, w: 5, h: 50, color: 'rgba(245,87,108,0.3)' }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Đảo biệt lập bởi 2 gaps' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Gap up tạo đảo, gap down xác nhận đảo chiều. Đảo biệt lập.' },
+            { title: 'Đặc điểm', desc: 'Ít phiên giao dịch trên đảo. Đảo chiều mạnh và nhanh.' },
+            { title: 'Xác nhận mẫu', desc: 'Gap down hoàn tất mẫu. Tỷ lệ thành công: 79%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao đảo + khoảng cách từ đáy đảo.' }
+        ],
+        stats: { successRate: '79%', avgChange: '-18%', timeForm: '3-7 ngày', pullback: '38%' }
+    },
+    {
+        id: 'island-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu Đáy Đảo (Island Bottom)',
+        description: 'Mẫu Đáy Đảo được hình thành bởi gap down và gap up, tạo thành một "đảo" giá biệt lập ở đáy.',
+        svg: {
+            path: 'M 30 80 L 80 80 L 80 120 L 120 120 L 150 130 L 180 125 L 210 130 L 240 120 L 240 70 L 350 40',
+            labels: [
+                { x: 165, y: 130, r: 6, color: '#43e97b', text: 'Đảo', textY: 148 }
+            ],
+            gapAreas: [
+                { x: 80, y: 80, w: 5, h: 40, color: 'rgba(245,87,108,0.3)' },
+                { x: 240, y: 70, w: 5, h: 50, color: 'rgba(67,233,123,0.3)' }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Đảo biệt lập bởi 2 gaps' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Gap down tạo đảo, gap up xác nhận đảo chiều. Đảo biệt lập.' },
+            { title: 'Đặc điểm', desc: 'Ít phiên giao dịch trên đảo. Đảo chiều mạnh và nhanh.' },
+            { title: 'Xác nhận mẫu', desc: 'Gap up hoàn tất mẫu. Tỷ lệ thành công: 81%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao đảo + khoảng cách từ đỉnh đảo.' }
+        ],
+        stats: { successRate: '81%', avgChange: '+20%', timeForm: '3-7 ngày', pullback: '35%' }
+    },
+    {
+        id: 'island-reversal',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Đảo Chiều Đảo (Island Reversal)',
+        description: 'Mẫu Island Reversal tổng quát, có thể xuất hiện ở đỉnh hoặc đáy. Đặc trưng bởi hai gap bao quanh vùng giá biệt lập.',
+        svg: {
+            path: 'M 30 120 L 70 120 L 70 80 L 100 80 L 130 70 L 160 75 L 190 70 L 220 80 L 220 130 L 350 170',
+            labels: [
+                { x: 145, y: 70, r: 6, color: '#a18cd1', text: 'Đảo', textY: 55 }
+            ]
+        },
+        legend: [{ color: '#a18cd1', text: 'Vùng đảo biệt lập' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai gap bao quanh vùng giá biệt lập. Gap 1 tạo đảo, gap 2 xác nhận.' },
+            { title: 'Đặc điểm', desc: 'Vùng đảo có 1-4 phiên. Biến động cao, đảo chiều nhanh.' },
+            { title: 'Xác nhận mẫu', desc: 'Gap thứ 2 hoàn tất mẫu. Tỷ lệ thành công: 77%.' },
+            { title: 'Giao dịch', desc: 'Vào lệnh ngay sau gap xác nhận. StopLoss trên/dưới đảo.' }
+        ],
+        stats: { successRate: '77%', avgChange: '+/-18%', timeForm: '3-10 ngày', pullback: '40%' }
+    },
+    {
+        id: 'pipe-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu Ống Đỉnh (Pipe Top)',
+        description: 'Mẫu Pipe Top có hai nến dài với thân gần bằng nhau ở đỉnh, tạo thành hình ống. Báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 L 80 160 L 80 100 L 100 100 L 100 160 L 130 160 L 130 90 L 150 90 L 150 160 L 350 200',
+            labels: [
+                { x: 90, y: 95, r: 4, color: '#f5576c', text: 'Nến 1', textY: 80 },
+                { x: 140, y: 85, r: 4, color: '#f5576c', text: 'Nến 2', textY: 70 }
+            ],
+            candles: [
+                { x: 75, w: 15, bodyY: 100, bodyH: 60, color: '#f5576c' },
+                { x: 125, w: 15, bodyY: 90, bodyH: 70, color: '#f5576c' }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Hai nến dài gần bằng nhau' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai nến dài với thân gần bằng nhau, wick dài hai đầu.' },
+            { title: 'Đặc điểm', desc: 'Xuất hiện sau xu hướng tăng. Cho thấy sự do dự tại đỉnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Nến thứ 3 giảm xác nhận. Tỷ lệ thành công: 68%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao của ống x 2.' }
+        ],
+        stats: { successRate: '68%', avgChange: '-12%', timeForm: '2-3 ngày', pullback: '55%' }
+    },
+    {
+        id: 'pipe-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu Ống Đáy (Pipe Bottom)',
+        description: 'Mẫu Pipe Bottom có hai nến dài với thân gần bằng nhau ở đáy, tạo thành hình ống. Báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 80 L 80 80 L 80 140 L 100 140 L 100 80 L 130 80 L 130 150 L 150 150 L 150 80 L 350 50',
+            labels: [
+                { x: 90, y: 145, r: 4, color: '#43e97b', text: 'Nến 1', textY: 162 },
+                { x: 140, y: 155, r: 4, color: '#43e97b', text: 'Nến 2', textY: 172 }
+            ],
+            candles: [
+                { x: 75, w: 15, bodyY: 80, bodyH: 60, color: '#43e97b' },
+                { x: 125, w: 15, bodyY: 80, bodyH: 70, color: '#43e97b' }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Hai nến dài gần bằng nhau' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai nến dài với thân gần bằng nhau, wick dài hai đầu.' },
+            { title: 'Đặc điểm', desc: 'Xuất hiện sau xu hướng giảm. Cho thấy sự do dự tại đáy.' },
+            { title: 'Xác nhận mẫu', desc: 'Nến thứ 3 tăng xác nhận. Tỷ lệ thành công: 70%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao của ống x 2.' }
+        ],
+        stats: { successRate: '70%', avgChange: '+14%', timeForm: '2-3 ngày', pullback: '52%' }
+    },
+    {
+        id: 'tower-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Tháp Đỉnh (Tower Top)',
+        description: 'Mẫu Tower Top có đỉnh phẳng như tháp, giá tăng rồi đi ngang trước khi giảm. Báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 L 80 120 L 130 100 L 180 90 L 230 90 L 280 90 L 330 100 L 380 140 L 450 200',
+            labels: [
+                { x: 230, y: 90, r: 8, color: '#f5576c', text: 'Đỉnh tháp', textY: 75 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Đỉnh phẳng như tháp' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tăng nhanh, đi ngang tạo đỉnh phẳng, sau đó giảm nhanh.' },
+            { title: 'Đặc điểm', desc: 'Đỉnh phẳng có nhiều đỉnh bằng nhau. Hình tháp.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đáy của đỉnh tháp. Tỷ lệ thành công: 73%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh đến đáy tháp.' }
+        ],
+        stats: { successRate: '73%', avgChange: '-14%', timeForm: '2-4 tuần', pullback: '48%' }
+    },
+    {
+        id: 'tower-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Tháp Đáy (Tower Bottom)',
+        description: 'Mẫu Tower Bottom có đáy phẳng như tháp, giá giảm rồi đi ngang trước khi tăng. Báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 60 L 80 100 L 130 120 L 180 130 L 230 130 L 280 130 L 330 120 L 380 90 L 450 40',
+            labels: [
+                { x: 230, y: 130, r: 8, color: '#43e97b', text: 'Đáy tháp', textY: 148 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Đáy phẳng như tháp' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Giảm nhanh, đi ngang tạo đáy phẳng, sau đó tăng nhanh.' },
+            { title: 'Đặc điểm', desc: 'Đáy phẳng có nhiều đáy bằng nhau. Hình tháp ngược.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đỉnh của đáy tháp. Tỷ lệ thành công: 75%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ đáy đến đỉnh tháp.' }
+        ],
+        stats: { successRate: '75%', avgChange: '+16%', timeForm: '2-4 tuần', pullback: '45%' }
+    },
+    {
+        id: 'horn-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '11 phút',
+        title: 'Mẫu Kèn Đỉnh (Horn Top)',
+        description: 'Mẫu Horn Top có hai đỉnh cao dần với đáy giữa cao, tạo hình như chiếc kèn. Báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 140 L 80 100 L 130 130 L 180 80 L 250 150 L 350 200',
+            labels: [
+                { x: 80, y: 100, r: 6, color: '#f5576c', text: 'Đỉnh 1', textY: 85 },
+                { x: 180, y: 80, r: 6, color: '#f5576c', text: 'Đỉnh 2', textY: 65 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Đỉnh cao dần, đáy giữa cao' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh 2 cao hơn đỉnh 1, đáy giữa cao hơn hai đỉnh.' },
+            { title: 'Đặc điểm', desc: 'Hình kèn loe ra. Hiếm gặp nhưng đáng tin cậy.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đáy giữa hai đỉnh. Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh 2 đến đáy giữa.' }
+        ],
+        stats: { successRate: '78%', avgChange: '-15%', timeForm: '2-3 tuần', pullback: '50%' }
+    },
+    {
+        id: 'horn-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '11 phút',
+        title: 'Mẫu Kèn Đáy (Horn Bottom)',
+        description: 'Mẫu Horn Bottom có hai đáy thấp dần với đỉnh giữa thấp, tạo hình như chiếc kèn ngược. Báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 80 L 80 120 L 130 90 L 180 140 L 250 80 L 350 50',
+            labels: [
+                { x: 80, y: 120, r: 6, color: '#43e97b', text: 'Đáy 1', textY: 138 },
+                { x: 180, y: 140, r: 6, color: '#43e97b', text: 'Đáy 2', textY: 158 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Đáy thấp dần, đỉnh giữa thấp' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đáy 2 thấp hơn đáy 1, đỉnh giữa thấp hơn hai đáy.' },
+            { title: 'Đặc điểm', desc: 'Hình kèn ngược. Hiếm gặp nhưng đáng tin cậy.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đỉnh giữa hai đáy. Tỷ lệ thành công: 80%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ đáy 2 đến đỉnh giữa.' }
+        ],
+        stats: { successRate: '80%', avgChange: '+17%', timeForm: '2-3 tuần', pullback: '48%' }
+    },
+    {
+        id: 'bump-run-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '15 phút',
+        title: 'Mẫu Bump and Run Top',
+        description: 'Mẫu Bump and Run Top bắt đầu với đường dẫn (lead-in), sau đó bump lên mạnh và run xuống. Đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 L 100 150 L 170 130 L 200 60 L 240 70 L 280 60 L 320 90 L 400 180',
+            labels: [
+                { x: 100, y: 150, r: 4, color: '#667eea', text: 'Lead-in', textY: 168 },
+                { x: 220, y: 60, r: 6, color: '#f5576c', text: 'Bump', textY: 45 },
+                { x: 340, y: 130, r: 4, color: '#f5576c', text: 'Run', textY: 115 }
+            ]
+        },
+        legend: [{ color: '#667eea', text: 'Lead-in → Bump → Run' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Lead-in: tăng nhẹ. Bump: tăng mạnh tạo đỉnh. Run: giảm nhanh.' },
+            { title: 'Đặc điểm', desc: 'Bump phải cao hơn ít nhất 50% so với lead-in.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường trendline của lead-in. Tỷ lệ thành công: 76%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh bump đến đường lead-in.' }
+        ],
+        stats: { successRate: '76%', avgChange: '-18%', timeForm: '3-5 tuần', pullback: '42%' }
+    },
+    {
+        id: 'bump-run-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '15 phút',
+        title: 'Mẫu Bump and Run Bottom',
+        description: 'Mẫu Bump and Run Bottom bắt đầu với đường dẫn, sau đó bump xuống mạnh và run lên. Đảo chiều tăng.',
+        svg: {
+            path: 'M 30 80 L 100 90 L 170 110 L 200 180 L 240 170 L 280 180 L 320 150 L 400 50',
+            labels: [
+                { x: 100, y: 90, r: 4, color: '#667eea', text: 'Lead-in', textY: 78 },
+                { x: 220, y: 180, r: 6, color: '#43e97b', text: 'Bump', textY: 198 },
+                { x: 340, y: 110, r: 4, color: '#43e97b', text: 'Run', textY: 98 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Lead-in → Bump → Run' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Lead-in: giảm nhẹ. Bump: giảm mạnh tạo đáy. Run: tăng nhanh.' },
+            { title: 'Đặc điểm', desc: 'Bump phải thấp hơn ít nhất 50% so với lead-in.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường trendline của lead-in. Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ đáy bump đến đường lead-in.' }
+        ],
+        stats: { successRate: '78%', avgChange: '+20%', timeForm: '3-5 tuần', pullback: '40%' }
+    },
+    {
+        id: 'three-rising-valleys',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Ba Thung Lũng Tăng (Three Rising Valleys)',
+        description: 'Mẫu Three Rising Valleys có ba đáy tăng dần, mỗi đáy cao hơn đáy trước. Báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 180 L 60 140 L 100 160 L 140 120 L 180 140 L 220 100 L 280 110 L 350 50',
+            labels: [
+                { x: 60, y: 160, r: 5, color: '#43e97b', text: 'Đáy 1', textY: 178 },
+                { x: 140, y: 140, r: 5, color: '#43e97b', text: 'Đáy 2', textY: 158 },
+                { x: 220, y: 110, r: 5, color: '#43e97b', text: 'Đáy 3', textY: 128 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Ba đáy tăng dần' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Ba đáy, mỗi đáy cao hơn đáy trước. Giống ascending triangle.' },
+            { title: 'Đặc điểm', desc: 'Xuất hiện ở đáy xu hướng giảm. Tích lũy dần.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đỉnh cao nhất. Tỷ lệ thành công: 79%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ đáy 1 đến đỉnh cao nhất.' }
+        ],
+        stats: { successRate: '79%', avgChange: '+22%', timeForm: '3-5 tuần', pullback: '46%' }
+    },
+    {
+        id: 'three-falling-peaks',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Ba Đỉnh Giảm (Three Falling Peaks)',
+        description: 'Mẫu Three Falling Peaks có ba đỉnh giảm dần, mỗi đỉnh thấp hơn đỉnh trước. Báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 60 L 60 100 L 100 80 L 140 120 L 180 100 L 220 140 L 280 120 L 350 180',
+            labels: [
+                { x: 60, y: 80, r: 5, color: '#f5576c', text: 'Đỉnh 1', textY: 68 },
+                { x: 140, y: 100, r: 5, color: '#f5576c', text: 'Đỉnh 2', textY: 88 },
+                { x: 220, y: 120, r: 5, color: '#f5576c', text: 'Đỉnh 3', textY: 108 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Ba đỉnh giảm dần' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Ba đỉnh, mỗi đỉnh thấp hơn đỉnh trước. Giống descending triangle.' },
+            { title: 'Đặc điểm', desc: 'Xuất hiện ở đỉnh xu hướng tăng. Phân phối dần.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đáy thấp nhất. Tỷ lệ thành công: 77%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh 1 đến đáy thấp nhất.' }
+        ],
+        stats: { successRate: '77%', avgChange: '-19%', timeForm: '3-5 tuần', pullback: '48%' }
+    },
+    {
+        id: 'hook-reversal',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu Đảo Chiều Móc (Hook Reversal)',
+        description: 'Mẫu Hook Reversal có dạng móc câu, giá tạo đỉnh/đáy mới rồi đảo chiều ngay tạo thành hình móc.',
+        svg: {
+            path: 'M 30 140 L 80 100 L 120 110 L 160 60 L 200 90 L 250 140 L 300 170 L 350 160',
+            labels: [
+                { x: 160, y: 60, r: 6, color: '#f5576c', text: 'Móc', textY: 48 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Hình móc câu' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tăng tạo đỉnh mới, sau đó đảo chiều nhanh tạo hình móc.' },
+            { title: 'Đặc điểm', desc: 'Hình thành nhanh, 3-5 phiên. Phản ứng nhanh của thị trường.' },
+            { title: 'Xác nhận mẫu', desc: 'Nến xác nhận theo hướng đảo chiều. Tỷ lệ thành công: 65%.' },
+            { title: 'Giao dịch', desc: 'Vào lệnh sau nến xác nhận. StopLoss trên đỉnh móc.' }
+        ],
+        stats: { successRate: '65%', avgChange: '-10%', timeForm: '3-5 ngày', pullback: '58%' }
+    },
+    {
+        id: 'adam-eve-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Adam và Eva Đỉnh (Adam and Eve Top)',
+        description: 'Mẫu Adam-Eve Top có đỉnh nhọn (Adam) bên trái và đỉnh tròn (Eve) bên phải. Báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 L 80 120 L 110 60 L 140 120 L 180 100 Q 220 60, 260 100 L 300 130 L 350 170 L 400 190',
+            labels: [
+                { x: 110, y: 60, r: 6, color: '#f5576c', text: 'Adam', textY: 48 },
+                { x: 220, y: 70, r: 6, color: '#667eea', text: 'Eve', textY: 55 }
+            ],
+            neckline: { x1: 80, y1: 120, x2: 300, y2: 130 }
+        },
+        legend: [
+            { color: '#f5576c', text: 'Adam (đỉnh nhọn)' },
+            { color: '#667eea', text: 'Eve (đỉnh tròn)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh trái nhọn (Adam), đỉnh phải tròn (Eve). Hai đỉnh cách nhau.' },
+            { title: 'Đặc điểm', desc: 'Adam hình thành nhanh, Eve hình thành chậm hơn.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường cổ (neckline). Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh đến neckline.' }
+        ],
+        stats: { successRate: '78%', avgChange: '-17%', timeForm: '2-4 tuần', pullback: '52%' }
+    },
+    {
+        id: 'adam-eve-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Adam và Eva Đáy (Adam and Eve Bottom)',
+        description: 'Mẫu Adam-Eve Bottom có đáy nhọn (Adam) bên trái và đáy tròn (Eve) bên phải. Báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 60 L 80 100 L 110 160 L 140 100 L 180 120 Q 220 160, 260 120 L 300 90 L 350 50 L 400 30',
+            labels: [
+                { x: 110, y: 160, r: 6, color: '#43e97b', text: 'Adam', textY: 175 },
+                { x: 220, y: 150, r: 6, color: '#667eea', text: 'Eve', textY: 165 }
+            ],
+            neckline: { x1: 80, y1: 100, x2: 300, y2: 90 }
+        },
+        legend: [
+            { color: '#43e97b', text: 'Adam (đáy nhọn)' },
+            { color: '#667eea', text: 'Eve (đáy tròn)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đáy trái nhọn (Adam), đáy phải tròn (Eve). Hai đáy cách nhau.' },
+            { title: 'Đặc điểm', desc: 'Adam phản ứng nhanh, Eve tích lũy chậm.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 80%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ đáy đến neckline.' }
+        ],
+        stats: { successRate: '80%', avgChange: '+19%', timeForm: '2-4 tuần', pullback: '48%' }
+    },
+    {
+        id: 'aco-fern-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Aco Fern Đỉnh (Scalloping Top)',
+        description: 'Mẫu Aco Fern có dạng vảy sò liên tiếp ở đỉnh, mỗi đỉnh thấp hơn đỉnh trước, báo hiệu giảm.',
+        svg: {
+            path: 'M 30 100 Q 60 60, 90 80 Q 120 100, 140 90 Q 160 70, 190 85 Q 220 95, 240 88 Q 270 75, 300 90 Q 330 100, 360 95 L 400 140',
+            labels: [
+                { x: 60, y: 65, r: 5, color: '#f5576c', text: 'Vảy 1', textY: 52 },
+                { x: 175, y: 75, r: 5, color: '#f5576c', text: 'Vảy 2', textY: 62 },
+                { x: 285, y: 80, r: 5, color: '#f5576c', text: 'Vảy 3', textY: 67 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Các vảy sò giảm dần' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Nhiều vảy sò (scallop) nhỏ, mỗi đỉnh thấp hơn trước.' },
+            { title: 'Đặc điểm', desc: 'Biến động giảm dần, áp lực bán tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đáy thấp nhất. Tỷ lệ thành công: 62%.' },
+            { title: 'Giao dịch', desc: 'Bán khi phá vỡ. StopLoss trên đỉnh cao nhất.' }
+        ],
+        stats: { successRate: '62%', avgChange: '-12%', timeForm: '4-8 tuần', pullback: '65%' }
+    },
+    {
+        id: 'aco-fern-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Aco Fern Đáy (Scalloping Bottom)',
+        description: 'Mẫu Aco Fern Bottom có dạng vảy sò liên tiếp ở đáy, mỗi đáy cao hơn, báo hiệu tăng.',
+        svg: {
+            path: 'M 30 140 Q 60 180, 90 160 Q 120 140, 140 155 Q 160 175, 190 158 Q 220 145, 240 155 Q 270 170, 300 152 Q 330 140, 360 150 L 400 110',
+            labels: [
+                { x: 60, y: 175, r: 5, color: '#43e97b', text: 'Vảy 1', textY: 190 },
+                { x: 175, y: 170, r: 5, color: '#43e97b', text: 'Vảy 2', textY: 185 },
+                { x: 285, y: 165, r: 5, color: '#43e97b', text: 'Vảy 3', textY: 180 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Các vảy sò tăng dần' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Nhiều vảy sò nhỏ, mỗi đáy cao hơn trước.' },
+            { title: 'Đặc điểm', desc: 'Biến động tăng dần, áp lực mua tích tụ.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đỉnh cao nhất. Tỷ lệ thành công: 65%.' },
+            { title: 'Giao dịch', desc: 'Mua khi phá vỡ. StopLoss dưới đáy thấp nhất.' }
+        ],
+        stats: { successRate: '65%', avgChange: '+14%', timeForm: '4-8 tuần', pullback: '62%' }
+    },
+    {
+        id: 'stalled-pattern',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '10 phút',
+        title: 'Mẫu Kẹt (Stalled Pattern)',
+        description: 'Mẫu Stalled xuất hiện khi xu hướng tăng chậm lại, giá không tạo đỉnh mới, báo hiệu đảo chiều.',
+        svg: {
+            path: 'M 30 200 L 80 160 L 130 120 L 180 80 L 220 75 L 260 78 L 300 76 L 340 80 L 380 110 L 420 150',
+            labels: [
+                { x: 180, y: 80, r: 5, color: '#43e97b', text: 'Tăng mạnh', textY: 68 },
+                { x: 300, y: 70, r: 6, color: '#f5576c', text: 'Kẹt', textY: 58 },
+                { x: 400, y: 130, r: 4, color: '#f5576c', text: 'Đảo', textY: 145 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Vùng giá kẹt' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tăng mạnh, sau đó đi ngang (kẹt) không tạo đỉnh mới.' },
+            { title: 'Đặc điểm', desc: 'Động lượng giảm, volume thấp khi đi ngang.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ dưới vùng kẹt. Tỷ lệ thành công: 68%.' },
+            { title: 'Giao dịch', desc: 'Bán khi phá vỡ. StopLoss trên vùng kẹt.' }
+        ],
+        stats: { successRate: '68%', avgChange: '-11%', timeForm: '1-3 tuần', pullback: '55%' }
+    },
+    {
+        id: 'six-pushes',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Sáu Lần Đẩy (Six or More Pushes)',
+        description: 'Mẫu Six Pushes có 6 hoặc nhiều đợt tăng/đẩy liên tiếp, báo hiệu kiệt sức và đảo chiều giảm.',
+        svg: {
+            path: 'M 30 200 L 50 180 L 70 185 L 90 160 L 110 165 L 130 140 L 150 145 L 170 120 L 190 125 L 210 100 L 230 105 L 250 85 L 270 90 L 290 70 L 320 110 L 370 160',
+            labels: [
+                { x: 90, y: 160, r: 3, color: '#43e97b', text: '1', textY: 175 },
+                { x: 130, y: 140, r: 3, color: '#43e97b', text: '2', textY: 155 },
+                { x: 170, y: 120, r: 3, color: '#43e97b', text: '3', textY: 135 },
+                { x: 210, y: 100, r: 3, color: '#43e97b', text: '4', textY: 115 },
+                { x: 250, y: 85, r: 3, color: '#43e97b', text: '5', textY: 100 },
+                { x: 290, y: 70, r: 4, color: '#f5576c', text: '6', textY: 58 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: '6 đợt đẩy tăng' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: '6 hoặc nhiều đợt tăng (push) liên tiếp, mỗi đợt cao hơn.' },
+            { title: 'Đặc điểm', desc: 'Động lượng yếu dần, volume giảm. Kiệt sức.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường hỗ trợ gần nhất. Tỷ lệ thành công: 72%.' },
+            { title: 'Giao dịch', desc: 'Bán khi phá vỡ. StopLoss trên đỉnh cao nhất.' }
+        ],
+        stats: { successRate: '72%', avgChange: '-15%', timeForm: '3-5 tuần', pullback: '48%' }
+    },
+    {
+        id: 'bump-run-reversal',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '14 phút',
+        title: 'Mẫu Bump and Run Đảo Chiều (BARR Reversal)',
+        description: 'Mẫu BARR Reversal có pha lead-in, bump (đảo ngược) và run. Báo hiệu đảo chiều mạnh.',
+        svg: {
+            path: 'M 30 180 L 80 160 L 130 140 L 180 120 L 200 100 L 170 60 L 140 80 L 100 70 L 60 100 L 40 150',
+            labels: [
+                { x: 130, y: 140, r: 4, color: '#667eea', text: 'Lead-in', textY: 155 },
+                { x: 185, y: 90, r: 5, color: '#f5576c', text: 'Bump', textY: 78 },
+                { x: 80, y: 80, r: 5, color: '#43e97b', text: 'Run', textY: 65 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 180, x2: 180, y2: 120, color: '#667eea' }
+            ]
+        },
+        legend: [
+            { color: '#667eea', text: 'Lead-in (đường dẫn)' },
+            { color: '#f5576c', text: 'Bump (đảo ngược)' },
+            { color: '#43e97b', text: 'Run (chạy)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Lead-in: tăng đều. Bump: đảo ngược đột ngột. Run: chạy theo hướng đảo.' },
+            { title: 'Đặc điểm', desc: 'Bump phải vượt xa đường lead-in.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường lead-in. Tỷ lệ thành công: 85%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ thay đổi = Khoảng cách từ bump đến lead-in.' }
+        ],
+        stats: { successRate: '85%', avgChange: '-22%', timeForm: '2-4 tuần', pullback: '38%' }
+    },
+    {
+        id: 'quasimodo',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Quasimodo (Over and Under)',
+        description: 'Mẫu Quasimodo có đỉnh/đáy cao/thấp hơn rồi đảo chiều vượt qua mức trước đó. Báo hiệu đảo chiều mạnh.',
+        svg: {
+            path: 'M 30 140 L 80 100 L 120 130 L 160 60 L 200 120 L 240 150 L 280 180 L 340 150 L 400 120',
+            labels: [
+                { x: 160, y: 60, r: 6, color: '#f5576c', text: 'Đỉnh', textY: 48 },
+                { x: 280, y: 180, r: 6, color: '#43e97b', text: 'Qua', textY: 195 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Over and Under' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tạo đỉnh mới, kéo về, sau đó giảm qua đáy trước.' },
+            { title: 'Đặc điểm', desc: 'Cấu trúc sóng Elliott. Rất tin cậy.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá giảm qua đáy thấp hơn. Tỷ lệ thành công: 82%.' },
+            { title: 'Giao dịch', desc: 'Bán khi phá vỡ đáy. StopLoss trên đỉnh.' }
+        ],
+        stats: { successRate: '82%', avgChange: '-16%', timeForm: '2-3 tuần', pullback: '45%' }
+    },
+    {
+        id: 'adam-adam-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Adam-Adam Đỉnh (Adam and Adam Top)',
+        description: 'Mẫu Adam-Adam Top có hai đỉnh đều nhọn và sắc. Cả hai đỉnh phản ứng nhanh, báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 L 80 120 L 100 60 L 120 120 L 160 100 L 180 55 L 200 100 L 250 140 L 350 180',
+            labels: [
+                { x: 100, y: 60, r: 6, color: '#f5576c', text: 'Adam 1', textY: 48 },
+                { x: 180, y: 55, r: 6, color: '#f5576c', text: 'Adam 2', textY: 43 }
+            ],
+            neckline: { x1: 80, y1: 120, x2: 200, y2: 100 }
+        },
+        legend: [{ color: '#f5576c', text: 'Hai đỉnh nhọn (Adam-Adam)' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đỉnh đều nhọn, sắc. Phản ứng nhanh cả hai lần.' },
+            { title: 'Đặc điểm', desc: 'Hình thành nhanh hơn Eve. Biến động mạnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 75%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh đến neckline.' }
+        ],
+        stats: { successRate: '75%', avgChange: '-16%', timeForm: '2-3 tuần', pullback: '55%' }
+    },
+    {
+        id: 'adam-adam-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Adam-Adam Đáy (Adam and Adam Bottom)',
+        description: 'Mẫu Adam-Adam Bottom có hai đáy đều nhọn và sắc. Cả hai đáy phản ứng nhanh, báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 60 L 80 100 L 100 160 L 120 100 L 160 120 L 180 165 L 200 120 L 250 90 L 350 50',
+            labels: [
+                { x: 100, y: 160, r: 6, color: '#43e97b', text: 'Adam 1', textY: 175 },
+                { x: 180, y: 165, r: 6, color: '#43e97b', text: 'Adam 2', textY: 180 }
+            ],
+            neckline: { x1: 80, y1: 100, x2: 200, y2: 120 }
+        },
+        legend: [{ color: '#43e97b', text: 'Hai đáy nhọn (Adam-Adam)' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đáy đều nhọn, sắc. Phản ứng nhanh cả hai lần.' },
+            { title: 'Đặc điểm', desc: 'Hình thành nhanh hơn Eve. Biến động mạnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 77%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ neckline đến đáy.' }
+        ],
+        stats: { successRate: '77%', avgChange: '+17%', timeForm: '2-3 tuần', pullback: '52%' }
+    },
+    {
+        id: 'eve-adam-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Eve-Adam Đỉnh (Eve and Adam Top)',
+        description: 'Mẫu Eve-Adam Top có đỉnh trái tròn (Eve), đỉnh phải nhọn (Adam). Báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 Q 70 100, 110 100 Q 140 100, 140 60 L 160 120 L 200 100 L 250 140 L 350 180',
+            labels: [
+                { x: 90, y: 95, r: 6, color: '#667eea', text: 'Eve', textY: 82 },
+                { x: 140, y: 60, r: 6, color: '#f5576c', text: 'Adam', textY: 48 }
+            ],
+            neckline: { x1: 70, y1: 100, x2: 200, y2: 100 }
+        },
+        legend: [
+            { color: '#667eea', text: 'Eve (tròn)' },
+            { color: '#f5576c', text: 'Adam (nhọn)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh trái tròn (Eve), đỉnh phải nhọn (Adam).' },
+            { title: 'Đặc điểm', desc: 'Eve hình thành chậm, Adam phản ứng nhanh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 76%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh đến neckline.' }
+        ],
+        stats: { successRate: '76%', avgChange: '-16%', timeForm: '2-4 tuần', pullback: '53%' }
+    },
+    {
+        id: 'eve-adam-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Eve-Adam Đáy (Eve and Adam Bottom)',
+        description: 'Mẫu Eve-Adam Bottom có đáy trái tròn (Eve), đáy phải nhọn (Adam). Báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 60 Q 70 120, 110 120 Q 140 120, 140 160 L 160 100 L 200 110 L 250 80 L 350 40',
+            labels: [
+                { x: 90, y: 125, r: 6, color: '#667eea', text: 'Eve', textY: 140 },
+                { x: 140, y: 160, r: 6, color: '#43e97b', text: 'Adam', textY: 175 }
+            ],
+            neckline: { x1: 70, y1: 120, x2: 200, y2: 110 }
+        },
+        legend: [
+            { color: '#667eea', text: 'Eve (tròn)' },
+            { color: '#43e97b', text: 'Adam (nhọn)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đáy trái tròn (Eve), đáy phải nhọn (Adam).' },
+            { title: 'Đặc điểm', desc: 'Eve tích lũy chậm, Adam phản ứng nhanh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ neckline đến đáy.' }
+        ],
+        stats: { successRate: '78%', avgChange: '+18%', timeForm: '2-4 tuần', pullback: '50%' }
+    },
+    {
+        id: 'eve-eve-top',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Eve-Eve Đỉnh (Eve and Eve Top)',
+        description: 'Mẫu Eve-Eve Top có hai đỉnh đều tròn. Cả hai đỉnh hình thành chậm, báo hiệu đảo chiều giảm.',
+        svg: {
+            path: 'M 30 160 Q 70 100, 100 80 Q 130 100, 130 100 Q 160 60, 190 80 Q 220 100, 250 140 L 350 180',
+            labels: [
+                { x: 100, y: 80, r: 6, color: '#667eea', text: 'Eve 1', textY: 68 },
+                { x: 190, y: 75, r: 6, color: '#667eea', text: 'Eve 2', textY: 62 }
+            ],
+            neckline: { x1: 70, y1: 100, x2: 220, y2: 100 }
+        },
+        legend: [{ color: '#667eea', text: 'Hai đỉnh tròn (Eve-Eve)' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đỉnh đều tròn. Tích lũy chậm cả hai lần.' },
+            { title: 'Đặc điểm', desc: 'Hình thành lâu nhất trong các biến thể. Biến động nhỏ.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 74%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao từ đỉnh đến neckline.' }
+        ],
+        stats: { successRate: '74%', avgChange: '-14%', timeForm: '3-5 tuần', pullback: '58%' }
+    },
+    {
+        id: 'eve-eve-bottom',
+        category: 'reversal',
+        module: 'Module 2',
+        duration: '12 phút',
+        title: 'Mẫu Eve-Eve Đáy (Eve and Eve Bottom)',
+        description: 'Mẫu Eve-Eve Bottom có hai đáy đều tròn. Cả hai đáy hình thành chậm, báo hiệu đảo chiều tăng.',
+        svg: {
+            path: 'M 30 60 Q 70 120, 100 140 Q 130 120, 130 120 Q 160 160, 190 140 Q 220 120, 250 90 L 350 50',
+            labels: [
+                { x: 100, y: 140, r: 6, color: '#43e97b', text: 'Eve 1', textY: 155 },
+                { x: 190, y: 145, r: 6, color: '#43e97b', text: 'Eve 2', textY: 160 }
+            ],
+            neckline: { x1: 70, y1: 120, x2: 220, y2: 120 }
+        },
+        legend: [{ color: '#43e97b', text: 'Hai đáy tròn (Eve-Eve)' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Hai đáy đều tròn. Tích lũy chậm cả hai lần.' },
+            { title: 'Đặc điểm', desc: 'Hình thành lâu nhất trong các biến thể. Biến động nhỏ.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline. Tỷ lệ thành công: 76%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ neckline đến đáy.' }
+        ],
+        stats: { successRate: '76%', avgChange: '+16%', timeForm: '3-5 tuần', pullback: '55%' }
+    },
+    // ========== CONTINUATION PATTERNS ==========
+    {
+        id: 'cup-handle',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '18 phút',
+        title: 'Mẫu Cốc Tay Cầm (Cup and Handle)',
+        description: 'Mẫu Cốc Tay Cầm là mẫu tiếp diễn tăng mạnh mẽ, có hình dạng giống chiếc cốc với tay cầm. Đây là một trong những mẫu tin cậy nhất.',
+        svg: {
+            path: 'M 30 80 Q 80 80, 100 120 Q 120 180, 180 180 Q 240 180, 260 120 Q 280 80, 320 90 Q 350 110, 380 100 L 420 60',
+            labels: [
+                { x: 180, y: 180, r: 8, color: '#43e97b', text: 'Đáy cốc', textY: 200 },
+                { x: 100, y: 120, r: 6, color: '#667eea', text: 'Rim trái', textY: 105 },
+                { x: 260, y: 120, r: 6, color: '#667eea', text: 'Rim phải', textY: 105 },
+                { x: 350, y: 105, r: 5, color: '#4facfe', text: 'Tay cầm', textY: 90 }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Đáy cốc tròn' },
+            { color: '#4facfe', text: 'Tay cầm (pullback)' },
+            { color: '#667eea', text: 'Rim (đỉnh cốc)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Cốc hình chữ U (không phải V), tay cầm là pullback nhẹ. Rim hai bên bằng nhau.' },
+            { title: 'Tay cầm', desc: 'Pullback nhẹ (10-15% từ rim) hình thành trong 1-3 tuần. Không quá sâu.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ rim với khối lượng tăng mạnh. Tỷ lệ thành công: 88%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao từ rim đến đáy cốc. Thường tăng 25-30%.' }
+        ],
+        stats: { successRate: '88%', avgChange: '+25%', timeForm: '4-8 tuần', pullback: '40%' }
+    },
+    {
+        id: 'ascending-triangle',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '12 phút',
+        title: 'Mẫu Tam Giác Tăng (Ascending Triangle)',
+        description: 'Mẫu Tam Giác Tăng có đường biên trên ngang và đường biên dưới tăng dần. Báo hiệu tiếp diễn xu hướng tăng.',
+        svg: {
+            path: 'M 30 180 L 80 160 L 130 140 L 180 120 L 230 100 L 280 80 L 340 80',
+            labels: [
+                { x: 80, y: 160, r: 5, color: '#43e97b', text: 'Đáy 1', textY: 175 },
+                { x: 180, y: 120, r: 5, color: '#43e97b', text: 'Đáy 2', textY: 135 },
+                { x: 280, y: 80, r: 5, color: '#43e97b', text: 'Đáy 3', textY: 95 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 80, x2: 350, y2: 80, color: '#f5576c' },
+                { x1: 30, y1: 180, x2: 350, y2: 80, color: '#43e97b' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Đường kháng cự ngang' },
+            { color: '#43e97b', text: 'Đường hỗ trợ tăng' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh ngang (kháng cự), đáy tăng dần (hỗ trợ). Mua mạnh hơn bán.' },
+            { title: 'Điểm vào', desc: 'Mua khi phá vỡ đường kháng cự trên với khối lượng lớn.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ với khối lượng cao. Tỷ lệ thành công: 75%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao tam giác tại điểm rộng nhất.' }
+        ],
+        stats: { successRate: '75%', avgChange: '+15%', timeForm: '2-4 tuần', pullback: '54%' }
+    },
+    {
+        id: 'descending-triangle',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '12 phút',
+        title: 'Mẫu Tam Giác Giảm (Descending Triangle)',
+        description: 'Mẫu Tam Giác Giảm có đường biên dưới ngang và đường biên trên giảm dần. Báo hiệu tiếp diễn xu hướng giảm.',
+        svg: {
+            path: 'M 30 80 L 80 100 L 130 120 L 180 140 L 230 160 L 280 180 L 340 180',
+            labels: [
+                { x: 80, y: 100, r: 5, color: '#f5576c', text: 'Đỉnh 1', textY: 85 },
+                { x: 180, y: 140, r: 5, color: '#f5576c', text: 'Đỉnh 2', textY: 125 },
+                { x: 280, y: 180, r: 5, color: '#f5576c', text: 'Đỉnh 3', textY: 165 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 180, x2: 350, y2: 180, color: '#43e97b' },
+                { x1: 30, y1: 80, x2: 350, y2: 180, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Đường hỗ trợ ngang' },
+            { color: '#f5576c', text: 'Đường kháng cự giảm' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đáy ngang (hỗ trợ), đỉnh giảm dần (kháng cự). Bán mạnh hơn mua.' },
+            { title: 'Điểm vào', desc: 'Bán khi phá vỡ đường hỗ trợ dưới với khối lượng lớn.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ với khối lượng cao. Tỷ lệ thành công: 73%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao tam giác tại điểm rộng nhất.' }
+        ],
+        stats: { successRate: '73%', avgChange: '-14%', timeForm: '2-4 tuần', pullback: '56%' }
+    },
+    {
+        id: 'bull-flag',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '10 phút',
+        title: 'Mẫu Cờ Tăng (Bull Flag)',
+        description: 'Mẫu Cờ Tăng xuất hiện sau một đợt tăng mạnh, giá đi ngang/tăng nhẹ trong kênh hẹp rồi tiếp tục tăng.',
+        svg: {
+            path: 'M 30 200 L 100 80 L 150 100 L 200 90 L 250 110 L 300 100 L 350 85 L 400 50',
+            labels: [
+                { x: 65, y: 140, r: 5, color: '#43e97b', text: 'Flagpole', textY: 155 },
+                { x: 220, y: 100, r: 5, color: '#667eea', text: 'Flag', textY: 85 }
+            ],
+            trendlines: [
+                { x1: 100, y1: 80, x2: 300, y2: 115, color: '#667eea' },
+                { x1: 100, y1: 100, x2: 300, y2: 130, color: '#667eea' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Flagpole (cột cờ)' },
+            { color: '#667eea', text: 'Flag (cờ)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tăng mạnh (flagpole), sau đó đi ngang trong kênh hẹp (flag).' },
+            { title: 'Flag', desc: 'Cờ là pullback nhẹ, giá đi ngang hoặc giảm nhẹ trong 1-3 tuần.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường trên của cờ với khối lượng. Tỷ lệ thành công: 80%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều dài flagpole.' }
+        ],
+        stats: { successRate: '80%', avgChange: '+20%', timeForm: '1-3 tuần', pullback: '45%' }
+    },
+    {
+        id: 'bear-flag',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '10 phút',
+        title: 'Mẫu Cờ Giảm (Bear Flag)',
+        description: 'Mẫu Cờ Giảm xuất hiện sau một đợt giảm mạnh, giá đi ngang/giảm nhẹ trong kênh hẹp rồi tiếp tục giảm.',
+        svg: {
+            path: 'M 30 60 L 100 180 L 150 160 L 200 175 L 250 155 L 300 170 L 350 150 L 400 200',
+            labels: [
+                { x: 65, y: 120, r: 5, color: '#f5576c', text: 'Flagpole', textY: 135 },
+                { x: 220, y: 165, r: 5, color: '#667eea', text: 'Flag', textY: 150 }
+            ],
+            trendlines: [
+                { x1: 100, y1: 180, x2: 300, y2: 145, color: '#667eea' },
+                { x1: 100, y1: 160, x2: 300, y2: 125, color: '#667eea' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Flagpole (cột cờ)' },
+            { color: '#667eea', text: 'Flag (cờ)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Giảm mạnh (flagpole), sau đó đi ngang trong kênh hẹp (flag).' },
+            { title: 'Flag', desc: 'Cờ là pullback nhẹ, giá đi ngang hoặc tăng nhẹ trong 1-3 tuần.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường dưới của cờ với khối lượng. Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều dài flagpole.' }
+        ],
+        stats: { successRate: '78%', avgChange: '-18%', timeForm: '1-3 tuần', pullback: '48%' }
+    },
+    {
+        id: 'pennant',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '10 phút',
+        title: 'Mẫu Cờ Đuôi Nhạn (Pennant)',
+        description: 'Mẫu Pennant giống cờ nhưng có hình tam giác đối xứng nhỏ. Xuất hiện sau biến động mạnh và tiếp tục xu hướng.',
+        svg: {
+            path: 'M 30 180 L 100 60 L 150 90 L 200 70 L 250 85 L 300 75 L 350 50',
+            labels: [
+                { x: 65, y: 120, r: 5, color: '#43e97b', text: 'Flagpole', textY: 135 },
+                { x: 200, y: 75, r: 5, color: '#667eea', text: 'Pennant', textY: 60 }
+            ],
+            trendlines: [
+                { x1: 100, y1: 60, x2: 280, y2: 85, color: '#667eea' },
+                { x1: 100, y1: 95, x2: 280, y2: 70, color: '#667eea' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Flagpole' },
+            { color: '#667eea', text: 'Pennant (tam giác nhỏ)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Biến động mạnh (flagpole), sau đó hội tụ trong tam giác nhỏ.' },
+            { title: 'Pennant', desc: 'Tam giác nhỏ, hội tụ nhanh trong vài ngày đến 2 tuần.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ theo hướng xu hướng ban đầu. Tỷ lệ thành công: 76%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ thay đổi = Chiều dài flagpole.' }
+        ],
+        stats: { successRate: '76%', avgChange: '+/-18%', timeForm: '1-2 tuần', pullback: '42%' }
+    },
+    {
+        id: 'rectangle-top',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '12 phút',
+        title: 'Mẫu Hình Chữ Nhật Đỉnh (Rectangle Top)',
+        description: 'Mẫu Rectangle Top là vùng tích lũy hình chữ nhật sau xu hướng tăng, thường tiếp tục tăng sau phá vỡ.',
+        svg: {
+            path: 'M 30 60 L 80 100 L 130 80 L 180 110 L 230 85 L 280 105 L 330 90 L 380 70',
+            labels: [
+                { x: 200, y: 70, r: 5, color: '#667eea', text: 'Upper', textY: 58 },
+                { x: 200, y: 115, r: 5, color: '#f5576c', text: 'Lower', textY: 130 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 60, x2: 380, y2: 70, color: '#667eea' },
+                { x1: 30, y1: 120, x2: 380, y2: 110, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#667eea', text: 'Đường kháng cự' },
+            { color: '#f5576c', text: 'Đường hỗ trợ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Giá dao động giữa hai đường ngang song song sau xu hướng tăng.' },
+            { title: 'Đặc điểm', desc: 'Tích lũy, volume giảm dần trong mẫu.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường trên với khối lượng. Tỷ lệ thành công: 72%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao hình chữ nhật.' }
+        ],
+        stats: { successRate: '72%', avgChange: '+15%', timeForm: '2-4 tuần', pullback: '48%' }
+    },
+    {
+        id: 'rectangle-bottom',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '12 phút',
+        title: 'Mẫu Hình Chữ Nhật Đáy (Rectangle Bottom)',
+        description: 'Mẫu Rectangle Bottom là vùng tích lũy hình chữ nhật sau xu hướng giảm, thường tiếp tục giảm sau phá vỡ.',
+        svg: {
+            path: 'M 30 160 L 80 120 L 130 140 L 180 115 L 230 135 L 280 120 L 330 130 L 380 150',
+            labels: [
+                { x: 200, y: 110, r: 5, color: '#667eea', text: 'Upper', textY: 98 },
+                { x: 200, y: 145, r: 5, color: '#f5576c', text: 'Lower', textY: 160 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 100, x2: 380, y2: 110, color: '#667eea' },
+                { x1: 30, y1: 160, x2: 380, y2: 150, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#667eea', text: 'Đường kháng cự' },
+            { color: '#f5576c', text: 'Đường hỗ trợ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Giá dao động giữa hai đường ngang song song sau xu hướng giảm.' },
+            { title: 'Đặc điểm', desc: 'Tích lũy, volume giảm dần trong mẫu.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường dưới với khối lượng. Tỷ lệ thành công: 70%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao hình chữ nhật.' }
+        ],
+        stats: { successRate: '70%', avgChange: '-12%', timeForm: '2-4 tuần', pullback: '52%' }
+    },
+    {
+        id: 'scallop-ascending',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '14 phút',
+        title: 'Mẫu Vảy Sò Tăng (Scallop Ascending)',
+        description: 'Mẫu Scallop Ascending có hình vảy sò với đáy sau cao hơn đáy trước. Tiếp tục xu hướng tăng.',
+        svg: {
+            path: 'M 30 150 Q 80 80, 130 120 Q 150 140, 180 100 Q 210 140, 260 90 Q 290 130, 340 80 L 400 60',
+            labels: [
+                { x: 80, y: 90, r: 5, color: '#43e97b', text: 'Vảy 1', textY: 78 },
+                { x: 210, y: 100, r: 5, color: '#43e97b', text: 'Vảy 2', textY: 88 },
+                { x: 330, y: 85, r: 5, color: '#43e97b', text: 'Vảy 3', textY: 72 }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Vảy sò tăng dần' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Nhiều vảy sò nối tiếp, mỗi vảy có đáy cao hơn vảy trước.' },
+            { title: 'Đặc điểm', desc: 'Tiếp tục xu hướng tăng. Volume thường giảm trong mẫu.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đỉnh gần nhất. Tỷ lệ thành công: 68%.' },
+            { title: 'Giao dịch', desc: 'Mua khi phá vỡ đỉnh. StopLoss dưới đáy gần nhất.' }
+        ],
+        stats: { successRate: '68%', avgChange: '+18%', timeForm: '3-6 tuần', pullback: '55%' }
+    },
+    {
+        id: 'scallop-descending',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '14 phút',
+        title: 'Mẫu Vảy Sò Giảm (Scallop Descending)',
+        description: 'Mẫu Scallop Descending có hình vảy sò ngược với đỉnh sau thấp hơn đỉnh trước. Tiếp tục giảm.',
+        svg: {
+            path: 'M 30 60 Q 80 130, 130 90 Q 160 70, 190 110 Q 220 80, 270 120 Q 300 100, 350 130 L 400 160',
+            labels: [
+                { x: 80, y: 120, r: 5, color: '#f5576c', text: 'Vảy 1', textY: 135 },
+                { x: 220, y: 110, r: 5, color: '#f5576c', text: 'Vảy 2', textY: 125 },
+                { x: 330, y: 125, r: 5, color: '#f5576c', text: 'Vảy 3', textY: 140 }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Vảy sò giảm dần' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Nhiều vảy sò ngược nối tiếp, mỗi vảy có đỉnh thấp hơn.' },
+            { title: 'Đặc điểm', desc: 'Tiếp tục xu hướng giảm. Volume thường giảm trong mẫu.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đáy gần nhất. Tỷ lệ thành công: 65%.' },
+            { title: 'Giao dịch', desc: 'Bán khi phá vỡ đáy. StopLoss trên đỉnh gần nhất.' }
+        ],
+        stats: { successRate: '65%', avgChange: '-15%', timeForm: '3-6 tuần', pullback: '58%' }
+    },
+    {
+        id: 'cup-high-handle',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '16 phút',
+        title: 'Mẫu Cốc Tay Cầm Cao (Cup with High Handle)',
+        description: 'Mẫu Cup with High Handle có tay cầm nằm cao hơn rim của cốc. Dạng hiếm nhưng tin cậy.',
+        svg: {
+            path: 'M 30 100 Q 80 100, 110 140 Q 140 180, 200 180 Q 260 180, 290 140 Q 320 100, 350 100 L 350 80 Q 380 95, 420 80 L 460 50',
+            labels: [
+                { x: 200, y: 180, r: 8, color: '#43e97b', text: 'Đáy cốc', textY: 198 },
+                { x: 110, y: 130, r: 5, color: '#667eea', text: 'Rim', textY: 118 },
+                { x: 385, y: 70, r: 5, color: '#4facfe', text: 'Handle cao', textY: 58 }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Đáy cốc' },
+            { color: '#4facfe', text: 'Tay cầm cao' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Cốc hình chữ U, tay cầm nằm CAO hơn rim của cốc.' },
+            { title: 'Đặc điểm', desc: 'Dạng hiếm. Cho thấy sức mua rất mạnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ tay cầm. Tỷ lệ thành công: 82%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = 1.5x chiều cao cốc.' }
+        ],
+        stats: { successRate: '82%', avgChange: '+28%', timeForm: '4-8 tuần', pullback: '35%' }
+    },
+    {
+        id: 'cup-low-handle',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '16 phút',
+        title: 'Mẫu Cốc Tay Cầm Thấp (Cup with Low Handle)',
+        description: 'Mẫu Cup with Low Handle có tay cầm nằm thấp hơn rim, là dạng phổ biến hơn của cup and handle.',
+        svg: {
+            path: 'M 30 100 Q 80 100, 110 140 Q 140 180, 200 180 Q 260 180, 290 140 Q 320 100, 350 100 L 350 120 Q 390 145, 420 130 L 460 60',
+            labels: [
+                { x: 200, y: 180, r: 8, color: '#43e97b', text: 'Đáy cốc', textY: 198 },
+                { x: 110, y: 130, r: 5, color: '#667eea', text: 'Rim', textY: 118 },
+                { x: 385, y: 135, r: 5, color: '#f5576c', text: 'Handle thấp', textY: 150 }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Đáy cốc' },
+            { color: '#f5576c', text: 'Tay cầm thấp' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Cốc hình chữ U, tay cầm nằm THẤP hơn rim (pullback).' },
+            { title: 'Đặc điểm', desc: 'Dạng phổ biến. Pullback nhẹ trước khi tăng tiếp.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường kháng cự. Tỷ lệ thành công: 78%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao cốc.' }
+        ],
+        stats: { successRate: '78%', avgChange: '+22%', timeForm: '4-8 tuần', pullback: '45%' }
+    },
+    {
+        id: 'lazy-s',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '12 phút',
+        title: 'Mẫu Chữ S Lười (Lazy S)',
+        description: 'Mẫu Lazy S có hình dạng chữ S nằm ngang, biến động nhỏ và tiếp tục xu hướng ban đầu.',
+        svg: {
+            path: 'M 30 80 Q 80 60, 130 90 Q 180 120, 230 85 Q 280 50, 330 80 Q 380 110, 420 90',
+            labels: [
+                { x: 100, y: 70, r: 4, color: '#667eea', text: 'S', textY: 58 },
+                { x: 280, y: 70, r: 4, color: '#667eea', text: 'l', textY: 58 }
+            ]
+        },
+        legend: [{ color: '#667eea', text: 'Hình chữ S nhẹ' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Biến động nhẹ hình chữ S nằm ngang.' },
+            { title: 'Đặc điểm', desc: 'Không có breakout rõ ràng. Tiếp tục xu hướng chậm.' },
+            { title: 'Xác nhận mẫu', desc: 'Giá tiếp tục xu hướng ban đầu. Tỷ lệ thành công: 58%.' },
+            { title: 'Giao dịch', desc: 'Íu tin cậy, cần kết hợp indicators khác.' }
+        ],
+        stats: { successRate: '58%', avgChange: '+/-8%', timeForm: '2-4 tuần', pullback: '70%' }
+    },
+    {
+        id: 'high-tight-flag',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '14 phút',
+        title: 'Mẫu Cờ Cao Siêu (High and Tight Flag)',
+        description: 'Mẫu High-Tight Flag tăng 90%+ trong 2 tháng, sau đó đi ngang hẹp. Tiếp tục tăng mạnh sau đó.',
+        svg: {
+            path: 'M 30 200 L 80 160 L 130 120 L 180 80 L 220 50 L 250 55 L 280 48 L 320 52 L 360 50 L 400 30',
+            labels: [
+                { x: 130, y: 120, r: 5, color: '#43e97b', text: '+90%', textY: 135 },
+                { x: 290, y: 40, r: 6, color: '#667eea', text: 'Flag', textY: 28 }
+            ],
+            trendlines: [
+                { x1: 220, y1: 45, x2: 360, y2: 48, color: '#667eea' },
+                { x1: 220, y1: 58, x2: 360, y2: 55, color: '#667eea' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Tăng 90%+' },
+            { color: '#667eea', text: 'Cờ hẹp' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Tăng ít nhất 90% trong 2 tháng, sau đó đi ngang hẹp 3-5 tuần.' },
+            { title: 'Đặc điểm', desc: 'Rất hiếm nhưng cực kỳ tin cậy. Flag hẹp và ngắn.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ lên từ flag. Tỷ lệ thành công: 90%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = 50-100% từ điểm phá vỡ.' }
+        ],
+        stats: { successRate: '90%', avgChange: '+50%', timeForm: '6-10 tuần', pullback: '25%' }
+    },
+    {
+        id: 'flag',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '10 phút',
+        title: 'Mẫu Cờ Tổng Quát (Flag)',
+        description: 'Mẫu Cờ là mẫu tiếp diễn phổ biến, có cột cờ (flagpole) và phần cờ (flag) đi ngang/hắt nhẹ. Có thể tăng hoặc giảm.',
+        svg: {
+            path: 'M 30 180 L 100 60 L 150 80 L 200 65 L 250 85 L 300 70 L 350 40',
+            labels: [
+                { x: 65, y: 120, r: 5, color: '#43e97b', text: 'Flagpole', textY: 135 },
+                { x: 220, y: 68, r: 5, color: '#667eea', text: 'Flag', textY: 55 }
+            ],
+            trendlines: [
+                { x1: 100, y1: 60, x2: 300, y2: 80, color: '#667eea' },
+                { x1: 100, y1: 85, x2: 300, y2: 60, color: '#667eea' }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Flagpole (cột cờ)' },
+            { color: '#667eea', text: 'Flag (cờ)' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Biến động mạnh (flagpole), sau đó đi ngang trong kênh hẹp (flag).' },
+            { title: 'Đặc điểm', desc: 'Flag ngắn (1-3 tuần), volume giảm trong flag.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ theo hướng xu hướng ban đầu. Tỷ lệ thành công: 75%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ thay đổi = Chiều dài flagpole.' }
+        ],
+        stats: { successRate: '75%', avgChange: '+/-18%', timeForm: '1-3 tuần', pullback: '45%' }
+    },
+    {
+        id: 'inverted-scallop',
+        category: 'continuation',
+        module: 'Module 3',
+        duration: '14 phút',
+        title: 'Mẫu Vảy Sò Ngược (Inverted Scallop)',
+        description: 'Mẫu Inverted Scallop có hình vòm ngược úp xuống, thường xuất hiện sau xu hướng tăng và tiếp tục tăng.',
+        svg: {
+            path: 'M 30 120 L 80 100 Q 160 40, 240 100 L 300 80 L 380 50',
+            labels: [
+                { x: 160, y: 50, r: 6, color: '#f5576c', text: 'Đỉnh vòm', textY: 38 },
+                { x: 280, y: 75, r: 5, color: '#43e97b', text: 'Tiếp tục', textY: 62 }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Vòm ngược' },
+            { color: '#43e97b', text: 'Tiếp tục xu hướng' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Vòm ngược (inverted cup), đỉnh vòm nằm dưới. Sau đó tăng tiếp.' },
+            { title: 'Đặc điểm', desc: 'Ít phổ biến hơn cup and handle. Có thể hiểu là pullback.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đỉnh vòm. Tỷ lệ thành công: 62%.' },
+            { title: 'Giao dịch', desc: 'Mua khi giá vượt qua đỉnh vòm. StopLoss dưới đáy.' }
+        ],
+        stats: { successRate: '62%', avgChange: '+14%', timeForm: '3-5 tuần', pullback: '58%' }
+    },
+    // ========== BILATERAL PATTERNS ==========
+    {
+        id: 'symmetrical-triangle',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '14 phút',
+        title: 'Mẫu Tam Giác Đối Xứng (Symmetrical Triangle)',
+        description: 'Mẫu Tam Giác Đối Xứng có hai đường biên hội tụ. Có thể phá vỡ theo cả hai hướng, cần đợi xác nhận.',
+        svg: {
+            path: 'M 30 80 L 80 120 L 130 100 L 180 130 L 230 115 L 280 140 L 330 125 L 380 150',
+            labels: [
+                { x: 100, y: 110, r: 4, color: '#a18cd1', text: '', textY: 95 },
+                { x: 250, y: 125, r: 4, color: '#a18cd1', text: '', textY: 110 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 80, x2: 400, y2: 160, color: '#a18cd1' },
+                { x1: 30, y1: 160, x2: 400, y2: 120, color: '#a18cd1' }
+            ]
+        },
+        legend: [
+            { color: '#a18cd1', text: 'Hai đường biên hội tụ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh thấp dần, đáy cao dần, hai đường biên hội tụ thành điểm.' },
+            { title: 'Tính chất', desc: 'Mẫu hai chiều - có thể phá vỡ tăng hoặc giảm. Không dự đoán trước.' },
+            { title: 'Xác nhận mẫu', desc: 'Đợi phá vỡ một trong hai đường biên. Tỷ lệ thành công: 64%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ thay đổi = Chiều cao tam giác tại điểm rộng nhất.' }
+        ],
+        stats: { successRate: '64%', avgChange: '+/-12%', timeForm: '2-4 tuần', pullback: '58%' }
+    },
+    {
+        id: 'broadening-top',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '12 phút',
+        title: 'Mẫu Mở Rộng Đỉnh (Broadening Top)',
+        description: 'Mẫu Mở Rộng Đỉnh có hai đường biên phân kỳ, đỉnh cao dần và đáy thấp dần. Thường báo hiệu đảo chiều.',
+        svg: {
+            path: 'M 30 120 L 80 80 L 130 140 L 180 60 L 230 160 L 280 40 L 330 180 L 380 30',
+            labels: [
+                { x: 100, y: 110, r: 4, color: '#f5576c', text: '', textY: 125 },
+                { x: 250, y: 100, r: 4, color: '#f5576c', text: '', textY: 115 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 120, x2: 400, y2: 30, color: '#f5576c' },
+                { x1: 30, y1: 120, x2: 400, y2: 180, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#f5576c', text: 'Hai đường biên phân kỳ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh cao dần, đáy thấp dần. Hai đường biên mở rộng ra.' },
+            { title: 'Tính chất', desc: 'Biến động tăng dần, thị trường không xác định. Thường ở đỉnh.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường biên dưới. Tỷ lệ thành công khi giảm: 60%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao mẫu tại điểm phá vỡ.' }
+        ],
+        stats: { successRate: '60%', avgChange: '-15%', timeForm: '2-4 tuần', pullback: '65%' }
+    },
+    {
+        id: 'broadening-bottom',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '12 phút',
+        title: 'Mẫu Mở Rộng Đáy (Broadening Bottom)',
+        description: 'Mẫu Mở Rộng Đáy có hai đường biên phân kỳ ở đáy, thường báo hiệu đảo chiều tăng nhưng cũng có thể giảm.',
+        svg: {
+            path: 'M 30 60 L 80 100 L 130 80 L 180 120 L 230 90 L 280 140 L 330 100 L 380 160',
+            labels: [
+                { x: 100, y: 90, r: 4, color: '#43e97b', text: '', textY: 105 },
+                { x: 250, y: 115, r: 4, color: '#43e97b', text: '', textY: 130 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 50, x2: 400, y2: 100, color: '#43e97b' },
+                { x1: 30, y1: 70, x2: 400, y2: 170, color: '#43e97b' }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Hai đường biên phân kỳ' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đỉnh cao dần, đáy thấp dần. Hai đường biên mở rộng ra.' },
+            { title: 'Tính chất', desc: 'Biến động tăng dần, xuất hiện ở đáy xu hướng giảm.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường biên trên. Tỷ lệ thành công khi tăng: 55%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao mẫu tại điểm phá vỡ.' }
+        ],
+        stats: { successRate: '55%', avgChange: '+14%', timeForm: '2-4 tuần', pullback: '68%' }
+    },
+    {
+        id: 'broadening-wedge-ascending',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '14 phút',
+        title: 'Mẫu Nêm Mở Rộng Tăng (Broadening Wedge Ascending)',
+        description: 'Mẫu Nêm Mở Rộng Tăng có hai đường biên dâng lên nhưng mở rộng ra. Thường báo hiệu tiếp tục tăng.',
+        svg: {
+            path: 'M 30 160 L 80 130 L 130 140 L 180 100 L 230 115 L 280 70 L 330 85 L 380 50',
+            labels: [
+                { x: 100, y: 135, r: 4, color: '#43e97b', text: '', textY: 150 },
+                { x: 250, y: 95, r: 4, color: '#43e97b', text: '', textY: 80 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 160, x2: 400, y2: 50, color: '#43e97b' },
+                { x1: 30, y1: 130, x2: 400, y2: 40, color: '#43e97b' }
+            ]
+        },
+        legend: [{ color: '#43e97b', text: 'Hai đường dâng lên, mở rộng' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Cả hai đường biên đều dâng lên, nhưng mở rộng ra.' },
+            { title: 'Tính chất', desc: 'Biến động tăng, thường tiếp tục xu hướng tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường trên. Tỷ lệ thành công khi tăng: 62%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ tăng = Chiều cao mẫu tại điểm phá vỡ.' }
+        ],
+        stats: { successRate: '62%', avgChange: '+16%', timeForm: '3-5 tuần', pullback: '58%' }
+    },
+    {
+        id: 'broadening-wedge-descending',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '14 phút',
+        title: 'Mẫu Nêm Mở Rộng Giảm (Broadening Wedge Descending)',
+        description: 'Mẫu Nêm Mở Rộng Giảm có hai đường biên hạ xuống và mở rộng ra. Thường báo hiệu tiếp tục giảm.',
+        svg: {
+            path: 'M 30 50 L 80 80 L 130 70 L 180 100 L 230 90 L 280 130 L 330 120 L 380 160',
+            labels: [
+                { x: 100, y: 65, r: 4, color: '#f5576c', text: '', textY: 52 },
+                { x: 250, y: 105, r: 4, color: '#f5576c', text: '', textY: 120 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 40, x2: 400, y2: 150, color: '#f5576c' },
+                { x1: 30, y1: 60, x2: 400, y2: 180, color: '#f5576c' }
+            ]
+        },
+        legend: [{ color: '#f5576c', text: 'Hai đường hạ xuống, mở rộng' }],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Cả hai đường biên đều hạ xuống và mở rộng ra.' },
+            { title: 'Tính chất', desc: 'Biến động tăng, thường tiếp tục xu hướng giảm.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ đường dưới. Tỷ lệ thành công khi giảm: 58%.' },
+            { title: 'Mục tiêu giá', desc: 'Độ giảm = Chiều cao mẫu tại điểm phá vỡ.' }
+        ],
+        stats: { successRate: '58%', avgChange: '-14%', timeForm: '3-5 tuần', pullback: '62%' }
+    },
+    {
+        id: 'right-angled-broadening-ascending',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '14 phút',
+        title: 'Mẫu Mở Rộng Vuông Tăng (Right-Angled Broadening Ascending)',
+        description: 'Mẫu có đường đáy ngang và đường đỉnh dâng lên. Hai chiều, cần xác nhận phá vỡ.',
+        svg: {
+            path: 'M 30 140 L 80 140 L 130 110 L 180 140 L 230 80 L 280 140 L 330 60 L 380 140',
+            labels: [
+                { x: 200, y: 145, r: 5, color: '#667eea', text: 'Đáy ngang', textY: 160 },
+                { x: 300, y: 60, r: 5, color: '#f5576c', text: 'Đỉnh dâng', textY: 48 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 140, x2: 400, y2: 140, color: '#667eea' },
+                { x1: 30, y1: 140, x2: 400, y2: 40, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#667eea', text: 'Đáy ngang' },
+            { color: '#f5576c', text: 'Đỉnh dâng lên' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đường đáy nằm ngang, đường đỉnh dâng lên (mở rộng).' },
+            { title: 'Tính chất', desc: 'Mẫu hai chiều. Phá vỡ lên thường tăng, phá vỡ xuống thường giảm.' },
+            { title: 'Xác nhận mẫu', desc: 'Đợi phá vỡ một trong hai đường. Tỷ lệ thành công: 52%.' },
+            { title: 'Giao dịch', desc: 'Vào lệnh theo hướng phá vỡ. StopLoss ngược hướng.' }
+        ],
+        stats: { successRate: '52%', avgChange: '+/-12%', timeForm: '2-4 tuần', pullback: '70%' }
+    },
+    {
+        id: 'right-angled-broadening-descending',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '14 phút',
+        title: 'Mẫu Mở Rộng Vuông Giảm (Right-Angled Broadening Descending)',
+        description: 'Mẫu có đường đỉnh ngang và đường đáy hạ xuống. Hai chiều, cần xác nhận phá vỡ.',
+        svg: {
+            path: 'M 30 60 L 80 60 L 130 90 L 180 60 L 230 120 L 280 60 L 330 140 L 380 60',
+            labels: [
+                { x: 200, y: 55, r: 5, color: '#667eea', text: 'Đỉnh ngang', textY: 42 },
+                { x: 300, y: 140, r: 5, color: '#f5576c', text: 'Đáy hạ', textY: 155 }
+            ],
+            trendlines: [
+                { x1: 30, y1: 60, x2: 400, y2: 60, color: '#667eea' },
+                { x1: 30, y1: 60, x2: 400, y2: 160, color: '#f5576c' }
+            ]
+        },
+        legend: [
+            { color: '#667eea', text: 'Đỉnh ngang' },
+            { color: '#f5576c', text: 'Đáy hạ xuống' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đường đỉnh nằm ngang, đường đáy hạ xuống (mở rộng).' },
+            { title: 'Tính chất', desc: 'Mẫu hai chiều. Thường phá vỡ giảm hơn tăng.' },
+            { title: 'Xác nhận mẫu', desc: 'Đợi phá vỡ một trong hai đường. Tỷ lệ thành công: 55%.' },
+            { title: 'Giao dịch', desc: 'Vào lệnh theo hướng phá vỡ. StopLoss ngược hướng.' }
+        ],
+        stats: { successRate: '55%', avgChange: '-13%', timeForm: '2-4 tuần', pullback: '68%' }
+    },
+    {
+        id: 'complex-head-shoulders',
+        category: 'bilateral',
+        module: 'Module 4',
+        duration: '16 phút',
+        title: 'Mẫu Đầu Vai Phức Tạp (Complex Head and Shoulders)',
+        description: 'Mẫu Complex H&S có nhiều đỉnh phụ trên vai hoặc đầu. Có thể phá vỡ hai chiều.',
+        svg: {
+            path: 'M 30 140 L 60 100 L 90 120 L 120 90 L 150 110 L 180 60 L 220 110 L 260 90 L 300 115 L 340 95 L 380 140',
+            labels: [
+                { x: 60, y: 100, r: 4, color: '#a18cd1', text: 'Vai T', textY: 88 },
+                { x: 120, y: 90, r: 4, color: '#a18cd1', text: 'Vai T2', textY: 78 },
+                { x: 180, y: 60, r: 6, color: '#f5576c', text: 'Đầu', textY: 48 },
+                { x: 260, y: 90, r: 4, color: '#a18cd1', text: 'Vai P', textY: 78 },
+                { x: 340, y: 95, r: 4, color: '#a18cd1', text: 'Vai P2', textY: 83 }
+            ],
+            neckline: { x1: 60, y1: 120, x2: 340, y2: 115 }
+        },
+        legend: [
+            { color: '#f5576c', text: 'Đầu chính' },
+            { color: '#a18cd1', text: 'Nhiều vai phụ' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Đầu giữa, nhiều đỉnh phụ trên mỗi vai. Neckline không đều.' },
+            { title: 'Tính chất', desc: 'Mẫu phức tạp, khó xác định. Có thể hai chiều.' },
+            { title: 'Xác nhận mẫu', desc: 'Phá vỡ neckline với khối lượng. Tỷ lệ thành công: 65%.' },
+            { title: 'Giao dịch', desc: 'Cần thận trọng. Đợi xác nhận rõ ràng trước vào lệnh.' }
+        ],
+        stats: { successRate: '65%', avgChange: '+/-15%', timeForm: '4-8 tuần', pullback: '55%' }
+    },
+    // ========== GAP PATTERNS (4 patterns) ==========
+    {
+        id: 'breakaway-gap',
+        category: 'gap',
+        module: 'Module 5',
+        duration: '10 phút',
+        title: 'Gap Phá Vỡ (Breakaway Gap)',
+        description: 'Gap Phá Vỡ xuất hiện khi giá thoát khỏi vùng cô lập (consolidation) và bắt đầu xu hướng mới.',
+        svg: {
+            path: 'M 30 180 L 80 180 L 80 120 L 150 120 L 200 80 L 280 50 L 350 30',
+            labels: [
+                { x: 55, y: 150, r: 5, color: '#667eea', text: 'Cô lập', textY: 170 },
+                { x: 115, y: 100, r: 6, color: '#43e97b', text: 'GAP', textY: 95 },
+                { x: 250, y: 55, r: 4, color: '#43e97b', text: 'Xu hướng mới', textY: 40 }
+            ],
+            gapArea: { x: 80, y: 120, w: 70, h: 60 }
+        },
+        legend: [
+            { color: '#667eea', text: 'Vùng cô lập' },
+            { color: '#43e97b', text: 'Gap & Xu hướng mới' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Khoảng trống giá khi thoát khỏi vùng tích lũy. Bắt đầu xu hướng mới.' },
+            { title: 'Đặc điểm', desc: 'Khối lượng cao khi gap. Không được lấp đầy trong ngắn hạn.' },
+            { title: 'Xác nhận', desc: 'Gap kèm khối lượng lớn, giá tiếp tục theo hướng gap.' },
+            { title: 'Giao dịch', desc: 'Mua theo hướng gap sau khi xác nhận. Đặt stop dưới gap.' }
+        ],
+        stats: { successRate: '70%', avgChange: '+/-20%', timeForm: '1 ngày', pullback: '35%' }
+    },
+    {
+        id: 'runaway-gap',
+        category: 'gap',
+        module: 'Module 5',
+        duration: '10 phút',
+        title: 'Gap Chạy (Runaway Gap)',
+        description: 'Gap Chạy xuất hiện giữa xu hướng mạnh, xác nhận động lực và đánh dấu điểm 50% của xu hướng.',
+        svg: {
+            path: 'M 30 200 L 60 150 L 90 170 L 120 100 L 120 60 L 160 60 L 200 40 L 260 30 L 300 50 L 340 30',
+            labels: [
+                { x: 75, y: 160, r: 4, color: '#43e97b', text: '', textY: 175 },
+                { x: 140, y: 50, r: 6, color: '#667eea', text: 'GAP 1', textY: 40 },
+                { x: 280, y: 35, r: 6, color: '#667eea', text: 'GAP 2', textY: 22 }
+            ],
+            gapAreas: [
+                { x: 120, y: 60, w: 40, h: 40 },
+                { x: 260, y: 30, w: 40, h: 20 }
+            ]
+        },
+        legend: [
+            { color: '#43e97b', text: 'Xu hướng tăng' },
+            { color: '#667eea', text: 'Runaway Gaps' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Xuất hiện giữa xu hướng mạnh, không ở đầu hoặc cuối.' },
+            { title: 'Ý nghĩa', desc: 'Đánh dấu điểm giữa (50%) của xu hướng. Xác nhận động lực mạnh.' },
+            { title: 'Xác nhận', desc: 'Khối lượng trung bình, gap không được lấp ngay.' },
+            { title: 'Giao dịch', desc: 'Tiếp tục theo xu hướng. Mục tiêu = khoảng cách đã đi × 2.' }
+        ],
+        stats: { successRate: '75%', avgChange: '+/-25%', timeForm: '1 ngày', pullback: '40%' }
+    },
+    {
+        id: 'exhaustion-gap',
+        category: 'gap',
+        module: 'Module 5',
+        duration: '10 phút',
+        title: 'Gap Kiệt Sức (Exhaustion Gap)',
+        description: 'Gap Kiệt Sức xuất hiện cuối xu hướng, báo hiệu động lực cạn kiệt và đảo chiều sắp xảy ra.',
+        svg: {
+            path: 'M 30 200 L 80 150 L 130 100 L 180 60 L 220 60 L 260 30 L 300 30 L 350 80 L 400 130 L 450 180',
+            labels: [
+                { x: 150, y: 80, r: 4, color: '#43e97b', text: 'Tăng', textY: 95 },
+                { x: 240, y: 35, r: 6, color: '#f5576c', text: 'GAP!', textY: 22 },
+                { x: 380, y: 110, r: 4, color: '#f5576c', text: 'Đảo chiều', textY: 125 }
+            ],
+            gapArea: { x: 220, y: 30, w: 40, h: 30 }
+        },
+        legend: [
+            { color: '#43e97b', text: 'Xu hướng tăng' },
+            { color: '#f5576c', text: 'Exhaustion Gap' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Xuất hiện cuối xu hướng mạnh, sau khi đã tăng/giảm nhiều.' },
+            { title: 'Đặc điểm', desc: 'Gap lên nhưng giá không đi được xa, đảo chiều nhanh.' },
+            { title: 'Xác nhận', desc: 'Gap được lấp đầy trong 1-2 ngày. Đảo chiều sau đó.' },
+            { title: 'Giao dịch', desc: 'Chuẩn bị vào lệnh ngược hướng khi gap được lấp.' }
+        ],
+        stats: { successRate: '68%', avgChange: 'Đảo chiều', timeForm: '1-2 ngày', pullback: 'N/A' }
+    },
+    {
+        id: 'common-gap',
+        category: 'gap',
+        module: 'Module 5',
+        duration: '8 phút',
+        title: 'Gap Phổ Biến (Common Gap)',
+        description: 'Gap Phổ Biến xuất hiện trong vùng tích lũy, không có ý nghĩa dự báo và thường được lấp đầy nhanh.',
+        svg: {
+            path: 'M 30 140 L 80 140 L 80 100 L 130 100 L 180 120 L 230 110 L 280 125 L 350 115',
+            labels: [
+                { x: 105, y: 85, r: 5, color: '#667eea', text: 'GAP', textY: 72 },
+                { x: 200, y: 115, r: 4, color: '#a18cd1', text: 'Lấp đầy', textY: 100 }
+            ],
+            gapArea: { x: 80, y: 100, w: 50, h: 40 }
+        },
+        legend: [
+            { color: '#667eea', text: 'Common Gap' },
+            { color: '#a18cd1', text: 'Được lấp đầy' }
+        ],
+        keypoints: [
+            { title: 'Cấu trúc', desc: 'Xuất hiện trong vùng tích lũy, không ở đầu/kết thúc xu hướng.' },
+            { title: 'Đặc điểm', desc: 'Không có ý nghĩa kỹ thuật. Thường được lấp trong vài ngày.' },
+            { title: 'Xác nhận', desc: 'Khối lượng thấp, giá quay về lấp gap nhanh.' },
+            { title: 'Giao dịch', desc: 'Không giao dịch dựa trên gap này. Bỏ qua.' }
+        ],
+        stats: { successRate: 'N/A', avgChange: '0%', timeForm: '1-3 ngày', pullback: '90%' }
+    }
+];
+
+// State with current lesson index
 const state = {
     currentSection: 'home',
     currentQuizQuestion: 0,
@@ -2924,7 +4822,8 @@ const state = {
     totalTimeSpent: 0,
     streak: 3,
     achievements: ['Khởi đầu', 'Học viên', 'Chính xác'],
-    theme: 'dark'
+    theme: 'dark',
+    currentLessonIndex: 0
 };
 
 // Load state from localStorage
@@ -2958,6 +4857,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateStats();
     initSmoothScroll();
     initPatternAnimation();
+    initLessonSystem();
 
     // Show home section
     document.getElementById('home').classList.add('active');
@@ -3214,52 +5114,80 @@ function generatePatternCards() {
 
 function getPatternSVG(key) {
     const svgs = {
-        // Reversal Patterns
-        'head-shoulders': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 Q 30 40, 50 60 Q 70 80, 100 30 Q 130 80, 150 60 Q 170 40, 190 70" stroke="#667eea" stroke-width="2" fill="none"/><circle cx="50" cy="60" r="4" fill="#764ba2"/><circle cx="100" cy="30" r="5" fill="#764ba2"/><circle cx="150" cy="60" r="4" fill="#764ba2"/><line x1="10" y1="70" x2="190" y2="70" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/></svg>`,
-        'inverse-head-shoulders': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 Q 30 70, 50 50 Q 70 30, 100 90 Q 130 30, 150 50 Q 170 70, 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="4" fill="#43e97b"/><circle cx="100" cy="90" r="5" fill="#43e97b"/><circle cx="150" cy="50" r="4" fill="#43e97b"/></svg>`,
-        'double-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 40 L 80 80 L 120 40 L 160 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="40" cy="40" r="4" fill="#f5576c"/><circle cx="120" cy="40" r="4" fill="#f5576c"/><line x1="10" y1="80" x2="180" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,5"/></svg>`,
-        'double-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 80 L 80 40 L 120 80 L 160 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="40" cy="80" r="4" fill="#43e97b"/><circle cx="120" cy="80" r="4" fill="#43e97b"/></svg>`,
-        'triple-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 30 40 L 60 80 L 100 40 L 140 80 L 170 40 L 190 100" stroke="#c471f5" stroke-width="2" fill="none"/><circle cx="30" cy="40" r="3" fill="#c471f5"/><circle cx="100" cy="40" r="3" fill="#c471f5"/><circle cx="170" cy="40" r="3" fill="#c471f5"/></svg>`,
-        'triple-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 30 80 L 60 40 L 100 80 L 140 40 L 170 80 L 190 20" stroke="#00c6fb" stroke-width="2" fill="none"/><circle cx="30" cy="80" r="3" fill="#00c6fb"/><circle cx="100" cy="80" r="3" fill="#00c6fb"/><circle cx="170" cy="80" r="3" fill="#00c6fb"/></svg>`,
-        'rising-wedge': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 70 L 90 80 L 130 50 L 170 60 L 190 40" stroke="#ff9a9e" stroke-width="2" fill="none"/><line x1="10" y1="100" x2="190" y2="60" stroke="#ff9a9e" stroke-width="1"/><line x1="10" y1="80" x2="190" y2="40" stroke="#ff9a9e" stroke-width="1"/></svg>`,
-        'falling-wedge': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 90 50 L 130 80 L 170 70 L 190 100" stroke="#30cfd0" stroke-width="2" fill="none"/><line x1="10" y1="30" x2="190" y2="80" stroke="#30cfd0" stroke-width="1"/><line x1="10" y1="50" x2="190" y2="100" stroke="#30cfd0" stroke-width="1"/></svg>`,
-        'v-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 80 30 L 100 20 L 120 30 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="100" cy="20" r="4" fill="#f5576c"/></svg>`,
-        'v-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 20 L 80 90 L 100 100 L 120 90 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="100" cy="100" r="4" fill="#43e97b"/></svg>`,
-        'rounding-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 Q 50 100, 100 50 Q 150 20, 190 80" stroke="#f093fb" stroke-width="2" fill="none"/></svg>`,
-        'rounding-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 20 Q 50 20, 100 70 Q 150 100, 190 40" stroke="#4facfe" stroke-width="2" fill="none"/></svg>`,
-        'diamond-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 60 L 50 30 L 100 10 L 150 30 L 190 60 L 150 90 L 100 110 L 50 90 Z" stroke="#a18cd1" stroke-width="2" fill="none"/><path d="M 30 60 L 70 40 L 100 30 L 130 40 L 170 60" stroke="#a18cd1" stroke-width="1.5" fill="none"/></svg>`,
-        'diamond-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 60 L 50 30 L 100 10 L 150 30 L 190 60 L 150 90 L 100 110 L 50 90 Z" stroke="#4facfe" stroke-width="2" fill="none"/><path d="M 30 60 L 70 80 L 100 90 L 130 80 L 170 60" stroke="#4facfe" stroke-width="1.5" fill="none"/></svg>`,
+        // ========== REVERSAL PATTERNS ==========
+        'head-shoulders': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 Q 30 40, 50 60 Q 70 80, 100 30 Q 130 80, 150 60 Q 170 40, 190 70" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="50" cy="60" r="3" fill="#f5576c"/><circle cx="100" cy="30" r="3" fill="#f5576c"/><circle cx="150" cy="60" r="3" fill="#f5576c"/><line x1="10" y1="70" x2="190" y2="70" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="50" y="50" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Vai</text><text x="100" y="20" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đầu</text><text x="150" y="50" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Vai</text><text x="100" y="90" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đầu Vai: 3 đỉnh, giữa cao nhất → Phá neckline → Giảm</text></svg>`,
+        'inverse-head-shoulders': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 Q 30 70, 50 50 Q 70 30, 100 90 Q 130 30, 150 50 Q 170 70, 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="3" fill="#43e97b"/><circle cx="100" cy="90" r="3" fill="#43e97b"/><circle cx="150" cy="50" r="3" fill="#43e97b"/><line x1="10" y1="50" x2="190" y2="50" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="50" y="60" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Vai</text><text x="100" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đầu</text><text x="150" y="60" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Vai</text><text x="100" y="42" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đầu Vai Ngược: 3 đáy, giữa thấp nhất → Phá neckline → Tăng</text></svg>`,
+        'double-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 40 L 80 80 L 120 40 L 160 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="40" cy="40" r="3" fill="#f5576c"/><circle cx="120" cy="40" r="3" fill="#f5576c"/><line x1="10" y1="80" x2="180" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="30" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 1</text><text x="120" y="30" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 2</text><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đỉnh Kép: 2 đỉnh bằng nhau → Phá neckline → Giảm</text></svg>`,
+        'double-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 80 L 80 40 L 120 80 L 160 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="40" cy="80" r="3" fill="#43e97b"/><circle cx="120" cy="80" r="3" fill="#43e97b"/><line x1="10" y1="40" x2="180" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 1</text><text x="120" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 2</text><text x="100" y="35" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đáy Kép: 2 đáy bằng nhau → Phá neckline → Tăng</text></svg>`,
+        'triple-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 30 40 L 60 80 L 100 40 L 140 80 L 170 40 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="30" cy="40" r="3" fill="#f5576c"/><circle cx="100" cy="40" r="3" fill="#f5576c"/><circle cx="170" cy="40" r="3" fill="#f5576c"/><line x1="10" y1="80" x2="190" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="30" y="30" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 1</text><text x="100" y="30" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 2</text><text x="170" y="30" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 3</text><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đỉnh Ba: 3 đỉnh bằng nhau → Phá neckline → Giảm</text></svg>`,
+        'triple-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 30 80 L 60 40 L 100 80 L 140 40 L 170 80 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="30" cy="80" r="3" fill="#43e97b"/><circle cx="100" cy="80" r="3" fill="#43e97b"/><circle cx="170" cy="80" r="3" fill="#43e97b"/><line x1="10" y1="40" x2="190" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="30" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 1</text><text x="100" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 2</text><text x="170" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 3</text><text x="100" y="35" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đáy Ba: 3 đáy bằng nhau → Phá neckline → Tăng</text></svg>`,
+        'rising-wedge': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 70 L 90 80 L 130 50 L 170 60 L 190 40" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="10" y1="100" x2="190" y2="55" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="75" x2="190" y2="35" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="70" r="3" fill="#f5576c"/><circle cx="130" cy="50" r="3" fill="#f5576c"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2 đường dâng lên</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Nêm Tăng: Dâng lên hội tụ → Phá đáy → Giảm</text></svg>`,
+        'falling-wedge': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 90 50 L 130 80 L 170 70 L 190 100" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="10" y1="25" x2="190" y2="85" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="50" x2="190" y2="105" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="60" r="3" fill="#43e97b"/><circle cx="130" cy="80" r="3" fill="#43e97b"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2 đường hạ xuống</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Nêm Giảm: Hạ xuống hội tụ → Phá đỉnh → Tăng</text></svg>`,
+        'rounding-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 Q 30 95, 50 85 Q 70 70, 90 50 Q 110 30, 130 50 Q 150 70, 170 85 Q 185 95, 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="110" cy="30" r="3" fill="#f5576c"/><line x1="10" y1="95" x2="190" y2="95" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="110" y="20" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh tròn</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đỉnh Tròn: Nhiều đỉnh tròn → Giảm dần</text></svg>`,
+        'rounding-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 20 Q 30 25, 50 35 Q 70 50, 90 70 Q 110 90, 130 70 Q 150 50, 170 35 Q 185 25, 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="110" cy="90" r="3" fill="#43e97b"/><line x1="10" y1="25" x2="190" y2="25" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="110" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy tròn</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đáy Tròn: Nhiều đáy tròn → Tăng dần</text></svg>`,
+        'v-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 80 30 L 100 20 L 120 30 L 190 90" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="100" cy="20" r="3" fill="#f5576c"/><line x1="80" y1="35" x2="120" y2="35" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="100" y="12" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh nhọn</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">V-Top: Tăng nhanh → Đỉnh nhọn → Giảm nhanh</text></svg>`,
+        'v-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 80 90 L 100 100 L 120 90 L 190 30" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="100" cy="100" r="3" fill="#43e97b"/><line x1="80" y1="85" x2="120" y2="85" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="100" y="112" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy nhọn</text><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">V-Bottom: Giảm nhanh → Đáy nhọn → Tăng nhanh</text></svg>`,
+        'diamond-top': `<svg viewBox="0 0 200 120"><path d="M 100 10 L 160 50 L 100 95 L 40 50 Z" fill="rgba(245,87,108,0.1)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><path class="pattern-svg" d="M 10 80 L 40 50 L 70 65 L 100 30 L 130 65 L 160 50 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="100" cy="30" r="3" fill="#f5576c"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh kim cương</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Kim Cương Đỉnh: Hình thoi tại đỉnh → Phá đáy → Giảm</text></svg>`,
+        'diamond-bottom': `<svg viewBox="0 0 200 120"><path d="M 100 20 L 160 70 L 100 110 L 40 70 Z" fill="rgba(67,233,123,0.1)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><path class="pattern-svg" d="M 10 20 L 40 70 L 70 55 L 100 90 L 130 55 L 160 70 L 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="100" cy="90" r="3" fill="#43e97b"/><text x="100" y="105" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy kim cương</text><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Kim Cương Đáy: Hình thoi tại đáy → Phá đỉnh → Tăng</text></svg>`,
+        'island-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 50 90" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="50" y1="90" x2="50" y2="60" stroke="#667eea" stroke-width="1" stroke-dasharray="4,3"/><rect x="55" y="40" width="85" height="35" fill="rgba(245,87,108,0.15)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 55 L 80 48 L 100 58 L 120 45 L 135 52" stroke="#f5576c" stroke-width="1.5" fill="none"/><line x1="140" y1="60" x2="140" y2="95" stroke="#667eea" stroke-width="1" stroke-dasharray="4,3"/><path d="M 145 95 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="100" cy="55" r="3" fill="#f5576c"/><text x="50" y="80" fill="#667eea" font-size="6" text-anchor="middle">Gap↑</text><text x="140" y="85" fill="#667eea" font-size="6" text-anchor="middle">Gap↓</text><text x="100" y="32" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đảo (Island)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đảo Đỉnh: Gap lên → Đảo cô lập → Gap xuống → Giảm</text></svg>`,
+        'island-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 30" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="50" y1="30" x2="50" y2="55" stroke="#667eea" stroke-width="1" stroke-dasharray="4,3"/><rect x="55" y="45" width="85" height="35" fill="rgba(67,233,123,0.15)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 60 L 80 68 L 100 58 L 120 70 L 135 63" stroke="#43e97b" stroke-width="1.5" fill="none"/><line x1="140" y1="55" x2="140" y2="25" stroke="#667eea" stroke-width="1" stroke-dasharray="4,3"/><path d="M 145 25 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="100" cy="65" r="3" fill="#43e97b"/><text x="50" y="48" fill="#667eea" font-size="6" text-anchor="middle">Gap↓</text><text x="140" y="35" fill="#667eea" font-size="6" text-anchor="middle">Gap↑</text><text x="100" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đảo (Island)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đảo Đáy: Gap xuống → Đảo cô lập → Gap lên → Tăng</text></svg>`,
+        'island-reversal': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 60 L 50 60" stroke="#667eea" stroke-width="2" fill="none"/><line x1="50" y1="60" x2="50" y2="40" stroke="#a18cd1" stroke-width="1" stroke-dasharray="4,3"/><rect x="55" y="30" width="85" height="45" fill="rgba(161,140,209,0.15)" stroke="#a18cd1" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 50 L 80 42 L 100 55 L 120 40 L 135 48" stroke="#a18cd1" stroke-width="1.5" fill="none"/><line x1="140" y1="60" x2="140" y2="80" stroke="#a18cd1" stroke-width="1" stroke-dasharray="4,3"/><path d="M 145 80 L 190 85" stroke="#a18cd1" stroke-width="2" fill="none"/><circle cx="100" cy="50" r="3" fill="#a18cd1"/><text x="50" y="52" fill="#a18cd1" font-size="6" text-anchor="middle">Gap</text><text x="140" y="72" fill="#a18cd1" font-size="6" text-anchor="middle">Gap</text><text x="100" y="22" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đảo (Island)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đảo Chiều: Giá bị cô lập bởi 2 gaps → Đảo chiều</text></svg>`,
+        'pipe-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 50 45" stroke="#f5576c" stroke-width="2" fill="none"/><rect x="55" y="25" width="50" height="30" fill="rgba(245,87,108,0.15)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><line x1="65" y1="25" x2="65" y2="12" stroke="#f5576c" stroke-width="2"/><line x1="80" y1="25" x2="80" y2="12" stroke="#f5576c" stroke-width="2"/><line x1="95" y1="25" x2="95" y2="12" stroke="#f5576c" stroke-width="2"/><path d="M 105 40 L 150 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="80" cy="25" r="3" fill="#f5576c"/><text x="80" y="45" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2-3 nến dài</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Ống Đỉnh: 2-3 nến dài tại đỉnh → Giảm mạnh</text></svg>`,
+        'pipe-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 75" stroke="#43e97b" stroke-width="2" fill="none"/><rect x="55" y="60" width="50" height="35" fill="rgba(67,233,123,0.15)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><line x1="65" y1="95" x2="65" y2="108" stroke="#43e97b" stroke-width="2"/><line x1="80" y1="95" x2="80" y2="108" stroke="#43e97b" stroke-width="2"/><line x1="95" y1="95" x2="95" y2="108" stroke="#43e97b" stroke-width="2"/><path d="M 105 80 L 150 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="80" cy="95" r="3" fill="#43e97b"/><text x="80" y="78" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2-3 nến dài</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Ống Đáy: 2-3 nến dài tại đáy → Tăng mạnh</text></svg>`,
+        'tower-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 30 55" stroke="#f5576c" stroke-width="2" fill="none"/><rect x="30" y="30" width="18" height="28" fill="rgba(245,87,108,0.2)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><rect x="50" y="30" width="18" height="28" fill="rgba(245,87,108,0.25)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><rect x="70" y="30" width="18" height="28" fill="rgba(245,87,108,0.3)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><rect x="90" y="30" width="18" height="28" fill="rgba(245,87,108,0.3)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><rect x="110" y="30" width="18" height="28" fill="rgba(245,87,108,0.25)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><rect x="130" y="30" width="18" height="28" fill="rgba(245,87,108,0.2)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><path d="M 148 58 L 170 85 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="25" y1="65" x2="155" y2="65" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><circle cx="80" cy="30" r="3" fill="#f5576c"/><text x="80" y="22" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Tháp nến</text><text x="100" y="80" fill="#f5576c" font-size="6" text-anchor="middle">Hỗ trợ</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Tháp Đỉnh: Nến gom tạo tháp → Phá hỗ trợ → Giảm</text></svg>`,
+        'tower-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 30 65" stroke="#43e97b" stroke-width="2" fill="none"/><rect x="30" y="58" width="18" height="28" fill="rgba(67,233,123,0.2)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><rect x="50" y="58" width="18" height="28" fill="rgba(67,233,123,0.25)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><rect x="70" y="58" width="18" height="28" fill="rgba(67,233,123,0.3)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><rect x="90" y="58" width="18" height="28" fill="rgba(67,233,123,0.3)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><rect x="110" y="58" width="18" height="28" fill="rgba(67,233,123,0.25)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><rect x="130" y="58" width="18" height="28" fill="rgba(67,233,123,0.2)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><path d="M 148 62 L 170 35 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="25" y1="55" x2="155" y2="55" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><circle cx="80" cy="86" r="3" fill="#43e97b"/><text x="80" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Tháp nến</text><text x="100" y="50" fill="#43e97b" font-size="6" text-anchor="middle">Kháng cự</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Tháp Đáy: Nến gom tạo tháp → Phá kháng cự → Tăng</text></svg>`,
+        'horn-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 50 50 L 100 70 L 150 50 L 190 30" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="3" fill="#f5576c"/><circle cx="150" cy="50" r="3" fill="#f5576c"/><line x1="45" y1="45" x2="155" y2="45" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="50" y="40" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Sừng 1</text><text x="150" y="40" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Sừng 2</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Sừng Đỉnh: 2 đỉnh cao dần → Giảm</text></svg>`,
+        'horn-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 100 40 L 150 60 L 190 80" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="50" cy="60" r="3" fill="#43e97b"/><circle cx="150" cy="60" r="3" fill="#43e97b"/><line x1="45" y1="65" x2="155" y2="65" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="50" y="78" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Sừng 1</text><text x="150" y="78" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Sừng 2</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Sừng Đáy: 2 đáy thấp dần → Tăng</text></svg>`,
+        'bump-run-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 50 85 L 80 70 L 110 35 L 140 50 L 170 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="10" y1="85" x2="110" y2="85" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><line x1="80" y1="70" x2="140" y2="50" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><circle cx="110" cy="35" r="3" fill="#f5576c"/><text x="60" y="80" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Lead-in</text><text x="110" y="25" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Bump</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Bump & Run: Tăng dốc → Bump đột ngột → Run → Giảm</text></svg>`,
+        'bump-run-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 35 L 80 50 L 110 85 L 140 70 L 170 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="10" y1="35" x2="110" y2="35" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><line x1="80" y1="50" x2="140" y2="70" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><circle cx="110" cy="85" r="3" fill="#43e97b"/><text x="60" y="42" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Lead-in</text><text x="110" y="98" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Bump</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Bump & Run Đáy: Giảm dốc → Bump đột ngột → Run → Tăng</text></svg>`,
+        'adam-adam-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 35 L 80 80 L 120 35 L 160 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="40" cy="35" r="3" fill="#f5576c"/><circle cx="120" cy="35" r="3" fill="#f5576c"/><line x1="10" y1="80" x2="180" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="25" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="120" y="25" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Adam Adam Đỉnh: 2 đỉnh nhọn → Phá neckline → Giảm</text></svg>`,
+        'adam-adam-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 85 L 80 40 L 120 85 L 160 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="40" cy="85" r="3" fill="#43e97b"/><circle cx="120" cy="85" r="3" fill="#43e97b"/><line x1="10" y1="40" x2="180" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="98" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="120" y="98" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="100" y="35" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Adam Adam Đáy: 2 đáy nhọn → Phá neckline → Tăng</text></svg>`,
+        'adam-eve-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 35 L 80 80 L 120 25 L 160 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="40" cy="35" r="3" fill="#f5576c"/><circle cx="120" cy="25" r="3" fill="#f5576c"/><line x1="10" y1="80" x2="180" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="25" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="120" y="18" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Adam Eve Đỉnh: Đỉnh nhọn + Đỉnh tròn → Giảm</text></svg>`,
+        'adam-eve-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 85 L 80 40 L 120 95 L 160 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="40" cy="85" r="3" fill="#43e97b"/><circle cx="120" cy="95" r="3" fill="#43e97b"/><line x1="10" y1="40" x2="180" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="98" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="120" y="108" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="100" y="35" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Adam Eve Đáy: Đáy nhọn + Đáy tròn → Tăng</text></svg>`,
+        'eve-adam-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 25 L 80 80 L 120 35 L 160 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="40" cy="25" r="3" fill="#f5576c"/><circle cx="120" cy="35" r="3" fill="#f5576c"/><line x1="10" y1="80" x2="180" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="18" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="120" y="25" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Eve Adam Đỉnh: Đỉnh tròn + Đỉnh nhọn → Giảm</text></svg>`,
+        'eve-adam-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 95 L 80 40 L 120 85 L 160 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="40" cy="95" r="3" fill="#43e97b"/><circle cx="120" cy="85" r="3" fill="#43e97b"/><line x1="10" y1="40" x2="180" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="108" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="120" y="98" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Adam</text><text x="100" y="35" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Eve Adam Đáy: Đáy tròn + Đáy nhọn → Tăng</text></svg>`,
+        'eve-eve-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 25 L 80 80 L 120 25 L 160 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="40" cy="25" r="3" fill="#f5576c"/><circle cx="120" cy="25" r="3" fill="#f5576c"/><line x1="10" y1="80" x2="180" y2="80" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="18" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="120" y="18" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Eve Eve Đỉnh: 2 đỉnh tròn → Phá neckline → Giảm</text></svg>`,
+        'eve-eve-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 95 L 80 40 L 120 95 L 160 40 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="40" cy="95" r="3" fill="#43e97b"/><circle cx="120" cy="95" r="3" fill="#43e97b"/><line x1="10" y1="40" x2="180" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="40" y="108" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="120" y="108" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Eve</text><text x="100" y="35" fill="#43e97b" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Eve Eve Đáy: 2 đáy tròn → Phá neckline → Tăng</text></svg>`,
+        'three-rising-valleys': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 30 50 L 50 70 L 80 40 L 100 60 L 130 30 L 150 50 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="50" cy="70" r="3" fill="#43e97b"/><circle cx="100" cy="60" r="3" fill="#43e97b"/><circle cx="150" cy="50" r="3" fill="#43e97b"/><line x1="45" y1="75" x2="155" y2="45" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><text x="50" y="85" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 1</text><text x="100" y="75" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 2</text><text x="150" y="65" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 3</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Ba Đáy Tăng: 3 đáy cao dần → Xu hướng tăng</text></svg>`,
+        'three-falling-peaks': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 20 L 30 70 L 50 50 L 80 80 L 100 60 L 130 90 L 150 70 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="3" fill="#f5576c"/><circle cx="100" cy="60" r="3" fill="#f5576c"/><circle cx="150" cy="70" r="3" fill="#f5576c"/><line x1="45" y1="45" x2="155" y2="75" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><text x="50" y="40" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 1</text><text x="100" y="50" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 2</text><text x="150" y="60" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 3</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Ba Đỉnh Giảm: 3 đỉnh thấp dần → Xu hướng giảm</text></svg>`,
+        'hook-reversal': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 60 80 L 60 50 L 70 30 L 80 50 L 80 80 L 190 80" stroke="#667eea" stroke-width="2" fill="none"/><circle cx="70" cy="30" r="3" fill="#f5576c"/><path d="M 60 38 Q 70 22, 80 38" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/><line x1="10" y1="80" x2="190" y2="80" stroke="#667eea" stroke-width="1" stroke-dasharray="5,3"/><text x="70" y="20" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Hook</text><text x="70" y="95" fill="#667eea" font-size="6" text-anchor="middle">Đường cơ sở</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Hook: Móc ngược tại đỉnh/đáy → Đảo chiều</text></svg>`,
 
-        // Continuation Patterns
-        'cup-handle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 40 Q 50 100, 100 100 Q 150 100, 190 40 L 190 70" stroke="#fa709a" stroke-width="2" fill="none"/></svg>`,
-        'ascending-triangle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 60 L 90 70 L 130 50 L 170 55 L 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="10" y1="40" x2="190" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,5"/></svg>`,
-        'descending-triangle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 90 50 L 130 70 L 170 60 L 190 80" stroke="#ff6b6b" stroke-width="2" fill="none"/><line x1="10" y1="80" x2="190" y2="80" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="5,5"/></svg>`,
-        'flag': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 30 L 190 50" stroke="#fbc2eb" stroke-width="2" fill="none"/><rect x="40" y="30" width="140" height="25" fill="none" stroke="#fbc2eb" stroke-width="1" stroke-dasharray="3,3"/></svg>`,
-        'high-tight-flag': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 40 20 L 190 35" stroke="#f5576c" stroke-width="2" fill="none"/><rect x="40" y="20" width="140" height="20" fill="none" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/></svg>`,
-        'rectangle-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 40 L 190 40 M 10 80 L 190 80" stroke="#667eea" stroke-width="2" fill="none"/><path d="M 30 40 L 30 60 L 60 50 L 90 60 L 120 55 L 150 60 L 180 55 L 180 80" stroke="#667eea" stroke-width="1.5" fill="none"/></svg>`,
-        'rectangle-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 40 L 190 40 M 10 80 L 190 80" stroke="#43e97b" stroke-width="2" fill="none"/><path d="M 30 40 L 30 60 L 60 55 L 90 60 L 120 55 L 150 60 L 180 55 L 180 80" stroke="#43e97b" stroke-width="1.5" fill="none"/></svg>`,
+        // ========== CONTINUATION PATTERNS ==========
+        'cup-handle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 70 L 25 45" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="25" cy="45" r="3" fill="#43e97b"/><path class="pattern-svg" d="M 25 45 Q 40 55, 55 85 Q 70 105, 100 105 Q 130 105, 145 85 Q 160 55, 170 45" stroke="#43e97b" stroke-width="2" fill="none"/><ellipse cx="100" cy="75" rx="55" ry="35" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><circle cx="100" cy="105" r="3" fill="#43e97b"/><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy cốc</text><path d="M 170 45 Q 175 55, 180 50 Q 185 55, 190 45" stroke="#fa709a" stroke-width="2" fill="none"/><rect x="165" y="40" width="28" height="20" stroke="#fa709a" stroke-width="1" stroke-dasharray="3,3" fill="none"/><text x="178" y="75" fill="#fa709a" font-size="6" text-anchor="middle">Tay cầm</text><line x1="20" y1="45" x2="170" y2="45" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="100" y="25" fill="#43e97b" font-size="7" text-anchor="middle">CỐC (Cup)</text><text x="100" y="38" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy tròn, 2 vai bằng nhau</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cốc Tay Cầm: Đáy tròn + Tay nhỏ → Phá vỡ → Tăng tiếp</text></svg>`,
+        'cup-high-handle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 50 L 30 50" stroke="#43e97b" stroke-width="2" fill="none"/><path class="pattern-svg" d="M 30 50 Q 70 105, 110 105 Q 150 105, 170 50" stroke="#43e97b" stroke-width="2" fill="none"/><ellipse cx="110" cy="75" rx="50" ry="35" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path d="M 170 50 Q 175 55, 180 52 Q 185 48, 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><rect x="165" y="38" width="25" height="22" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><text x="177" y="55" fill="rgba(255,255,255,0.5)" font-size="5" text-anchor="middle">Tay cao</text><line x1="20" y1="50" x2="190" y2="50" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="110" y="25" fill="#43e97b" font-size="7" text-anchor="middle">CỐC (Cup)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cốc Tay Cao: Tay cầm ở mức cao → Tăng mạnh</text></svg>`,
+        'cup-low-handle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 40 L 30 40" stroke="#43e97b" stroke-width="2" fill="none"/><path class="pattern-svg" d="M 30 40 Q 70 108, 110 108 Q 150 108, 170 40" stroke="#43e97b" stroke-width="2" fill="none"/><ellipse cx="110" cy="75" rx="50" ry="35" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path d="M 170 40 Q 175 55, 180 65 Q 185 75, 190 70" stroke="#f5576c" stroke-width="2" fill="none"/><rect x="165" y="62" width="25" height="18" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3" fill="none"/><text x="177" y="75" fill="rgba(255,255,255,0.5)" font-size="5" text-anchor="middle">Tay thấp</text><line x1="20" y1="40" x2="170" y2="40" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><text x="110" y="25" fill="#43e97b" font-size="7" text-anchor="middle">CỐC (Cup)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cốc Tay Thấp: Tay cầm thấp hơn → Tăng vừa</text></svg>`,
+        'ascending-triangle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 60 L 90 75 L 130 50 L 170 60 L 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="10" y1="40" x2="190" y2="40" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="60" r="3" fill="#43e97b"/><circle cx="130" cy="50" r="3" fill="#43e97b"/><circle cx="90" cy="75" r="3" fill="#43e97b"/><text x="100" y="25" fill="#43e97b" font-size="6" text-anchor="middle">Kháng cự ngang</text><text x="100" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy cao dần</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Tam Giác Tăng: Đáy cao dần + Kháng cự ngang → Phá → Tăng</text></svg>`,
+        'descending-triangle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 90 50 L 130 70 L 170 60 L 190 80" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="10" y1="80" x2="190" y2="80" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="60" r="3" fill="#f5576c"/><circle cx="130" cy="70" r="3" fill="#f5576c"/><circle cx="90" cy="50" r="3" fill="#f5576c"/><text x="100" y="95" fill="#f5576c" font-size="6" text-anchor="middle">Hỗ trợ ngang</text><text x="100" y="25" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh thấp dần</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Tam Giác Giảm: Đỉnh thấp dần + Hỗ trợ ngang → Phá → Giảm</text></svg>`,
+        'flag': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 40" stroke="#667eea" stroke-width="2" fill="none"/><polygon points="50,40 45,48 55,48" fill="#667eea"/><rect x="55" y="35" width="100" height="40" fill="rgba(102,126,234,0.1)" stroke="#667eea" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 45 L 80 55 L 100 48 L 120 58 L 140 50 L 150 55" stroke="#667eea" stroke-width="1.5" fill="none"/><line x1="55" y1="35" x2="155" y2="35" stroke="#667eea" stroke-width="1" stroke-dasharray="5,3"/><line x1="55" y1="75" x2="155" y2="75" stroke="#667eea" stroke-width="1" stroke-dasharray="5,3"/><path d="M 155 55 L 180 35 L 190 25" stroke="#667eea" stroke-width="2" fill="none"/><circle cx="50" cy="40" r="3" fill="#667eea"/><text x="30" y="75" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" transform="rotate(-55, 30, 75)">Pole</text><text x="105" y="90" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">FLAG (Cờ)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cờ: Di chuyển mạnh → Gom hình cờ → Tiếp tục</text></svg>`,
+        'bull-flag': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 40" stroke="#43e97b" stroke-width="2" fill="none"/><polygon points="50,40 45,48 55,48" fill="#43e97b"/><rect x="55" y="35" width="100" height="35" fill="rgba(67,233,123,0.1)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 45 L 80 55 L 100 48 L 120 58 L 140 50 L 150 55" stroke="#43e97b" stroke-width="1.5" fill="none"/><line x1="55" y1="35" x2="155" y2="35" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><line x1="55" y1="70" x2="155" y2="70" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><path d="M 155 52 L 180 32 L 190 22" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="50" cy="40" r="3" fill="#43e97b"/><text x="30" y="75" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" transform="rotate(-55, 30, 75)">Pole</text><text x="105" y="85" fill="#43e97b" font-size="6" text-anchor="middle">CỜ TĂNG</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cờ Tăng: Tăng mạnh → Gom → Tăng tiếp</text></svg>`,
+        'bear-flag': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 20 L 50 80" stroke="#f5576c" stroke-width="2" fill="none"/><polygon points="50,80 45,72 55,72" fill="#f5576c"/><rect x="55" y="50" width="100" height="35" fill="rgba(245,87,108,0.1)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 60 L 80 55 L 100 62 L 120 52 L 140 58 L 150 55" stroke="#f5576c" stroke-width="1.5" fill="none"/><line x1="55" y1="50" x2="155" y2="50" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><line x1="55" y1="85" x2="155" y2="85" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><path d="M 155 68 L 180 88 L 190 98" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="50" cy="80" r="3" fill="#f5576c"/><text x="30" y="50" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" transform="rotate(55, 30, 50)">Pole</text><text x="105" y="45" fill="#f5576c" font-size="6" text-anchor="middle">CỜ GIẢM</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cờ Giảm: Giảm mạnh → Gom → Giảm tiếp</text></svg>`,
+        'pennant': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 50 35" stroke="#667eea" stroke-width="2" fill="none"/><polygon points="50,35 45,43 55,43" fill="#667eea"/><polygon points="55,30 55,85 150,55" fill="rgba(102,126,234,0.1)" stroke="#667eea" stroke-width="1" stroke-dasharray="3,3"/><path d="M 60 45 L 80 55 L 100 48 L 120 58 L 140 52" stroke="#667eea" stroke-width="1.5" fill="none"/><line x1="55" y1="30" x2="150" y2="55" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="55" y1="85" x2="150" y2="55" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/><path d="M 150 55 L 180 35 L 190 25" stroke="#667eea" stroke-width="2" fill="none"/><circle cx="50" cy="35" r="3" fill="#667eea"/><text x="30" y="75" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" transform="rotate(-55, 30, 75)">Pole</text><text x="100" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">PENNANT</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Pennant: Tăng mạnh → Tam giác nhỏ hội tụ → Tăng tiếp</text></svg>`,
+        'high-tight-flag': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 105 L 30 100 L 40 70 L 50 45 L 60 25" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="60" cy="25" r="3" fill="#43e97b"/><line x1="40" y1="70" x2="60" y2="25" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><rect x="65" y="20" width="90" height="18" fill="rgba(67,233,123,0.1)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><line x1="75" y1="25" x2="75" y2="33" stroke="#43e97b" stroke-width="1.5"/><line x1="95" y1="25" x2="95" y2="33" stroke="#43e97b" stroke-width="1.5"/><line x1="115" y1="25" x2="115" y2="33" stroke="#43e97b" stroke-width="1.5"/><line x1="135" y1="25" x2="135" y2="33" stroke="#43e97b" stroke-width="1.5"/><path d="M 155 29 L 180 20 L 190 12" stroke="#43e97b" stroke-width="2" fill="none"/><text x="40" y="95" fill="#43e97b" font-size="6" text-anchor="middle">+90%</text><text x="110" y="50" fill="#43e97b" font-size="6" text-anchor="middle">FLAG CHẶT</text><text x="110" y="60" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">(Cờ gọn, hẹp)</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Cờ Cao Chặt: Tăng +90% → Cờ hẹp → Tăng tiếp mạnh</text></svg>`,
+        'rectangle-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 95 L 30 55" stroke="#667eea" stroke-width="2" fill="none"/><rect x="30" y="35" width="115" height="40" fill="rgba(245,87,108,0.1)" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><path d="M 35 55 L 55 42 L 75 62 L 95 40 L 115 60 L 135 45 L 145 55" stroke="#f5576c" stroke-width="1.5" fill="none"/><line x1="30" y1="35" x2="145" y2="35" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="30" y1="75" x2="145" y2="75" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><path d="M 145 75 L 170 95 L 190 105" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="95" cy="40" r="3" fill="#f5576c"/><circle cx="55" cy="42" r="3" fill="#f5576c"/><text x="90" y="25" fill="#f5576c" font-size="6" text-anchor="middle">KHÁNG CỰ</text><text x="90" y="90" fill="#f5576c" font-size="6" text-anchor="middle">HỖ TRỢ</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Chữ Nhật Đỉnh: Gom ngang → Phá hỗ trợ → Giảm</text></svg>`,
+        'rectangle-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 25 L 30 65" stroke="#667eea" stroke-width="2" fill="none"/><rect x="30" y="45" width="115" height="40" fill="rgba(67,233,123,0.1)" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3"/><path d="M 35 65 L 55 78 L 75 58 L 95 80 L 115 60 L 135 75 L 145 65" stroke="#43e97b" stroke-width="1.5" fill="none"/><line x1="30" y1="45" x2="145" y2="45" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="30" y1="85" x2="145" y2="85" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><path d="M 145 45 L 170 25 L 190 15" stroke="#43e97b" stroke-width="2" fill="none"/><circle cx="95" cy="80" r="3" fill="#43e97b"/><circle cx="55" cy="78" r="3" fill="#43e97b"/><text x="90" y="38" fill="#43e97b" font-size="6" text-anchor="middle">KHÁNG CỰ</text><text x="90" y="100" fill="#43e97b" font-size="6" text-anchor="middle">HỖ TRỢ</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Chữ Nhật Đáy: Gom ngang → Phá kháng cự → Tăng</text></svg>`,
+        'scallop-ascending': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 60 Q 35 100, 60 50" stroke="#43e97b" stroke-width="2" fill="none"/><ellipse cx="35" cy="70" rx="20" ry="25" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path class="pattern-svg" d="M 60 50 Q 85 85, 110 35" stroke="#43e97b" stroke-width="2" fill="none"/><ellipse cx="85" cy="55" rx="20" ry="22" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path class="pattern-svg" d="M 110 35 Q 135 60, 160 20" stroke="#43e97b" stroke-width="2" fill="none"/><ellipse cx="135" cy="40" rx="20" ry="18" stroke="#43e97b" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path d="M 160 20 L 190 15" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="20" y1="95" x2="170" y2="20" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="35" cy="95" r="3" fill="#43e97b"/><circle cx="85" cy="75" r="3" fill="#43e97b"/><circle cx="135" cy="55" r="3" fill="#43e97b"/><text x="35" y="108" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 1</text><text x="85" y="90" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 2</text><text x="135" y="68" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy 3</text><text x="100" y="12" fill="#43e97b" font-size="7" text-anchor="middle">↑ Xu hướng tăng</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Scallop Tăng: Nhiều vòm, đáy cao dần → Tăng tiếp</text></svg>`,
+        'scallop-descending': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 60 Q 35 25, 60 70" stroke="#f5576c" stroke-width="2" fill="none"/><ellipse cx="35" cy="50" rx="20" ry="22" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path class="pattern-svg" d="M 60 70 Q 85 40, 110 85" stroke="#f5576c" stroke-width="2" fill="none"/><ellipse cx="85" cy="65" rx="20" ry="20" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path class="pattern-svg" d="M 110 85 Q 135 55, 160 95" stroke="#f5576c" stroke-width="2" fill="none"/><ellipse cx="135" cy="75" rx="20" ry="18" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path d="M 160 95 L 190 105" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="20" y1="30" x2="170" y2="100" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="35" cy="28" r="3" fill="#f5576c"/><circle cx="85" cy="45" r="3" fill="#f5576c"/><circle cx="135" cy="60" r="3" fill="#f5576c"/><text x="35" y="18" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 1</text><text x="85" y="35" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 2</text><text x="135" y="50" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh 3</text><text x="100" y="115" fill="#f5576c" font-size="7" text-anchor="middle">↓ Xu hướng giảm</text></svg>`,
+        'inverted-scallop': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 70" stroke="#f5576c" stroke-width="2" fill="none"/><path class="pattern-svg" d="M 40 70 Q 100 20, 160 70" stroke="#f5576c" stroke-width="2" fill="none"/><ellipse cx="100" cy="50" rx="55" ry="35" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3" fill="none"/><path d="M 160 70 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><circle cx="100" cy="20" r="3" fill="#f5576c"/><line x1="100" y1="25" x2="100" y2="50" stroke="#f5576c" stroke-width="1" stroke-dasharray="3,3"/><text x="100" y="14" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh vòm</text><text x="100" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Hình vòm ngược</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Scallop Ngược: Vòm úp xuống → Giảm</text></svg>`,
+        'lazy-s': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 40 80 L 60 60 L 80 80 L 100 80 L 120 60 L 140 80 L 160 60 L 180 60 L 190 50" stroke="#667eea" stroke-width="2" fill="none"/><line x1="30" y1="88" x2="130" y2="88" stroke="#667eea" stroke-width="1" stroke-dasharray="5,3"/><line x1="70" y1="52" x2="170" y2="52" stroke="#667eea" stroke-width="1" stroke-dasharray="5,3"/><text x="100" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Hỗ trợ</text><text x="100" y="45" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Kháng cự</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Lazy S: Dao động ngang trong kênh → Tiếp tục xu hướng</text></svg>`,
 
-        // Bilateral Patterns
-        'symmetrical-triangle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 50 60 L 90 75 L 130 55 L 170 65 L 190 60" stroke="#a18cd1" stroke-width="2" fill="none"/><line x1="10" y1="90" x2="190" y2="60" stroke="#a18cd1" stroke-width="1"/><line x1="10" y1="30" x2="190" y2="60" stroke="#a18cd1" stroke-width="1"/></svg>`,
-        'broadening-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 20 60 L 50 50 L 80 65 L 110 40 L 150 70 L 180 30" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="20" y1="50" x2="180" y2="30" stroke="#f5576c" stroke-width="1"/><line x1="20" y1="70" x2="180" y2="80" stroke="#f5576c" stroke-width="1"/></svg>`,
-        'broadening-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 20 60 L 50 70 L 80 55 L 110 80 L 150 50 L 180 90" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="20" y1="50" x2="180" y2="30" stroke="#43e97b" stroke-width="1"/><line x1="20" y1="70" x2="180" y2="90" stroke="#43e97b" stroke-width="1"/></svg>`,
+        // ========== BILATERAL PATTERNS ==========
+        'symmetrical-triangle': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 50 60 L 90 75 L 130 55 L 170 65 L 190 60" stroke="#a18cd1" stroke-width="2" fill="none"/><line x1="10" y1="90" x2="190" y2="60" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="30" x2="190" y2="60" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="60" r="3" fill="#a18cd1"/><circle cx="130" cy="55" r="3" fill="#a18cd1"/><text x="100" y="20" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Hội tụ</text><text x="100" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2 đường chéo</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Tam Giác Đối Xứng: Hội tụ → Phá vỡ theo hướng nào cũng được</text></svg>`,
+        'broadening-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 20 60 L 50 50 L 80 65 L 110 40 L 150 70 L 180 30" stroke="#a18cd1" stroke-width="2" fill="none"/><line x1="20" y1="50" x2="180" y2="25" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="20" y1="70" x2="180" y2="85" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="50" r="3" fill="#a18cd1"/><circle cx="110" cy="40" r="3" fill="#a18cd1"/><circle cx="150" cy="70" r="3" fill="#a18cd1"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Mở rộng ra</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Mở Rộng Đỉnh: 2 đường diverge → Phá vỡ bất định</text></svg>`,
+        'broadening-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 20 60 L 50 70 L 80 55 L 110 80 L 150 50 L 180 90" stroke="#a18cd1" stroke-width="2" fill="none"/><line x1="20" y1="50" x2="180" y2="25" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="20" y1="70" x2="180" y2="95" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="70" r="3" fill="#a18cd1"/><circle cx="110" cy="80" r="3" fill="#a18cd1"/><circle cx="150" cy="50" r="3" fill="#a18cd1"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Mở rộng ra</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Mở Rộng Đáy: 2 đường diverge → Phá vỡ bất định</text></svg>`,
+        'broadening-wedge-ascending': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 50 60 L 90 70 L 130 50 L 170 55 L 190 40" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="10" y1="90" x2="190" y2="40" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="60" x2="190" y2="30" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="60" r="3" fill="#43e97b"/><circle cx="130" cy="50" r="3" fill="#43e97b"/><text x="100" y="20" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2 đường dâng lên</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Nêm Mở Rộng Tăng: Dâng lên, mở rộng → Thường tăng</text></svg>`,
+        'broadening-wedge-descending': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 90 50 L 130 70 L 170 60 L 190 80" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="10" y1="30" x2="190" y2="80" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="50" x2="190" y2="100" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><circle cx="50" cy="60" r="3" fill="#f5576c"/><circle cx="130" cy="70" r="3" fill="#f5576c"/><text x="100" y="20" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">2 đường hạ xuống</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Nêm Mở Rộng Giảm: Hạ xuống, mở rộng → Thường giảm</text></svg>`,
+        'right-angled-broadening-ascending': `<svg viewBox="0 0 200 120"><line x1="10" y1="90" x2="190" y2="90" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="90" x2="190" y2="30" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><path class="pattern-svg" d="M 10 90 L 50 70 L 90 75 L 130 55 L 170 50 L 190 40" stroke="#a18cd1" stroke-width="2" fill="none"/><circle cx="50" cy="70" r="3" fill="#a18cd1"/><circle cx="130" cy="55" r="3" fill="#a18cd1"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đáy ngang + Đỉnh dâng</text><text x="100" y="100" fill="#a18cd1" font-size="6" text-anchor="middle">Đáy ngang</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Mở Rộng Vuông Tăng: Đáy ngang + Đỉnh tăng → Hai chiều</text></svg>`,
+        'right-angled-broadening-descending': `<svg viewBox="0 0 200 120"><line x1="10" y1="30" x2="190" y2="30" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><line x1="10" y1="30" x2="190" y2="90" stroke="#a18cd1" stroke-width="1.5" stroke-dasharray="5,3"/><path class="pattern-svg" d="M 10 30 L 50 50 L 90 45 L 130 65 L 170 60 L 190 80" stroke="#a18cd1" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="3" fill="#a18cd1"/><circle cx="130" cy="65" r="3" fill="#a18cd1"/><text x="100" y="20" fill="#a18cd1" font-size="6" text-anchor="middle">Đỉnh ngang</text><text x="100" y="100" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đỉnh ngang + Đáy hạ</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Mở Rộng Vuông Giảm: Đỉnh ngang + Đáy giảm → Hai chiều</text></svg>`,
+        'complex-head-shoulders': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 Q 20 50, 30 60 Q 40 70, 50 55 Q 60 40, 70 60 Q 85 80, 100 25 Q 115 80, 130 60 Q 140 40, 150 55 Q 160 70, 170 60 Q 180 50, 190 70" stroke="#a18cd1" stroke-width="2" fill="none"/><line x1="10" y1="65" x2="190" y2="65" stroke="#a18cd1" stroke-width="1" stroke-dasharray="5,3"/><circle cx="100" cy="25" r="3" fill="#a18cd1"/><text x="100" y="15" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đầu</text><text x="100" y="80" fill="#a18cd1" font-size="6" text-anchor="middle">Neckline</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Đầu Vai Phức Tạp: Nhiều đỉnh phụ → Hai chiều</text></svg>`,
 
-        // More patterns
-        'bump-and-run': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 40 95 L 70 85 L 100 70 L 130 40 L 160 60 L 190 90" stroke="#f5576c" stroke-width="2" fill="none"/></svg>`,
-        'island-reversal': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 60 L 60 60" stroke="#667eea" stroke-width="2" fill="none"/><rect x="70" y="30" width="60" height="40" fill="rgba(245,87,108,0.2)" stroke="#f5576c" stroke-width="1"/><path d="M 140 60 L 190 60" stroke="#f5576c" stroke-width="2" fill="none"/></svg>`,
-        'gap': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 70 80" stroke="#667eea" stroke-width="2" fill="none"/><path d="M 90 50 L 190 50" stroke="#667eea" stroke-width="2" fill="none"/><rect x="75" y="55" width="10" height="20" fill="rgba(102,126,234,0.2)"/></svg>`,
-        'pipe-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 70 L 60 30 L 80 30 L 130 70 L 190 90" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="60" y1="30" x2="80" y2="30" stroke="#f5576c" stroke-width="3"/></svg>`,
-        'pipe-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 60 70 L 80 70 L 130 30 L 190 20" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="60" y1="70" x2="80" y2="70" stroke="#43e97b" stroke-width="3"/></svg>`,
-        'scallop': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 50 Q 40 100, 70 80 Q 100 60, 130 90 Q 160 120, 190 60" stroke="#fa709a" stroke-width="2" fill="none"/></svg>`,
-        'tower-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 40 30 L 80 30 L 100 30 L 140 30 L 180 80 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/></svg>`,
-        'tower-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 20 L 40 70 L 80 70 L 100 70 L 140 70 L 180 20 L 190 10" stroke="#43e97b" stroke-width="2" fill="none"/></svg>`,
-        'horn-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 50 50 L 100 70 L 150 50 L 190 30" stroke="#f5576c" stroke-width="2" fill="none"/><path d="M 50 50 L 50 20 L 150 20 L 150 50" stroke="#f5576c" stroke-width="1" fill="none" stroke-dasharray="3,3"/></svg>`,
-        'horn-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 50 60 L 100 40 L 150 60 L 190 80" stroke="#43e97b" stroke-width="2" fill="none"/><path d="M 50 60 L 50 90 L 150 90 L 150 60" stroke="#43e97b" stroke-width="1" fill="none" stroke-dasharray="3,3"/></svg>`,
-        'adam-eve-top': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 90 L 40 35 L 80 80 L 120 30 L 160 80 L 190 100" stroke="#c471f5" stroke-width="2" fill="none"/><circle cx="40" cy="35" r="3" fill="#c471f5"/><circle cx="120" cy="30" r="5" fill="#c471f5"/></svg>`,
-        'adam-eve-bottom': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 30 L 40 85 L 80 40 L 120 90 L 160 40 L 190 20" stroke="#00c6fb" stroke-width="2" fill="none"/><circle cx="40" cy="85" r="3" fill="#00c6fb"/><circle cx="120" cy="90" r="5" fill="#00c6fb"/></svg>`
+        // ========== GAP PATTERNS ==========
+        'breakaway-gap': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 60 80" stroke="#667eea" stroke-width="2" fill="none"/><rect x="15" y="60" width="50" height="35" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="3,3"/><text x="40" y="80" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Cô lập</text><line x1="60" y1="75" x2="60" y2="45" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="5,3"/><polygon points="60,45 55,55 65,55" fill="#43e97b"/><rect x="65" y="32" width="28" height="20" fill="rgba(67,233,123,0.2)" stroke="#43e97b" stroke-width="1.5" stroke-dasharray="3,3"/><text x="79" y="46" fill="#43e97b" font-size="6" font-weight="bold" text-anchor="middle">GAP</text><path d="M 93 38 L 130 28 L 160 20 L 190 15" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="20" y1="45" x2="170" y2="15" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><circle cx="60" cy="60" r="3" fill="#43e97b"/><text x="60" y="52" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Phá vỡ</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Gap Phá Vỡ: Thoát vùng cô lập → Bắt đầu xu hướng mới</text></svg>`,
+        'runaway-gap': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 40 75 L 55 55" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="55" y1="55" x2="55" y2="35" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="58" y="30" width="24" height="18" fill="rgba(102,126,234,0.2)" stroke="#667eea" stroke-width="1.5" stroke-dasharray="3,3"/><text x="70" y="43" fill="#667eea" font-size="6" font-weight="bold" text-anchor="middle">GAP</text><path d="M 82 35 L 110 25 L 130 18" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="130" y1="18" x2="130" y2="8" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="133" y="5" width="24" height="14" fill="rgba(102,126,234,0.2)" stroke="#667eea" stroke-width="1.5" stroke-dasharray="3,3"/><text x="145" y="15" fill="#667eea" font-size="5" font-weight="bold" text-anchor="middle">GAP</text><path d="M 157 10 L 175 8 L 190 5" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="20" y1="100" x2="160" y2="10" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><circle cx="90" cy="50" r="8" stroke="#43e97b" stroke-width="1" fill="none" stroke-dasharray="3,3"/><text x="90" y="53" fill="#43e97b" font-size="5" text-anchor="middle">50%</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Gap Chạy: Xuất hiện giữa xu hướng → Đánh dấu 50% đường đi</text></svg>`,
+        'exhaustion-gap': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 100 L 40 80 L 70 60 L 90 40" stroke="#43e97b" stroke-width="2" fill="none"/><line x1="90" y1="40" x2="90" y2="22" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="93" y="18" width="24" height="18" fill="rgba(245,87,108,0.2)" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="3,3"/><text x="105" y="31" fill="#f5576c" font-size="6" font-weight="bold" text-anchor="middle">GAP</text><line x1="117" y1="32" x2="117" y2="50" stroke="#f5576c" stroke-width="1.5" stroke-dasharray="5,3"/><path d="M 120 50 L 150 70 L 175 90 L 190 100" stroke="#f5576c" stroke-width="2" fill="none"/><line x1="20" y1="100" x2="100" y2="30" stroke="#43e97b" stroke-width="1" stroke-dasharray="5,3"/><line x1="100" y1="30" x2="190" y2="100" stroke="#f5576c" stroke-width="1" stroke-dasharray="5,3"/><circle cx="105" cy="35" r="3" fill="#f5576c"/><text x="105" y="12" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Hết sức</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Gap Kiệt Sức: Gap cuối xu hướng → Đảo chiều mạnh</text></svg>`,
+        'common-gap': `<svg viewBox="0 0 200 120"><path class="pattern-svg" d="M 10 80 L 65 80" stroke="#667eea" stroke-width="2" fill="none"/><line x1="65" y1="80" x2="65" y2="45" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/><rect x="70" y="52" width="28" height="20" fill="rgba(102,126,234,0.2)" stroke="#667eea" stroke-width="1.5" stroke-dasharray="3,3"/><text x="84" y="66" fill="#667eea" font-size="6" font-weight="bold" text-anchor="middle">GAP</text><line x1="98" y1="45" x2="98" y2="55" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/><path d="M 98 45 L 190 45" stroke="#667eea" stroke-width="2" fill="none"/><line x1="30" y1="60" x2="175" y2="60" stroke="#667eea" stroke-width="1" stroke-dasharray="5,3"/><circle cx="84" cy="62" r="3" fill="#667eea"/><text x="40" y="95" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Đóng cửa</text><text x="150" y="40" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle">Mở cửa</text><text x="100" y="115" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">Gap Phổ Biến: Không có ý nghĩa → Được lấp đầy nhanh</text></svg>`,
     };
 
-    // Fallback SVG for patterns not yet defined
+    // Fallback SVG for any patterns not defined
     return svgs[key] || `<svg viewBox="0 0 200 120">
         <path class="pattern-svg" d="M 10 60 Q 50 30, 100 60 Q 150 90, 190 60" stroke="#667eea" stroke-width="2" fill="none"/>
         <circle cx="100" cy="60" r="4" fill="#764ba2"/>
@@ -3700,7 +5628,6 @@ function updateQuizProgress() {
 
 function initProgress() {
     updateProgress();
-    generateActivityCalendar();
 }
 
 function updateProgress() {
@@ -3730,36 +5657,6 @@ function updateProgress() {
             achievement.classList.add('unlocked');
         }
     });
-}
-
-function generateActivityCalendar() {
-    const calendar = document.getElementById('activityCalendar');
-    if (!calendar) return;
-
-    const today = new Date();
-    let html = '';
-
-    // Add day labels
-    const dayLabels = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
-    dayLabels.forEach(label => {
-        html += `<div class="calendar-day" style="font-weight: 600;">${label}</div>`;
-    });
-
-    // Generate 4 weeks
-    for (let i = 27; i >= 0; i--) {
-        const date = new Date(today);
-        date.setDate(date.getDate() - i);
-        const isToday = i === 0;
-        const isActive = Math.random() > 0.5; // Simulate activity
-
-        html += `
-            <div class="calendar-day ${isActive ? 'active' : ''} ${isToday ? 'today' : ''}" title="${date.toLocaleDateString('vi-VN')}">
-                ${date.getDate()}
-            </div>
-        `;
-    }
-
-    calendar.innerHTML = html;
 }
 
 // ========================================
@@ -3849,6 +5746,302 @@ function initPatternAnimation() {
             labels.style.opacity = '0';
             volumeBars.style.opacity = '0';
         });
+    }
+}
+
+// ========================================
+// Lesson Rendering System
+// ========================================
+
+function initLessonSystem() {
+    renderCurrentLesson();
+    updateProgressIndicator();
+}
+
+function renderCurrentLesson() {
+    const lesson = lessonsData[state.currentLessonIndex];
+    if (!lesson) return;
+
+    const container = document.getElementById('lessonContainer');
+    if (!container) return;
+
+    container.innerHTML = generateLessonHTML(lesson);
+    initLessonAnimations();
+}
+
+function generateLessonHTML(lesson) {
+    const prevDisabled = state.currentLessonIndex === 0 ? 'disabled' : '';
+    const isLast = state.currentLessonIndex >= lessonsData.length - 1;
+    const nextText = isLast ? 'Hoàn thành <i class="fas fa-check"></i>' : 'Bài tiếp theo <i class="fas fa-arrow-right"></i>';
+
+    return `
+        <div class="lesson-header">
+            <div class="lesson-meta">
+                <span class="lesson-module"><i class="fas fa-layer-group"></i> ${lesson.module}</span>
+                <span class="lesson-duration"><i class="fas fa-clock"></i> ${lesson.duration}</span>
+                <span class="lesson-progress">${state.currentLessonIndex + 1}/${lessonsData.length}</span>
+            </div>
+            <h3 class="lesson-title">${lesson.title}</h3>
+            <p class="lesson-description">${lesson.description}</p>
+        </div>
+
+        <div class="lesson-content">
+            <!-- Interactive Chart -->
+            <div class="lesson-chart glass-card">
+                <div class="chart-header">
+                    <h4><i class="fas fa-chart-area"></i> Cấu trúc mẫu</h4>
+                    <div class="chart-controls">
+                        <button class="btn-glass btn-sm" id="animatePattern">
+                            <i class="fas fa-play"></i> Xem animation
+                        </button>
+                        <button class="btn-glass btn-sm" id="resetPattern">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container" id="interactiveChart">
+                    ${generateLessonSVG(lesson)}
+                </div>
+                <div class="chart-legend">
+                    ${lesson.legend.map(l => `
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: ${l.color}"></span>
+                            <span>${l.text}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- Key Points -->
+            <div class="lesson-keypoints glass-card">
+                <h4><i class="fas fa-lightbulb"></i> Điểm quan trọng</h4>
+                <div class="keypoints-list">
+                    ${lesson.keypoints.map((kp, i) => `
+                        <div class="keypoint" data-index="${i + 1}">
+                            <div class="keypoint-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="keypoint-content">
+                                <h5>${kp.title}</h5>
+                                <p>${kp.desc}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="lesson-stats glass-card">
+                <h4><i class="fas fa-chart-bar"></i> Thống kê từ Bulkowski</h4>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">${lesson.stats.successRate}</span>
+                            <span class="stat-label">Tỷ lệ thành công</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon ${lesson.stats.avgChange.includes('+') ? 'success' : 'warning'}">
+                            <i class="fas fa-arrow-${lesson.stats.avgChange.includes('+') ? 'up' : 'down'}"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">${lesson.stats.avgChange}</span>
+                            <span class="stat-label">Độ thay đổi TB</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon info">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">${lesson.stats.timeForm}</span>
+                            <span class="stat-label">Thời gian hình thành</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon primary">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">${lesson.stats.pullback}</span>
+                            <span class="stat-label">Pullback tần suất</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson-navigation">
+            <button class="btn-glass btn-prev" ${prevDisabled} onclick="prevLesson()">
+                <i class="fas fa-arrow-left"></i> Bài trước
+            </button>
+            <button class="btn-glass btn-primary btn-next" onclick="nextLesson()">
+                ${nextText}
+            </button>
+        </div>
+    `;
+}
+
+function generateLessonSVG(lesson) {
+    const svg = lesson.svg;
+    let trendlinesHTML = '';
+    let necklineHTML = '';
+    let labelsHTML = '';
+    let volumeHTML = '';
+    let gapAreaHTML = '';
+
+    // Trendlines
+    if (svg.trendlines) {
+        trendlinesHTML = svg.trendlines.map(tl =>
+            `<line x1="${tl.x1}" y1="${tl.y1}" x2="${tl.x2}" y2="${tl.y2}" stroke="${tl.color}" stroke-width="1.5" stroke-dasharray="8,4"/>`
+        ).join('');
+    }
+
+    // Neckline
+    if (svg.neckline) {
+        necklineHTML = `<line id="neckline" x1="${svg.neckline.x1}" y1="${svg.neckline.y1}" x2="${svg.neckline.x2}" y2="${svg.neckline.y2}" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="10,5" opacity="0"/>`;
+    }
+
+    // Labels
+    if (svg.labels) {
+        labelsHTML = `
+            <g id="patternLabels" opacity="0">
+                ${svg.labels.map(l => `
+                    <circle cx="${l.x}" cy="${l.y}" r="${l.r}" fill="${l.color}" class="label-dot"/>
+                    ${l.text ? `<text x="${l.x}" y="${l.textY}" class="chart-label-text ${l.highlight ? 'highlight' : ''}" text-anchor="middle">${l.text}</text>` : ''}
+                `).join('')}
+            </g>
+        `;
+    }
+
+    // Volume
+    if (svg.volume) {
+        volumeHTML = `
+            <g id="volumeBars" opacity="0">
+                ${svg.volume.map(v => `
+                    <rect x="${v.x}" y="${v.y}" width="${v.w}" height="${v.h}" fill="${v.color}" rx="2"/>
+                `).join('')}
+                <text x="200" y="290" class="volume-label" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Khối lượng</text>
+            </g>
+        `;
+    }
+
+    // Gap Area (single)
+    if (svg.gapArea) {
+        gapAreaHTML = `
+            <rect x="${svg.gapArea.x}" y="${svg.gapArea.y}" width="${svg.gapArea.w}" height="${svg.gapArea.h}"
+                  fill="rgba(102,126,234,0.15)" stroke="#667eea" stroke-width="1.5" stroke-dasharray="4,2" rx="3"/>
+        `;
+    }
+
+    // Gap Areas (multiple)
+    if (svg.gapAreas) {
+        gapAreaHTML = svg.gapAreas.map(ga =>
+            `<rect x="${ga.x}" y="${ga.y}" width="${ga.w}" height="${ga.h}"
+                   fill="rgba(102,126,234,0.15)" stroke="#667eea" stroke-width="1.5" stroke-dasharray="4,2" rx="3"/>`
+        ).join('');
+    }
+
+    return `
+        <svg viewBox="0 0 450 300" class="lesson-svg">
+            <!-- Grid -->
+            <defs>
+                <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+                </pattern>
+                <linearGradient id="patternGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#667eea"/>
+                    <stop offset="50%" style="stop-color:#764ba2"/>
+                    <stop offset="100%" style="stop-color:#f093fb"/>
+                </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+
+            <!-- Pattern Line -->
+            <path id="patternLine" class="animated-pattern-line" d="${svg.path}" stroke="url(#patternGradient)" stroke-width="3" fill="none"/>
+
+            <!-- Trendlines -->
+            ${trendlinesHTML}
+
+            <!-- Neckline -->
+            ${necklineHTML}
+
+            <!-- Gap Areas -->
+            ${gapAreaHTML}
+
+            <!-- Labels -->
+            ${labelsHTML}
+
+            <!-- Volume -->
+            ${volumeHTML}
+        </svg>
+    `;
+}
+
+function initLessonAnimations() {
+    const animateBtn = document.getElementById('animatePattern');
+    const resetBtn = document.getElementById('resetPattern');
+
+    if (animateBtn) {
+        animateBtn.onclick = () => {
+            const patternLine = document.getElementById('patternLine');
+            const neckline = document.getElementById('neckline');
+            const labels = document.getElementById('patternLabels');
+            const volumeBars = document.getElementById('volumeBars');
+
+            if (patternLine) {
+                patternLine.classList.remove('animate');
+                setTimeout(() => patternLine.classList.add('animate'), 100);
+            }
+            setTimeout(() => { if (neckline) neckline.style.opacity = '1'; }, 2000);
+            setTimeout(() => { if (labels) labels.style.opacity = '1'; }, 2500);
+            setTimeout(() => { if (volumeBars) volumeBars.style.opacity = '1'; }, 3000);
+        };
+    }
+
+    if (resetBtn) {
+        resetBtn.onclick = () => {
+            const patternLine = document.getElementById('patternLine');
+            const neckline = document.getElementById('neckline');
+            const labels = document.getElementById('patternLabels');
+            const volumeBars = document.getElementById('volumeBars');
+
+            if (patternLine) patternLine.classList.remove('animate');
+            if (neckline) neckline.style.opacity = '0';
+            if (labels) labels.style.opacity = '0';
+            if (volumeBars) volumeBars.style.opacity = '0';
+        };
+    }
+}
+
+function nextLesson() {
+    if (state.currentLessonIndex < lessonsData.length - 1) {
+        state.currentLessonIndex++;
+        saveState();
+        renderCurrentLesson();
+        updateProgressIndicator();
+    } else {
+        showNotification('Chúc mừng! Bạn đã hoàn thành tất cả bài học!');
+    }
+}
+
+function prevLesson() {
+    if (state.currentLessonIndex > 0) {
+        state.currentLessonIndex--;
+        saveState();
+        renderCurrentLesson();
+        updateProgressIndicator();
+    }
+}
+
+function updateProgressIndicator() {
+    const percent = ((state.currentLessonIndex + 1) / lessonsData.length) * 100;
+    const progressBar = document.querySelector('.path-item[data-step="2"] .progress-bar');
+    if (progressBar) {
+        progressBar.style.width = `${percent}%`;
     }
 }
 

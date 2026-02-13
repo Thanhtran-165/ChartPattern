@@ -2143,57 +2143,6 @@ a.pattern-card:hover .pattern-name {
     color: var(--text-muted);
 }
 
-/* Activity Calendar */
-.activity-calendar {
-    padding: var(--spacing-2xl);
-}
-
-.activity-calendar h3 {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-xl);
-}
-
-.activity-calendar h3 i {
-    color: var(--accent-primary);
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--spacing-sm);
-}
-
-.calendar-day {
-    aspect-ratio: 1;
-    border-radius: var(--radius-sm);
-    background: var(--glass-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    position: relative;
-}
-
-.calendar-day.active {
-    background: var(--success);
-    color: white;
-}
-
-.calendar-day.active::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    border-radius: var(--radius-sm);
-    background: var(--gradient-primary);
-    opacity: 0.3;
-}
-
-.calendar-day.today {
-    border: 2px solid var(--accent-primary);
-}
-
 /* ========================================
    Modal
    ======================================== */
